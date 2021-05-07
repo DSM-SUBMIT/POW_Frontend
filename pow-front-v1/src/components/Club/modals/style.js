@@ -37,3 +37,33 @@ export const Title = styled.div`
     color: #8D8D8D
   }
 `
+
+export const List = styled.div`
+  margin-top: 36px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+
+  div{
+    display: flex;
+    align-items: center;
+    width: 180px;
+    height: 60px;
+    background-color: #F4F4F4;
+    border-radius: 17px;
+    justify-content: center;
+
+    :first-child{
+      margin-right: 22px;
+    }
+
+    img{
+      margin-right: 17px;
+    }
+
+    span{
+      font-size: 19px;
+      color: #8D8D8D;
+    }
+  }
+`
