@@ -1,6 +1,6 @@
 import React from 'react';
 import * as s from './style';
-import picturesmall from '../../IMG/picturesmall.png';
+import picturesmall from '../../../IMG/picturesmall.png';
 
 const PictureUploadModal = () => {
   return(
