@@ -73,6 +73,7 @@ export const WhiteBox = styled.div`
 
 export const LeftContent = styled.div`
   margin-top: 275px;
+  float: left;
 `
 
 export const ClubIntroBox = styled.div`
@@ -102,8 +103,98 @@ export const Writer = styled.div`
   margin-right: 40px;
 `
 
-export const FixDate = styled.div`
+export const FixDate = styled.p`
   font-size: 20px;
   color: #8D8D8D;
-  float: right;
+  position: relative;
+  top: 75%;
+  left: 55%;
+`
+
+export const RightContent = styled.div`
+  margin-top: 46px;
+  position: relative;
+  margin-left: 668px;
+`
+
+export const Upload = styled.div`
+  display: flex;
+  align-items: center;
+  
+  div{
+    display: flex;
+    align-items: center;
+    margin-right: 35px;
+    height: 70px;
+    background-color: #F4F4F4;
+    border-radius: 17px;
+    justify-content: center;
+
+    img {
+      margin-right: 18px;
+    }
+  }
+`
+
+export const PictureUpload = styled.div`
+  width: 280px;
+`
+
+export const ClubFix = styled.div`
+  width: 318px;
+`
+
+export const PostUpload = styled.div`
+  width: 288px;
+`
+
+export const Content = styled.div`
+  margin-top: 50px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 780px;
+  width: 1180px;
+`
+
+export const Post = styled.div`
+  width: 1100px;
+  height: 250px;
+  border: 3px solid #CBCBCB;
+  box-shadow: 1px 1px 5px #CBCBCB;
+  border-radius: 27px;
+  margin-bottom: 35px;
+
+  img{
+    float: right;
+    margin-right: 41px;
+  }
+`
+
+export const PostDiv = styled.div`
+  display: flex;
+  margin-top: 35px;
+  height: 0;
+  p{
+    margin: 0;
+    margin-right: 18px;
+    font-size: 20px;
+    color: #8D8D8D;
+
+    :first-child{
+      margin-left: 45px;
+    }
+  }
+`
+
+export const Title = styled.div`
+  margin-top: 74px;
+  margin-left: 110px;
+  font-size: 60px;
+`
+
+export const StartDate = styled.div`
+  position:relative;
+  left: 65%;
+  font-size: 20px;
+  color: #8D8D8D;
 `
