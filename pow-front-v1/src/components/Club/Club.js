@@ -6,12 +6,14 @@ import edit from '../IMG/edit.png';
 import picture from '../IMG/picture.png';
 import writing from '../IMG/writing.png';
 import list from '../IMG/list.png';
-import PictureUploadModal from './modals/PictureUploadModal';
+import PictureUploadModal from './modals/pictureUploadModal/PictureUploadModal';
+import ProfileUpload from './modals/ProfileUpload/ProfileUpload';
 
 const Club = () => {
   return(
     <>
       {/* <PictureUploadModal></PictureUploadModal> */}
+      <ProfileUpload></ProfileUpload>
       <header>
         <s.BannerImg>
             <s.WhiteBox></s.WhiteBox>
