@@ -11,7 +11,7 @@ import PictureUploadModal from './modals/PictureUploadModal';
 const Club = () => {
   return(
     <>
-      <PictureUploadModal></PictureUploadModal>
+      {/* <PictureUploadModal></PictureUploadModal> */}
       <header>
         <s.BannerImg>
             <s.WhiteBox></s.WhiteBox>
