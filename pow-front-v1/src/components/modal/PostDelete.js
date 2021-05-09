@@ -3,12 +3,9 @@ import * as S from "./style";
 import GreyBox from "./common/GreyBox";
 
 const PostDelete = () => {
-  const modalClose = () => {
-    return false;
-  };
   return (
     <modal>
-      <GreyBox onClick={modalClose}>
+      <GreyBox>
         <S.DelContent>
           <h4>게시글을 삭제합니다</h4>
           <S.CheckButton>확인</S.CheckButton>
