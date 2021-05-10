@@ -1,6 +1,6 @@
 import React from "react";
-import * as S from "./style";
-import GreyBox from "./common/GreyBox";
+import * as S from "../ClubModfiy/style";
+import GreyBox from "../common/GreyBox";
 
 const ClubModifyModal = () => {
   return (
