@@ -11,11 +11,13 @@ import ProfileUpload from './modals/ProfileUpload/ProfileUpload';
 import BannerUpload from './modals/BannerUpload/BannerUpload';
 
 const Club = () => {
+
+
   return(
     <>
       {/* <PictureUploadModal></PictureUploadModal> */}
       {/* <ProfileUpload></ProfileUpload> */}
-      <BannerUpload></BannerUpload>
+      {/* <BannerUpload></BannerUpload> */}
       <header>
         <s.BannerImg>
             <s.WhiteBox></s.WhiteBox>
