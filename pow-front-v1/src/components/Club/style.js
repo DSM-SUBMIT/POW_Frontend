@@ -2,14 +2,14 @@ import styled from 'styled-components';
 
 export const BannerImg = styled.div`
   width: 100%;
-  height: 425px;
+  height: 375px;
   border-bottom: 10px solid;
   border-image: linear-gradient(to right,
     #B096CD, #AD94CD, #8E7CD0, #625BD4, #AE95CD);
   border-image-slice: 1;
   img {
-    width: 1425px;
-    height: 380px;
+    width: 1375px;
+    height: 330px;
     position: relative;
     left: 50%;
     top: 50%;
@@ -19,17 +19,20 @@ export const BannerImg = styled.div`
 
 export const LogoDiv = styled.div`
   position: absolute;
-  bottom: 15%;
+  bottom: 22%;
   margin-left: 135px;
   z-index: 2;
   --b: 20px;
   display: inline-block;
-  width:445px;
+  width: 390px;
 
   img{
     position: absolute;
-    width: 340px;
-    height: 100px;
+    width: 260px;
+    height: 80px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   ::after{
@@ -42,8 +45,8 @@ export const LogoDiv = styled.div`
     content:"";
     position:absolute;
     z-index:-1;
-    width: 405px;
-    height: 405px;
+    width: 350px;
+    height: 350px;
     top:0;
     left:0;
     right:0;
@@ -61,24 +64,24 @@ export const LogoDiv = styled.div`
 `
 
 export const WhiteBox = styled.div`
-  width: 445px;
-  height: 445px;
-  background-color: white;
-  position: absolute;
-  bottom: 15%;
-  margin-left: 135px;
-  z-index: 2;
-  border-radius: 50%;
+    width: 390px;
+    height: 390px;
+    background-color: white;
+    position: absolute;
+    bottom: 22%;
+    margin-left: 135px;
+    z-index: 2;
+    border-radius: 50%;
 `
 
 export const LeftContent = styled.div`
-  margin-top: 275px;
+  margin-top: 240px;
   float: left;
 `
 
 export const ClubIntroBox = styled.div`
-  width: 470px;
-  height: 445px;
+  width: 420px;
+  height: 395px;
   border: 3px solid #AEADAD;
   border-radius: 27px;
   margin-left: 121px;
@@ -104,11 +107,11 @@ export const Writer = styled.div`
 `
 
 export const FixDate = styled.p`
-  font-size: 20px;
-  color: #8D8D8D;
-  position: relative;
-  top: 75%;
-  left: 55%;
+    font-size: 20px;
+    color: #8D8D8D;
+    position: relative;
+    top: 70%;
+    left: 50%;
 `
 
 export const RightContent = styled.div`
@@ -124,41 +127,58 @@ export const Upload = styled.div`
   div{
     display: flex;
     align-items: center;
-    margin-right: 35px;
-    height: 70px;
+    margin-right: 25px;
+    height: 50px;
     background-color: #F4F4F4;
     border-radius: 17px;
     justify-content: center;
+    font-size: 20px;
+    color: #676767;
 
     img {
-      margin-right: 18px;
+      width: 30px;
+      margin-right: 10px;
     }
   }
 `
 
 export const PictureUpload = styled.div`
-  width: 280px;
+  width: 230px;
 `
 
 export const ClubFix = styled.div`
-  width: 318px;
+  width: 275px;
 `
 
 export const PostUpload = styled.div`
-  width: 288px;
+  width: 250px;
 `
 
 export const Content = styled.div`
   margin-top: 50px;
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 780px;
-  width: 1180px;
+  height: 700px;
+  width: 1100px;
+
+  ::-webkit-scrollbar{
+    width: 15px;
+  }
+
+  ::-webkit-scrollbar-thumb{
+    background-color: #9F91D6;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-track{
+    background-color: white;
+    border-radius: 10px;
+  }
 `
 
 export const Post = styled.div`
-  width: 1100px;
-  height: 250px;
+  width: 1000px;
+  height: 200px;
   border: 3px solid #CBCBCB;
   box-shadow: 1px 1px 5px #CBCBCB;
   border-radius: 27px;
@@ -172,7 +192,7 @@ export const Post = styled.div`
 
 export const PostDiv = styled.div`
   display: flex;
-  margin-top: 35px;
+  margin-top: 20px;
   height: 0;
   p{
     margin: 0;
@@ -187,14 +207,15 @@ export const PostDiv = styled.div`
 `
 
 export const Title = styled.div`
-  margin-top: 74px;
-  margin-left: 110px;
-  font-size: 60px;
+  margin-top: 50px;
+  margin-left: 105px;
+  font-size: 50px;
 `
 
 export const StartDate = styled.div`
+  margin-top: 10px;
   position:relative;
-  left: 65%;
+  left: 61%;
   font-size: 20px;
   color: #8D8D8D;
 `
