@@ -25,7 +25,7 @@ const Club = () => {
                 <img src={logo}></img>
             </s.LogoDiv>
             <img src={Banner}></img>
-          </s.BannerImg>
+        </s.BannerImg>
       </header>
       <section>
         <s.LeftContent>
@@ -57,6 +57,26 @@ const Club = () => {
             </s.PostUpload>
           </s.Upload>
           <s.Content>
+            <s.Post>
+              <img src={list}></img>
+              <s.PostDiv>
+                <p>작성일 : 2021-04-10</p>
+                <p>수정일 : 2021-04-11</p>
+                <p>작성자 : 김해교</p>
+              </s.PostDiv>
+              <s.Title>제목입니다.</s.Title>
+              <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
+            </s.Post>
+            <s.Post>
+              <img src={list}></img>
+              <s.PostDiv>
+                <p>작성일 : 2021-04-10</p>
+                <p>수정일 : 2021-04-11</p>
+                <p>작성자 : 김해교</p>
+              </s.PostDiv>
+              <s.Title>제목입니다.</s.Title>
+              <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
+            </s.Post>
             <s.Post>
               <img src={list}></img>
               <s.PostDiv>
