@@ -1,10 +1,15 @@
 import React from 'react';
 import * as s from './style';
 
-const BannerUpload = () => {
+const BannerUpload = (props) => {
+  
+  const onClickWhiteScreen = () => {
+    props.setBannerModal(false);
+  }
+
   return(
     <>
-      <s.WhiteScreen></s.WhiteScreen>
+      <s.WhiteScreen onClick={onClickWhiteScreen}></s.WhiteScreen>
       <s.Modal>
         <s.Title>
           <p>배너 사진 업로드</p>
