@@ -4,15 +4,13 @@ import GreyBox from "../common/GreyBox";
 import * as SVG from "../common/SvgCollection";
 
 const PostModifyRemoveModal = () => {
-  const modalClose = () => {
-    return false;
-  };
   return (
-    // <modal hidde={!show}>
     <modal>
-      <GreyBox onClick={modalClose}>
+      <GreyBox>
         <S.PmrContent>
-          <h4>게시글 수정 / 삭제</h4>
+          <S.Title>
+            <p>게시글 수정 / 삭제</p>
+          </S.Title>
           <S.Button>
             <SVG.ModifySvg />
             게시글 수정
