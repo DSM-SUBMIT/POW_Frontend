@@ -8,8 +8,17 @@ export const DelContent = styled.div`
   z-index: 1;
   border: 2px soild #000000;
   text-align: center;
-  h4 {
+`;
+
+export const Title = styled.div`
+  border-bottom: 1px solid #707070;
+  width: 300px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  p {
     font-family: NanumSquare_ac;
+    font-seize: 20px;
   }
 `;
 
@@ -22,6 +31,7 @@ export const CheckButton = styled.button`
   font-size: 19px;
   color: #ffffff;
   margin: 20px;
+  margin-top: 33px;
 `;
 
 export const NoButton = styled.button`
@@ -33,4 +43,5 @@ export const NoButton = styled.button`
   font-size: 19px;
   color: #ffffff;
   margin: 20px;
+  margin-top: 33px;
 `;
