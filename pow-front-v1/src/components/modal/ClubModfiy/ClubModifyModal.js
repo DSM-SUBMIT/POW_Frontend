@@ -7,7 +7,9 @@ const ClubModifyModal = () => {
     <modal>
       <GreyBox>
         <S.CmContent>
-          <h4>동아리 소개 수정</h4>
+          <S.Title>
+            <p>동아리 소개 수정</p>
+          </S.Title>
           <S.InputText placeholder="작성자를 입력해 주세요" />
           <div>
             <S.FileLabel for="file">파일 선택</S.FileLabel>
