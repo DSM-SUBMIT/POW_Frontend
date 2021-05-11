@@ -8,17 +8,26 @@ export const CmContent = styled.div`
   z-index: 1;
   border: 2px soild #000000;
   text-align: center;
-  h4 {
-    font-family: NanumSquare_ac;
-  }
 `;
 
+export const Title = styled.div`
+  border-bottom: 1px solid #707070;
+  width: 300px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  p {
+    font-family: NanumSquare_ac;
+    font-seize: 20px;
+  }
+`;
 export const InputText = styled.input`
   width: 458px;
   height: 49px;
   background-color: #f4f4f4;
   border-radius: 17px;
   border: none;
+  margin-top: 20px;
   ::placeholder {
     text-align: center;
     font-size: 18px;
@@ -32,7 +41,7 @@ export const FileLabel = styled.label`
   cursor: pointer;
   border-radius: 17px;
   width: 102px;
-  height: 39px;
+  height: 42px;
   color: #ffffff;
 `;
 
