@@ -44,7 +44,18 @@ export const FileInput = styled.div`
   justify-content: center;
 `
 
-export const FileBtn = styled.div`
+export const FileUpload = styled.input`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+`
+
+export const FileBtn = styled.label`
   margin-right: 17px;
   height: 60px;
   width: 132px;
@@ -55,9 +66,14 @@ export const FileBtn = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 20px;
+  cursor: pointer;
+
+  :hover{
+    background-color: #77A1EB;
+  }
 `
 
-export const FilePath = styled.div`
+export const FilePath = styled.label`
   width: 403px;
   height: 60px;
   border-radius: 17px;
@@ -67,6 +83,7 @@ export const FilePath = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 20px;
+  color: #8D8D8D;
 `
 
 export const UploadBtn = styled.div`
@@ -83,4 +100,9 @@ export const UploadBtn = styled.div`
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  cursor: pointer;
+
+  :hover{
+    background-color: #F29969;
+  }
 `
