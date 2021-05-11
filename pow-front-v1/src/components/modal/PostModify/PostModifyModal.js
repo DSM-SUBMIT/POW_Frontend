@@ -7,7 +7,9 @@ const PostModifyModal = () => {
     <modal>
       <GreyBox>
         <S.ModifyContent>
-          <h4>게시물 수정</h4>
+          <S.Title>
+            <p>게시물 수정</p>
+          </S.Title>
           <S.InputText placeholder="제목을 입력해 주세요" />
           <S.DayBox>
             <S.StartLable>시작일 : </S.StartLable>
