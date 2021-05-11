@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as s from './style';
 import Banner from '../IMG/Banner.png';
 import logo from '../IMG/logo.png';
@@ -11,13 +11,30 @@ import ProfileUpload from './modals/ProfileUpload/ProfileUpload';
 import BannerUpload from './modals/BannerUpload/BannerUpload';
 
 const Club = () => {
+  const [pictureModal, setPictureModal] = useState(false);
+  const [profileModal, setProfileModal] = useState(false);
+  const [bannerModal, setBannerModal] = useState(false);
 
+  const onClickPictureModal = () => {
+    setPictureModal(true);
+  }
 
   return(
     <>
-      {/* <PictureUploadModal></PictureUploadModal> */}
-      {/* <ProfileUpload></ProfileUpload> */}
-      {/* <BannerUpload></BannerUpload> */}
+      {pictureModal&&<PictureUploadModal 
+        setPictureModal={setPictureModal}
+        setProfileModal={setProfileModal}
+        setBannerModal={setBannerModal}
+      ></PictureUploadModal>}
+
+      {profileModal&&<ProfileUpload
+        setProfileModal={setProfileModal}
+      ></ProfileUpload>}
+
+      {bannerModal&&<BannerUpload
+        setBannerModal={setBannerModal}
+      ></BannerUpload>}
+
       <header>
         <s.BannerImg>
             <s.WhiteBox></s.WhiteBox>
@@ -43,7 +60,7 @@ const Club = () => {
         </s.LeftContent>
         <s.RightContent>
           <s.Upload>
-            <s.PictureUpload>
+            <s.PictureUpload onClick = {onClickPictureModal}>
               <img src={picture}></img>
               <span>사진 업로드</span>
             </s.PictureUpload>
