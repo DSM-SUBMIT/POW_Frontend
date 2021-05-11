@@ -8,8 +8,17 @@ export const ModifyContent = styled.div`
   z-index: 1;
   border: 2px soild #000000;
   text-align: center;
-  h4 {
+`;
+
+export const Title = styled.div`
+  border-bottom: 1px solid #707070;
+  width: 300px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  p {
     font-family: NanumSquare_ac;
+    font-seize: 20px;
     margin-top: 49px;
   }
 `;
@@ -20,7 +29,7 @@ export const InputText = styled.input`
   background-color: #f4f4f4;
   border-radius: 17px;
   border: none;
-  margin-top: 10px;
+  margin-top: 40px;
   ::placeholder {
     text-align: center;
     font-size: 18px;
@@ -92,4 +101,5 @@ export const UploadButton = styled.button`
   border: none;
   color: #ffffff;
   margin-top: 22px;
+  font-size: 17px;
 `;
