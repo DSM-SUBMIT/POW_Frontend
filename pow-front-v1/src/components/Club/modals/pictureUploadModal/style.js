@@ -52,18 +52,23 @@ export const List = styled.div`
     background-color: #F4F4F4;
     border-radius: 17px;
     justify-content: center;
+    cursor: pointer;
 
     :first-child{
       margin-right: 22px;
     }
-
-    img{
-      margin-right: 17px;
+    
+    :hover{
+      background-color: #CECECE;
     }
+  }
 
-    span{
-      font-size: 19px;
-      color: #8D8D8D;
-    }
+  img{
+    margin-right: 17px;
+  }
+
+  span{
+    font-size: 19px;
+    color: #8D8D8D;
   }
 `
