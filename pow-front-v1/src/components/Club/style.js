@@ -19,12 +19,12 @@ export const BannerImg = styled.div`
 
 export const LogoDiv = styled.div`
   position: absolute;
-  bottom: 22%;
+  bottom: 27%;
   margin-left: 135px;
   z-index: 2;
   --b: 20px;
   display: inline-block;
-  width: 390px;
+  width: 340px;
 
   img{
     position: absolute;
@@ -45,13 +45,13 @@ export const LogoDiv = styled.div`
     content:"";
     position:absolute;
     z-index:-1;
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
     top:0;
     left:0;
     right:0;
     bottom:0;
-    background: var(--c,linear-gradient(to right, #C2A8D1, #9378C6, #6A5FCF, #5353DC, #C89299, #F1A882));
+    background: var(--c,linear-gradient(to bottom, #C2A8D1, #9378C6, #6A5FCF, #5353DC, #C89299, #F1A882));
     padding: var(--b);
     border-radius: 50%;
     background-color: white;
@@ -64,11 +64,11 @@ export const LogoDiv = styled.div`
 `
 
 export const WhiteBox = styled.div`
-    width: 390px;
-    height: 390px;
+    width: 340px;
+    height: 340px;
     background-color: white;
     position: absolute;
-    bottom: 22%;
+    bottom: 27%;
     margin-left: 135px;
     z-index: 2;
     border-radius: 50%;
@@ -134,6 +134,11 @@ export const Upload = styled.div`
     justify-content: center;
     font-size: 20px;
     color: #676767;
+    cursor: pointer;
+
+    :hover{
+      background-color: #CECECE;
+    }
 
     img {
       width: 30px;
