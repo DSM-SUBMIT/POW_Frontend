@@ -9,7 +9,6 @@ const ProfileUpload = (props) => {
   }
 
   const onChangeFile = (e) => {
-    console.log("asdas");
     console.log(e.target.files[0]);
     setFilePath(e.target.value);
   }
