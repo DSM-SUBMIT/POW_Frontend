@@ -1,20 +1,15 @@
-import react from "react";
-import ClubModifyModal from "./components/modal/ClubModifyModal";
-// import PostModifyModal from "./components/modal/PostModifyModal";
-// import PostModifyRemoveModal from "./components/modal/PostModifyRemoveModal";
-// import PostUploadModal from "./components/modal/PostUploadModal";
-// import ProjectIntroModal from "./components/modal/ProjectIntroModal";
-// import PostDelete from "./components/modal/PostDelete";
+import React from 'react';
+import Header from './component/Header/Header';
+import Main from './component/Main/Main';
+import './App.css';
 
-const App = () => {
-  return (
-    // <PostModifyRemoveModal />
-    // <PostDelete />
-    //<ClubModifyModal />
-    // <PostUploadModal />
-    // <PostModifyModal />
-    // <ProjectIntroModal />
-  );
-};
+function App() {
+    return (
+      <>
+        <Header></Header>
+        <Main></Main>
+      </>
+    );
+  }
 
 export default App;
