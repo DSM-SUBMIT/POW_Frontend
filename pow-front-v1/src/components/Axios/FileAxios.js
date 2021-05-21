@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-export const FileRequest = (method, url, head, data) => {
-  return axios({
+const baseURL = 'https://ehddkfl.herokuapp.com/';
+
+export const FileRequest = async(method, url, head, data) => {
+  return await axios({
     method: method,
     url: baseURL + url,
     headers: head,
