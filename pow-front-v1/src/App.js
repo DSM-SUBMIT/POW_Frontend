@@ -1,9 +1,14 @@
-import logo from './logo.svg';
+import React from 'react';
+import Club from './components/Club/Club';
+import Header from './components/Header/Header';
 import './App.css';
 
 function App() {
   return (
-    <p>das</p>
+    <>
+      <Header></Header>
+      <Club></Club>
+    </>
   );
 }
 
