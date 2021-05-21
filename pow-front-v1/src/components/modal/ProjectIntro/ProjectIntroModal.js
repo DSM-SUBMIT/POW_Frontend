@@ -1,13 +1,15 @@
 import React from "react";
 import * as S from "../ProjectIntro/style";
 import GreyBox from "../common/GreyBox";
+import IntroduceHeader from "./IntroduceHeader";
 
 const ProjectlntroModal = () => {
   return (
     <modal>
       <GreyBox>
         <S.IntroContent>
-          <S.Content></S.Content>
+          <IntroduceHeader />
+          <S.IntroduceBox></S.IntroduceBox>
         </S.IntroContent>
       </GreyBox>
     </modal>
