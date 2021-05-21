@@ -4,6 +4,8 @@ import { FileRequest } from '../../../Axios/FileAxios';
 
 const BannerUpload = (props) => {
   const [filePath, setFilePath] = useState('');
+  const [file, setFile] = useState(null);
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpzZmRmZmRmYXNkYXNkc29obiBEb2UiLCJpYXQiOjE1MTYyMzkwMjJ9.Ki0_w07k5UI-03Tz-pQFuy40ul-13K7zXMYXrFSDnlw';
 
   const onClickWhiteScreen = () => {
     props.setBannerModal(false);
@@ -11,12 +13,20 @@ const BannerUpload = (props) => {
 
   const onChangeFile = (e) => {
     console.log(e.target.files[0]);
+    setFile(e.target.files[0]);
+    console.log(file);
     let str = e.target.value.slice(12, e.target.value.length);
     setFilePath(str);
   }
 
-  const onCLickUpload = async() => {
-    const {data} = await FileRequest()
+  const onCLickUpload = () => {
+    console.log(file);
+    try{
+      const {data} = FileRequest('GET', 'banner/asd.png', {}, {});
+    } catch(e) {
+      console.log(e);
+    }
+    
   }
 
   return(
