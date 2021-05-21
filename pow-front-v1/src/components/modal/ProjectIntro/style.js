@@ -19,12 +19,29 @@ export const Content = styled.div`
   ::-webkit-scrollbar {
     width: 15px;
   }
-  ::-webkit-scrollbar-thumb {
+  Content::-webkit-scrollbar-thumb {
     background-color: #9f91d6;
     border-radius: 10px;
   }
-  ::-webkit-scrollbar-track {
+  Content::-webkit-scrollbar-track {
     background-color: white;
     border-radius: 10px;
   }
+`;
+
+export const HeaderContent = styled.div`
+  width: 80%;
+`;
+export const WriteBar = styled.div`
+  width: 80%;
+`;
+
+export const TitleBar = styled.div`
+  width: 80%;
+`;
+
+export const IntroduceBox = styled.div`
+  width: 1054px;
+  height: 470px;
+  background-color: blue;
 `;
