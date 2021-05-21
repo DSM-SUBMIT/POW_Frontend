@@ -20,30 +20,45 @@ export const HeaderContent = styled.div`
 `;
 
 export const WriteBar = styled.div`
-  width: 80%;
+  width: 1054px;
   height: 61px;
-  p {
-    width: 178px;
-    display: inline;
-    font-size: 20px;
-    align: left;
-  }
+`;
+
+export const CreatedDate = styled.p`
+  width: 200px;
+  float: left;
+  font-size: 20px;
+`;
+
+export const ModifiedDate = styled.p`
+  width: 200px;
+  float: left;
+  font-size: 20px;
+`;
+
+export const Writer = styled.p`
+  width: 200px;
+  float: right;
+  font-size: 20px;
 `;
 
 export const TitleBar = styled.div`
-  width: 80%;
+  width: 1054px;
   height: 61px;
   margin-bottom: 27px;
-  h3 {
-    width: 656px;
-    display: inline;
-    margin-right: 40px;
-  }
-  p {
-    width: 178px;
-    display: inline;
-    font-size: 20px;
-  }
+  display: inline;
+`;
+
+export const IntroduceTitle = styled.h3`
+  width: 656px;
+  float: left;
+  text-align: left;
+`;
+
+export const StartDate = styled.p`
+  width: 378px;
+  float: right;
+  font-size: 20px;
 `;
 
 export const IntroduceBox = styled.div`
