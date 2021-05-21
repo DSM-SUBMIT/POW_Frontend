@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import * as s from './style';
+import { FileRequest } from '../../../Axios/FileAxios';
 
 const BannerUpload = (props) => {
   const [filePath, setFilePath] = useState('');
@@ -9,10 +10,13 @@ const BannerUpload = (props) => {
   }
 
   const onChangeFile = (e) => {
-    console.log("asdas");
     console.log(e.target.files[0]);
     let str = e.target.value.slice(12, e.target.value.length);
     setFilePath(str);
+  }
+
+  const onCLickUpload = async() => {
+    const {data} = await FileRequest()
   }
 
   return(
@@ -27,7 +31,7 @@ const BannerUpload = (props) => {
           <s.FilePath htmlFor="fileUpload"><p>{filePath}</p></s.FilePath>
           <s.FileUpload id="fileUpload" type="file" onChange={onChangeFile}></s.FileUpload>
         </s.FileInput>
-        <s.UploadBtn>업로드 하기</s.UploadBtn>
+        <s.UploadBtn onClick={onCLickUpload}>업로드 하기</s.UploadBtn>
       </s.Modal>
     </>
   )
