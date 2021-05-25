@@ -5,16 +5,16 @@ const Main = () => {
     return(
         <s.main>
             <s.line>
-                <s.club></s.club>
-                <s.club></s.club>
-                <s.club></s.club>
-                <s.club></s.club>
+                <s.club/>
+                <s.club/>
+                <s.club/>
+                <s.club/>
             </s.line>
             <s.line>
-                <s.club></s.club>
-                <s.club></s.club>
-                <s.club></s.club>
-                <s.club></s.club>
+                <s.club/>
+                <s.club/>
+                <s.club/>
+                <s.club/>
             </s.line>
         </s.main>
     )
