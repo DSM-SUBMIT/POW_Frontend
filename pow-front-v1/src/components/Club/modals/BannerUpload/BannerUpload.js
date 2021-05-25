@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as s from './style';
-import { FileRequest } from '../../../Axios/FileAxios';
+import { FileRequest } from '../../../Axios/Axios';
 
 const BannerUpload = (props) => {
   const [filePath, setFilePath] = useState('');
@@ -14,15 +14,14 @@ const BannerUpload = (props) => {
   const onChangeFile = (e) => {
     console.log(e.target.files[0]);
     setFile(e.target.files[0]);
-    console.log(file);
     let str = e.target.value.slice(12, e.target.value.length);
     setFilePath(str);
   }
 
   const onCLickUpload = () => {
-    console.log(file);
     try{
-      const {data} = FileRequest('GET', 'banner/asd.png', {}, {});
+      const {data} = FileRequest('GET', 'public/images/Default.png', {}, {});
+      console.log(data);
     } catch(e) {
       console.log(e);
     }
