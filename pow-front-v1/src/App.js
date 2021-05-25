@@ -8,13 +8,20 @@ import Club from "./components/Club/Club";
 import Header from "./components/Header/Header";
 import Main from "./component/Main/Main";
 import "./App.css";
+import { Route, BrowserRouter } from "react-router-dom";
 
 const App = () => {
   return (
     <>
       <Header></Header>
-      {/*<Main></Main> */}
-      <Club></Club>
+      <BrowserRouter>
+        <Route path="/" exact>
+          <Main></Main>
+        </Route>
+        <Route path="/clubs" exact>
+          <Club></Club>
+        </Route>
+      </BrowserRouter>
     </>
   );
 };
