@@ -5,7 +5,7 @@ import { FileRequest } from '../../../Axios/Axios';
 const BannerUpload = (props) => {
   const [filePath, setFilePath] = useState('');
   const [file, setFile] = useState(null);
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpzZmRmZmRmYXNkYXNkc29obiBEb2UiLCJpYXQiOjE1MTYyMzkwMjJ9.Ki0_w07k5UI-03Tz-pQFuy40ul-13K7zXMYXrFSDnlw';
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ';
 
   const onClickWhiteScreen = () => {
     props.setBannerModal(false);
@@ -20,7 +20,12 @@ const BannerUpload = (props) => {
 
   const onCLickUpload = () => {
     try{
-      const {data} = FileRequest('GET', 'public/images/Default.png', {}, {});
+      const fd = new FormData();
+      fd.append("file", file);
+      console.log(fd);
+      const {data} = FileRequest('PUT', 'banner/1', {
+        authorization: `Bearer ${token}`,
+      }, fd);
       console.log(data);
     } catch(e) {
       console.log(e);
