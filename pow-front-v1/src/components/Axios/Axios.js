@@ -2,12 +2,12 @@ import axios from 'axios';
 
 const fileURL = 'https://ehddkfl.herokuapp.com/';
 
-export const FileRequest = async(method, url, head, data) => {
+export const FileRequest = async(method, url, head, file) => {
   return await axios({
     method: method,
-    url: 'https://ehddkfl.herokuapp.com/public/images/DefaultImage.png',
+    url: fileURL + url,
     headers: head,
-    data: data
+    data: file
   }).then((e)=>{
     console.log(e);
     return e;
