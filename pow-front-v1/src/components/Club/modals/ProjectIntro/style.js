@@ -6,7 +6,7 @@ export const IntroContent = styled.div`
   background: #ffffff;
   border-radius: 27px;
   z-index: 1;
-  border: 2px soild #000000;
+  border: 1px solid #707070;
   text-align: center;
 `;
 
