@@ -10,7 +10,9 @@ const ProfileUpload = (props) => {
 
   const onChangeFile = (e) => {
     console.log(e.target.files[0]);
-    setFilePath(e.target.value);
+    let str = e.target.value.slice(12, e.target.value.length);
+    setFilePath(str);
+    console.log(e);
   }
 
   return(
