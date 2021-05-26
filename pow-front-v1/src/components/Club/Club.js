@@ -16,7 +16,7 @@ const Club = () => {
   const [profileModal, setProfileModal] = useState(false);
   const [bannerModal, setBannerModal] = useState(false);
   const imgUrl = 'https://ehddkfl.herokuapp.com/public/';
-  let imgPath;
+  let imgPath = '1622034202935__Banner.png';
 
   const onClickPictureModal = () => {
     setPictureModal(true);
