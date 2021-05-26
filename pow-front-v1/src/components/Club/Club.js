@@ -15,6 +15,8 @@ const Club = () => {
   const [pictureModal, setPictureModal] = useState(false);
   const [profileModal, setProfileModal] = useState(false);
   const [bannerModal, setBannerModal] = useState(false);
+  const imgUrl = 'https://ehddkfl.herokuapp.com/public/';
+  let imgPath;
 
   const onClickPictureModal = () => {
     setPictureModal(true);
@@ -42,7 +44,7 @@ const Club = () => {
             <s.LogoDiv>
                 <img src={logo}></img>
             </s.LogoDiv>
-            <img src='https://ehddkfl.herokuapp.com/public/images/DefaultImage.png'></img>
+            <img src={`${imgUrl}banners/${imgPath}`}></img>
         </s.BannerImg>
       </header>
       <section style={{"backgroundColor": "#FCFCFC"}}>
