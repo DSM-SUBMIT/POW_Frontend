@@ -24,7 +24,7 @@ export const LogoDiv = styled.div`
   z-index: 2;
   --b: 20px;
   display: inline-block;
-  width: 340px;
+  width: 320px;
 
   img{
     position: absolute;
@@ -45,8 +45,8 @@ export const LogoDiv = styled.div`
     content:"";
     position:absolute;
     z-index:-1;
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
     top:0;
     left:0;
     right:0;
@@ -64,8 +64,8 @@ export const LogoDiv = styled.div`
 `
 
 export const WhiteBox = styled.div`
-    width: 340px;
-    height: 340px;
+    width: 320px;
+    height: 320px;
     background-color: white;
     position: absolute;
     bottom: 27%;
