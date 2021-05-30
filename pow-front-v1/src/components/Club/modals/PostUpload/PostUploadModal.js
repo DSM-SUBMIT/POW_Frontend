@@ -8,7 +8,7 @@ const PostUploadModal = () => {
       <GreyBox>
         <S.UpContent>
           <S.Title>
-            <p>게시물 수정</p>
+            <p>게시물 업로드</p>
           </S.Title>
           <S.UploadHeader>
             <S.InputText placeholder="제목을 입력해 주세요" />
@@ -19,7 +19,9 @@ const PostUploadModal = () => {
               <S.InputDay />
             </S.DayBox>
           </S.UploadHeader>
-          <S.WriteBox placeholder="내용을 입력해 주세요" />
+          <S.WriteBox>
+            <S.InputContent placeholder="내용을 입력해 주세요" />
+          </S.WriteBox>
           <S.UploadButton>업로드 하기</S.UploadButton>
         </S.UpContent>
       </GreyBox>
