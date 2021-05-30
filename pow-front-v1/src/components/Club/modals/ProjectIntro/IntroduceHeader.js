@@ -7,7 +7,6 @@ const IntroduceHeader = () => {
       <S.WriteBar>
         <S.CreatedDate>작성일 : 2021-05-07</S.CreatedDate>
         <S.ModifiedDate>수정일 : 2021-05-21</S.ModifiedDate>
-        <S.Writer>작성자 : 김해교</S.Writer>
       </S.WriteBar>
       <S.TitleBar>
         <S.IntroduceTitle>제목입니다.</S.IntroduceTitle>
