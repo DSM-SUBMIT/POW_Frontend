@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const IntroContent = styled.div`
   width: 1188px;
-  height: 718px;
+  height: 708px;
   background: #ffffff;
   border-radius: 27px;
   z-index: 1;
@@ -13,7 +13,7 @@ export const IntroContent = styled.div`
 export const HeaderContent = styled.div`
   width: 1054px;
   height: 116px;
-  padding-top: 38px;
+  padding-top: 18px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -63,8 +63,9 @@ export const StartDate = styled.p`
 
 export const IntroduceBox = styled.div`
   width: 1054px;
-  height: 470px;
+  height: 490px;
   background: #f3f3f3;
+  margin-top: 18px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
