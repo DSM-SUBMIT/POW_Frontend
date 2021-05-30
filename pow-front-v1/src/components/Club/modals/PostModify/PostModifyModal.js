@@ -19,7 +19,9 @@ const PostModifyModal = () => {
               <S.InputDay />
             </S.DayBox>
           </S.ModifyHeader>
-          <S.WriteBox placeholder="내용을 입력해 주세요" />
+          <S.WriteBox>
+            <S.InputContent placeholder="내용을 입력해 주세요" />
+          </S.WriteBox>
           <S.UploadButton>업로드 하기</S.UploadButton>
         </S.ModifyContent>
       </GreyBox>
