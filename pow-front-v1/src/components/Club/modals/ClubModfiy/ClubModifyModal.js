@@ -10,12 +10,9 @@ const ClubModifyModal = () => {
           <S.Title>
             <p>동아리 소개 수정</p>
           </S.Title>
-          <S.InputText placeholder="작성자를 입력해 주세요" />
-          <div>
-            <S.FileLabel for="file">파일 선택</S.FileLabel>
-            <S.FileInput type="file" id="file" />
-            <S.Uploadname placeholder="파일 선택"></S.Uploadname>
-          </div>
+          <S.WriteBox>
+            <S.InputContent placeholder="내용을 입력해 주세요" />
+          </S.WriteBox>
           <S.UploadButton>업로드 하기</S.UploadButton>
         </S.CmContent>
       </GreyBox>
