@@ -20,6 +20,18 @@ class Main extends Component {
                         <s.Club/>
                         <s.Club/>
                     </s.Line>
+                    <s.Line>
+                        <s.Club/>
+                        <s.Club/>
+                        <s.Club/>
+                        <s.Club/>
+                    </s.Line>
+                    <s.Line>
+                        <s.Club/>
+                        <s.Club/>
+                        <s.Club/>
+                        <s.Club/>
+                    </s.Line>
                 </s.Center>
             </s.Main>
         )

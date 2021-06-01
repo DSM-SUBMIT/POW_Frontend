@@ -1,14 +1,10 @@
 import styled from 'styled-components';
 
 export const LoginCenter = styled.div`
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    &:before {
-        height: 100%
-        width: 1px;
-        display: inline-block;
-    }
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 `
 
 export const LoginModal = styled.div`
@@ -16,7 +12,6 @@ export const LoginModal = styled.div`
     width: 492px;
     height: 492px;
     border: 1px solid #707070;
-    display: inline-block;
     padding: 10px 20px;
 `
 
@@ -36,6 +31,9 @@ export const Logo = styled.div`
     img {
         width: 142px;
         height: 51px;
+    }
+    span {
+        color: #707070;
     }
 `
 
@@ -63,6 +61,7 @@ export const LoginBtn = styled.div`
     height: 142px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     button {
         background-color: white;
@@ -79,4 +78,6 @@ export const LoginBtn = styled.div`
 export const Change = styled.div`
     color: #707070;
     font-size: 10px;
+    padding-bottom: 5px;
+
 `
