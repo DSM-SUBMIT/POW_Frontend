@@ -13,7 +13,7 @@ import "./App.css";
 const App = () => {
   return (
     <>
-      {/* <Header></Header> */}
+      <Header></Header>
       <Main></Main>
       {/* <Club></Club> */}
       {/* <ProjectIntroModal /> */}
