@@ -15,14 +15,15 @@ import PostUploadModal from "../modal/PostUpload/PostUploadModal";
 import PostDeleteModal from "../modal/PostDelete/PostDelete";
 import ProjectIntroModal from "../modal/ProjectIntro/ProjectIntroModal";
 import ClubModifyModal from "../modal/PostModify/PostModifyModal";
-import { FileRequest } from '../Axios/Axios';
+import { FileRequest } from "../Axios/Axios";
 
 const Club = () => {
   const [pictureModal, setPictureModal] = useState(false);
   const [profileModal, setProfileModal] = useState(false);
   const [bannerModal, setBannerModal] = useState(false);
-  const imgUrl = 'https://ehddkfl.herokuapp.com/public/';
-  let imgPath = '1622034202935__Banner.png';
+  const [PostModaifyModal, setPostModfiyModal] = useState(false);
+  const imgUrl = "https://ehddkfl.herokuapp.com/public/";
+  let imgPath = "1622034202935__Banner.png";
 
   const onClickPictureModal = () => {
     setPictureModal(true);
@@ -48,31 +49,25 @@ const Club = () => {
 
       <header>
         <s.BannerImg>
-            <s.WhiteBox></s.WhiteBox>
-            <s.LogoDiv>
-                <img src={logo}></img>
-            </s.LogoDiv>
-            <img src={`${imgUrl}banners/${imgPath}`}></img>
+          <s.WhiteBox></s.WhiteBox>
+          <s.LogoDiv>
+            <img src={logo}></img>
+          </s.LogoDiv>
+          <img src={`${imgUrl}banners/${imgPath}`}></img>
         </s.BannerImg>
       </header>
-      <section style={{"backgroundColor": "#FCFCFC"}}>
+      <section style={{ backgroundColor: "#FCFCFC" }}>
         <s.MainContent>
           <s.LeftContent>
             <s.ClubIntroBox>
-              <span>
-                Submit
-              </span>
-              <s.Writer>
-                작성자: 김지민
-              </s.Writer>
-              <s.FixDate>
-              수정일 : 2021-05-07
-              </s.FixDate>
+              <span>Submit</span>
+              <s.Writer>작성자: 김지민</s.Writer>
+              <s.FixDate>수정일 : 2021-05-07</s.FixDate>
             </s.ClubIntroBox>
           </s.LeftContent>
           <s.RightContent>
             <s.Upload>
-              <s.PictureUpload onClick = {onClickPictureModal}>
+              <s.PictureUpload onClick={onClickPictureModal}>
                 <img src={picture}></img>
                 <span>사진 업로드</span>
               </s.PictureUpload>
