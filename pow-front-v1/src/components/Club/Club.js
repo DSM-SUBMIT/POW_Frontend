@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
-import * as s from './style';
-import Banner from '../IMG/Banner.png';
-import logo from '../IMG/logo.png';
-import edit from '../IMG/edit.png';
-import picture from '../IMG/picture.png';
-import writing from '../IMG/writing.png';
-import list from '../IMG/list.png';
-import PictureUploadModal from './modals/pictureUploadModal/PictureUploadModal';
-import ProfileUpload from './modals/ProfileUpload/ProfileUpload';
-import BannerUpload from './modals/BannerUpload/BannerUpload';
+import React, { useState } from "react";
+import * as s from "./style";
+import Banner from "../IMG/Banner.png";
+import logo from "../IMG/logo.png";
+import edit from "../IMG/edit.png";
+import picture from "../IMG/picture.png";
+import writing from "../IMG/writing.png";
+import list from "../IMG/list.png";
+import PictureUploadModal from "./modals/pictureUploadModal/PictureUploadModal";
+import ProfileUpload from "./modals/ProfileUpload/ProfileUpload";
+import BannerUpload from "./modals/BannerUpload/BannerUpload";
+import PostModaifyModal from "../modal/PostModify/PostModifyModal";
+import PostModfiyRemoveModal from "../modal/PostModifyRemove/PostModifyRemoveModal";
+import PostUploadModal from "../modal/PostUpload/PostUploadModal";
+import PostDeleteModal from "../modal/PostDelete/PostDelete";
+import ProjectIntroModal from "../modal/ProjectIntro/ProjectIntroModal";
+import ClubModifyModal from "../modal/PostModify/PostModifyModal";
 
 const Club = () => {
   const [pictureModal, setPictureModal] = useState(false);
@@ -17,50 +23,46 @@ const Club = () => {
 
   const onClickPictureModal = () => {
     setPictureModal(true);
-  }
+  };
 
-  return(
+  return (
     <>
-      {pictureModal&&<PictureUploadModal 
-        setPictureModal={setPictureModal}
-        setProfileModal={setProfileModal}
-        setBannerModal={setBannerModal}
-      ></PictureUploadModal>}
+      {pictureModal && (
+        <PictureUploadModal
+          setPictureModal={setPictureModal}
+          setProfileModal={setProfileModal}
+          setBannerModal={setBannerModal}
+        ></PictureUploadModal>
+      )}
 
-      {profileModal&&<ProfileUpload
-        setProfileModal={setProfileModal}
-      ></ProfileUpload>}
+      {profileModal && (
+        <ProfileUpload setProfileModal={setProfileModal}></ProfileUpload>
+      )}
 
-      {bannerModal&&<BannerUpload
-        setBannerModal={setBannerModal}
-      ></BannerUpload>}
+      {bannerModal && (
+        <BannerUpload setBannerModal={setBannerModal}></BannerUpload>
+      )}
 
       <header>
         <s.BannerImg>
-            <s.WhiteBox></s.WhiteBox>
-            <s.LogoDiv>
-                <img src={logo}></img>
-            </s.LogoDiv>
-            <img src={Banner}></img>
+          <s.WhiteBox></s.WhiteBox>
+          <s.LogoDiv>
+            <img src={logo}></img>
+          </s.LogoDiv>
+          <img src={Banner}></img>
         </s.BannerImg>
       </header>
       <section>
         <s.LeftContent>
           <s.ClubIntroBox>
-            <span>
-              Submit
-            </span>
-            <s.Writer>
-              작성자: 김지민
-            </s.Writer>
-            <s.FixDate>
-            수정일 : 2021-05-07
-            </s.FixDate>
+            <span>Submit</span>
+            <s.Writer>작성자: 김지민</s.Writer>
+            <s.FixDate>수정일 : 2021-05-07</s.FixDate>
           </s.ClubIntroBox>
         </s.LeftContent>
         <s.RightContent>
           <s.Upload>
-            <s.PictureUpload onClick = {onClickPictureModal}>
+            <s.PictureUpload onClick={onClickPictureModal}>
               <img src={picture}></img>
               <span>사진 업로드</span>
             </s.PictureUpload>
@@ -116,10 +118,9 @@ const Club = () => {
             </s.Post>
           </s.Content>
         </s.RightContent>
-        
       </section>
     </>
   );
-}
+};
 
 export default Club;
