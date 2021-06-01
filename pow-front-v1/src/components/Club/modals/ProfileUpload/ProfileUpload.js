@@ -1,8 +1,11 @@
-import React, { useState } from "react";
-import * as s from "./style";
+import React, { useState } from 'react';
+import { FileRequest } from '../../../Axios/Axios';
+import * as s from './style';
 
 const ProfileUpload = (props) => {
-  const [filePath, setFilePath] = useState("");
+  const [file, setFile] = useState(null);
+  const [filePath, setFilePath] = useState('');
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ';
 
   const onClickWhiteScreen = () => {
     props.setProfileModal(false);
@@ -10,10 +13,25 @@ const ProfileUpload = (props) => {
 
   const onChangeFile = (e) => {
     console.log(e.target.files[0]);
-    setFilePath(e.target.value);
-  };
+    setFile(e.target.files[0]);
+    let str = e.target.value.slice(12, e.target.value.length);
+    setFilePath(str);
+  }
 
-  return (
+  const onSubmitFile = async() => {
+    try{
+      const fd = new FormData();
+      file&&fd.append("file", file);
+      const data = FileRequest('PUT', `banner/1`, {
+        authorization: `Bearer ${token}`,
+      }, fd);
+      console.log(data);
+    } catch(e) {
+      console.log(e);
+    }
+  } 
+
+  return(
     <>
       <s.WhiteScreen onClick={onClickWhiteScreen}></s.WhiteScreen>
       <s.Modal>
@@ -33,7 +51,7 @@ const ProfileUpload = (props) => {
             onChange={onChangeFile}
           ></s.FileUpload>
         </s.FileInput>
-        <s.UploadBtn>업로드 하기</s.UploadBtn>
+        <s.UploadBtn onClick={onSubmitFile}>업로드 하기</s.UploadBtn>
       </s.Modal>
     </>
   );
