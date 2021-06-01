@@ -1,14 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import * as s from './style';
-import Banner from '../IMG/Banner.png';
-import logo from '../IMG/logo.png';
-import edit from '../IMG/edit.png';
-import picture from '../IMG/picture.png';
-import writing from '../IMG/writing.png';
-import list from '../IMG/list.png';
-import PictureUploadModal from './modals/pictureUploadModal/PictureUploadModal';
-import ProfileUpload from './modals/ProfileUpload/ProfileUpload';
-import BannerUpload from './modals/BannerUpload/BannerUpload';
+import React, { useState } from "react";
+import * as s from "./style";
+import Banner from "../IMG/Banner.png";
+import logo from "../IMG/logo.png";
+import edit from "../IMG/edit.png";
+import picture from "../IMG/picture.png";
+import writing from "../IMG/writing.png";
+import list from "../IMG/list.png";
+import PictureUploadModal from "./modals/pictureUploadModal/PictureUploadModal";
+import ProfileUpload from "./modals/ProfileUpload/ProfileUpload";
+import BannerUpload from "./modals/BannerUpload/BannerUpload";
+import PostModaifyModal from "../modal/PostModify/PostModifyModal";
+import PostModfiyRemoveModal from "../modal/PostModifyRemove/PostModifyRemoveModal";
+import PostUploadModal from "../modal/PostUpload/PostUploadModal";
+import PostDeleteModal from "../modal/PostDelete/PostDelete";
+import ProjectIntroModal from "../modal/ProjectIntro/ProjectIntroModal";
+import ClubModifyModal from "../modal/PostModify/PostModifyModal";
 import { FileRequest } from '../Axios/Axios';
 
 const Club = () => {
@@ -20,23 +26,25 @@ const Club = () => {
 
   const onClickPictureModal = () => {
     setPictureModal(true);
-  }
+  };
 
-  return(
+  return (
     <>
-      {pictureModal&&<PictureUploadModal 
-        setPictureModal={setPictureModal}
-        setProfileModal={setProfileModal}
-        setBannerModal={setBannerModal}
-      ></PictureUploadModal>}
+      {pictureModal && (
+        <PictureUploadModal
+          setPictureModal={setPictureModal}
+          setProfileModal={setProfileModal}
+          setBannerModal={setBannerModal}
+        ></PictureUploadModal>
+      )}
 
-      {profileModal&&<ProfileUpload
-        setProfileModal={setProfileModal}
-      ></ProfileUpload>}
+      {profileModal && (
+        <ProfileUpload setProfileModal={setProfileModal}></ProfileUpload>
+      )}
 
-      {bannerModal&&<BannerUpload
-        setBannerModal={setBannerModal}
-      ></BannerUpload>}
+      {bannerModal && (
+        <BannerUpload setBannerModal={setBannerModal}></BannerUpload>
+      )}
 
       <header>
         <s.BannerImg>
@@ -124,6 +132,6 @@ const Club = () => {
       </section>
     </>
   );
-}
+};
 
 export default Club;
