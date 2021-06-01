@@ -5,7 +5,7 @@ import React from "react";
 // import PostUploadModal from "./components/modal/PostUpload/PostUploadModal";
 // import PostDelete from "./components/modal/PostDelete/PostDelete";
 import Club from "./components/Club/Club";
-import Header from "./components/Header/Header";
+import Header from "./components/Header/Header"; 
 import "./App.css";
 import { Route, BrowserRouter } from "react-router-dom";
 
