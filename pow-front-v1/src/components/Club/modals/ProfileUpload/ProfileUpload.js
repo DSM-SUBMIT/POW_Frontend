@@ -5,6 +5,7 @@ import * as s from './style';
 const ProfileUpload = (props) => {
   const [file, setFile] = useState(null);
   const [filePath, setFilePath] = useState('');
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ';
 
   const onClickWhiteScreen = () => {
     props.setProfileModal(false);
@@ -18,9 +19,17 @@ const ProfileUpload = (props) => {
   }
 
   const onSubmitFile = async() => {
-    const fd = new FormData();
-    file&&fd.append("file", file);
-  }
+    try{
+      const fd = new FormData();
+      file&&fd.append("file", file);
+      const data = FileRequest('PUT', `banner/1`, {
+        authorization: `Bearer ${token}`,
+      }, fd);
+      console.log(data);
+    } catch(e) {
+      console.log(e);
+    }
+  } 
 
   return(
     <>
