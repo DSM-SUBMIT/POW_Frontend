@@ -28,8 +28,9 @@ export const LogoDiv = styled.div`
 
   img{
     position: absolute;
-    width: 260px;
-    height: 80px;
+    border-radius: 50%;
+    width: 285px;
+    height: 285px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -110,7 +111,7 @@ export const Writer = styled.div`
   font-size: 20px;
   color: #8D8D8D;
   margin-top: 30px;
-  margin-right: 8px;
+  margin-right: 17px;
 `
 
 export const FixDate = styled.p`
@@ -226,7 +227,7 @@ export const PostDiv = styled.div`
 export const Title = styled.div`
   margin-top: 45px;
   margin-left: 50px;
-  font-size: 50px;
+  font-size: 40px;
 `
 
 export const StartDate = styled.div`
