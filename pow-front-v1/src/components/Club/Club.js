@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import * as s from './style';
-import Banner from '../IMG/Banner.png';
 import logo from '../IMG/logo.png';
 import edit from '../IMG/edit.png';
 import picture from '../IMG/picture.png';
@@ -9,14 +8,14 @@ import list from '../IMG/list.png';
 import PictureUploadModal from './modals/pictureUploadModal/PictureUploadModal';
 import ProfileUpload from './modals/ProfileUpload/ProfileUpload';
 import BannerUpload from './modals/BannerUpload/BannerUpload';
-import { FileRequest } from '../Axios/Axios';
 
 const Club = () => {
   const [pictureModal, setPictureModal] = useState(false);
   const [profileModal, setProfileModal] = useState(false);
   const [bannerModal, setBannerModal] = useState(false);
   const imgUrl = 'https://ehddkfl.herokuapp.com/public/';
-  let imgPath = '1622034202935__Banner.png';
+  let profilePath = 'DefaultImage.png';
+  let bannerPath = 'DefaultImage.png';
 
   const onClickPictureModal = () => {
     setPictureModal(true);
@@ -42,9 +41,9 @@ const Club = () => {
         <s.BannerImg>
             <s.WhiteBox></s.WhiteBox>
             <s.LogoDiv>
-                <img src={logo}></img>
+                <img alt="프로필 사진" src={`${imgUrl}profiles/${profilePath}`}></img>
             </s.LogoDiv>
-            <img src={`${imgUrl}banners/${imgPath}`}></img>
+            <img alt="베너 사진" src={`${imgUrl}banners/${bannerPath}`}></img>
         </s.BannerImg>
       </header>
       <section style={{"backgroundColor": "#FCFCFC"}}>
