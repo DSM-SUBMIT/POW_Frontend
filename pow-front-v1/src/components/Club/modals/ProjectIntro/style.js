@@ -5,9 +5,13 @@ export const IntroContent = styled.div`
   height: 708px;
   background: #ffffff;
   border-radius: 27px;
-  z-index: 1;
   border: 1px solid #707070;
   text-align: center;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
 `;
 
 export const HeaderContent = styled.div`
