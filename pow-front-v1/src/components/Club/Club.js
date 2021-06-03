@@ -1,32 +1,54 @@
 import React, { useState } from "react";
 import * as s from "./style";
-import Banner from "../IMG/Banner.png";
-import logo from "../IMG/logo.png";
-import edit from "../IMG/edit.png";
-import picture from "../IMG/picture.png";
-import writing from "../IMG/writing.png";
-import list from "../IMG/list.png";
+import Banner from "../Img/Banner.png";
+import logo from "../Img/logo.png";
+import edit from "../Img/edit.png";
+import picture from "../Img/picture.png";
+import writing from "../Img/writing.png";
+import list from "../Img/list.png";
 import PictureUploadModal from "./modals/pictureUploadModal/PictureUploadModal";
 import ProfileUpload from "./modals/ProfileUpload/ProfileUpload";
 import BannerUpload from "./modals/BannerUpload/BannerUpload";
-import PostModaifyModal from "../modal/PostModify/PostModifyModal";
-import PostModfiyRemoveModal from "../modal/PostModifyRemove/PostModifyRemoveModal";
-import PostUploadModal from "../modal/PostUpload/PostUploadModal";
-import PostDeleteModal from "../modal/PostDelete/PostDelete";
-import ProjectIntroModal from "../modal/ProjectIntro/ProjectIntroModal";
-import ClubModifyModal from "../modal/PostModify/PostModifyModal";
+import PostModifyModal from "../Club/modals/PostModify/PostModifyModal";
+import PostModifyRemoveModal from "../Club/modals/PostModifyRemove/PostModifyRemoveModal";
+import PostUploadModal from "../Club/modals/PostUpload/PostUploadModal";
+import PostDeleteModal from "../Club/modals/PostDelete/PostDelete";
+import ProjectIntroModal from "../Club/modals/ProjectIntro/ProjectIntroModal";
+import ClubModifyModal from "../Club/modals/ClubModfiy/ClubModifyModal";
 import { FileRequest } from "../Axios/Axios";
 
 const Club = () => {
   const [pictureModal, setPictureModal] = useState(false);
   const [profileModal, setProfileModal] = useState(false);
   const [bannerModal, setBannerModal] = useState(false);
-  const [PostModaifyModal, setPostModfiyModal] = useState(false);
+  const [postModifyModal, setPostModifyModal] = useState(false);
+  const [postModifyRemoveModal, setPostModifyRemoveModal] = useState(false);
+  const [postUploadModal, setPostUploadModal] = useState(false);
+  const [postDeleteModal, setPostDeleteModal] = useState(false);
+  const [projectIntroModal, setProjectIntroModal] = useState(false);
+  const [clubModifyModal, setClubModifyModal] = useState(false);
   const imgUrl = "https://ehddkfl.herokuapp.com/public/";
   let imgPath = "1622034202935__Banner.png";
 
   const onClickPictureModal = () => {
     setPictureModal(true);
+  };
+
+  const onClickPostModifyRemoveModal = (e) => {
+    e.stopPropagation();
+    setPostModifyRemoveModal(true);
+  };
+
+  const onClickClubModifyModal = () => {
+    setClubModifyModal(true);
+  };
+
+  const onClickPostUploadModal = () => {
+    setPostUploadModal(true);
+  };
+
+  const onClickProjectIntro = () => {
+    setProjectIntroModal(true);
   };
 
   return (
@@ -47,6 +69,34 @@ const Club = () => {
         <BannerUpload setBannerModal={setBannerModal}></BannerUpload>
       )}
 
+      {postModifyRemoveModal && (
+        <PostModifyRemoveModal
+          setPostModifyRemoveModal={setPostModifyRemoveModal}
+          setPostModifyModal={setPostModifyModal}
+          setPostDeleteModal={setPostDeleteModal}
+        />
+      )}
+
+      {postModifyModal && (
+        <PostModifyModal setPostModifyModal={setPostModifyRemoveModal} />
+      )}
+
+      {postUploadModal && (
+        <PostUploadModal setPostUploadModal={setPostUploadModal} />
+      )}
+
+      {clubModifyModal && (
+        <ClubModifyModal setClubModifyModal={setClubModifyModal} />
+      )}
+
+      {postDeleteModal && (
+        <PostDeleteModal setPostDeleteModal={setPostDeleteModal} />
+      )}
+
+      {projectIntroModal && (
+        <ProjectIntroModal setProjectIntroModal={setProjectIntroModal} />
+      )}
+
       <header>
         <s.BannerImg>
           <s.WhiteBox></s.WhiteBox>
@@ -61,7 +111,6 @@ const Club = () => {
           <s.LeftContent>
             <s.ClubIntroBox>
               <span>Submit</span>
-              <s.Writer>작성자: 김지민</s.Writer>
               <s.FixDate>수정일 : 2021-05-07</s.FixDate>
             </s.ClubIntroBox>
           </s.LeftContent>
@@ -71,22 +120,21 @@ const Club = () => {
                 <img src={picture}></img>
                 <span>사진 업로드</span>
               </s.PictureUpload>
-              <s.ClubFix>
+              <s.ClubFix onClick={onClickClubModifyModal}>
                 <img src={edit}></img>
                 <span>동아리 소개 수정</span>
               </s.ClubFix>
-              <s.PostUpload>
+              <s.PostUpload onClick={onClickPostUploadModal}>
                 <img src={writing}></img>
                 <span>게시물 업로드</span>
               </s.PostUpload>
             </s.Upload>
             <s.Content>
-              <s.Post>
-                <img src={list}></img>
+              <s.Post onClick={onClickProjectIntro}>
+                <img src={list} onClick={onClickPostModifyRemoveModal}></img>
                 <s.PostDiv>
                   <p>작성일 : 2021-04-10</p>
                   <p>수정일 : 2021-04-11</p>
-                  <p>작성자 : 김해교</p>
                 </s.PostDiv>
                 <s.Title>제목입니다.</s.Title>
                 <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
@@ -96,7 +144,6 @@ const Club = () => {
                 <s.PostDiv>
                   <p>작성일 : 2021-04-10</p>
                   <p>수정일 : 2021-04-11</p>
-                  <p>작성자 : 김해교</p>
                 </s.PostDiv>
                 <s.Title>제목입니다.</s.Title>
                 <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
@@ -106,7 +153,6 @@ const Club = () => {
                 <s.PostDiv>
                   <p>작성일 : 2021-04-10</p>
                   <p>수정일 : 2021-04-11</p>
-                  <p>작성자 : 김해교</p>
                 </s.PostDiv>
                 <s.Title>제목입니다.</s.Title>
                 <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
@@ -116,7 +162,6 @@ const Club = () => {
                 <s.PostDiv>
                   <p>작성일 : 2021-04-10</p>
                   <p>수정일 : 2021-04-11</p>
-                  <p>작성자 : 김해교</p>
                 </s.PostDiv>
                 <s.Title>제목입니다.</s.Title>
                 <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
