@@ -22,7 +22,7 @@ export const Title = styled.div`
   transform: translateX(-50%);
   p {
     font-family: NanumSquare_ac;
-    font-seize: 20px;
+    font-size: 20px;
   }
 `;
 
@@ -53,17 +53,17 @@ export const InputContent = styled.textarea`
   overflow-y: scroll;
   overflow-x: hidden;
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: #red;
+    background-color: red;
   }
   ::-webkit-scrollbar-track {
     background-color: #7662c6;
     border-radius: 10px;
   }
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 12px;
   }
   ::-webkit-scrollbar-track {
     background-color: #f9f9f9;
