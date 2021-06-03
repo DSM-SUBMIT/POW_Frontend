@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import * as s from "./style";
-import Banner from "../Img/Banner.png";
-import logo from "../Img/logo.png";
-import edit from "../Img/edit.png";
-import picture from "../Img/picture.png";
-import writing from "../Img/writing.png";
-import list from "../Img/list.png";
+import React, { useEffect, useState } from 'react';
+import * as s from './style';
+import logo from '../IMG/logo.png';
+import edit from '../IMG/edit.png';
+import picture from '../IMG/picture.png';
+import writing from '../IMG/writing.png';
+import list from '../IMG/list.png';
 import PictureUploadModal from "./modals/pictureUploadModal/PictureUploadModal";
 import ProfileUpload from "./modals/ProfileUpload/ProfileUpload";
 import BannerUpload from "./modals/BannerUpload/BannerUpload";
@@ -17,18 +16,21 @@ import ProjectIntroModal from "../Club/modals/ProjectIntro/ProjectIntroModal";
 import ClubModifyModal from "../Club/modals/ClubModfiy/ClubModifyModal";
 import { FileRequest } from "../Axios/Axios";
 
+
 const Club = () => {
   const [pictureModal, setPictureModal] = useState(false);
   const [profileModal, setProfileModal] = useState(false);
   const [bannerModal, setBannerModal] = useState(false);
+  const imgUrl = 'https://ehddkfl.herokuapp.com/public/';
+  let profilePath = 'DefaultImage.png';
+  let bannerPath = 'DefaultImage.png';
   const [postModifyModal, setPostModifyModal] = useState(false);
   const [postModifyRemoveModal, setPostModifyRemoveModal] = useState(false);
   const [postUploadModal, setPostUploadModal] = useState(false);
   const [postDeleteModal, setPostDeleteModal] = useState(false);
   const [projectIntroModal, setProjectIntroModal] = useState(false);
   const [clubModifyModal, setClubModifyModal] = useState(false);
-  const imgUrl = "https://ehddkfl.herokuapp.com/public/";
-  let imgPath = "1622034202935__Banner.png";
+
 
   const onClickPictureModal = () => {
     setPictureModal(true);
@@ -99,11 +101,11 @@ const Club = () => {
 
       <header>
         <s.BannerImg>
-          <s.WhiteBox></s.WhiteBox>
-          <s.LogoDiv>
-            <img src={logo}></img>
-          </s.LogoDiv>
-          <img src={`${imgUrl}banners/${imgPath}`}></img>
+            <s.WhiteBox></s.WhiteBox>
+            <s.LogoDiv>
+                <img alt="프로필 사진" src={`${imgUrl}profiles/${profilePath}`}></img>
+            </s.LogoDiv>
+            <img alt="베너 사진" src={`${imgUrl}banners/${bannerPath}`}></img>
         </s.BannerImg>
       </header>
       <section style={{ backgroundColor: "#FCFCFC" }}>

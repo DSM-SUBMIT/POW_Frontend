@@ -22,7 +22,7 @@ const ProfileUpload = (props) => {
     try{
       const fd = new FormData();
       file&&fd.append("file", file);
-      const data = FileRequest('PUT', `banner/1`, {
+      const data = FileRequest('PUT', `banner/2`, {
         authorization: `Bearer ${token}`,
       }, fd);
       console.log(data);
