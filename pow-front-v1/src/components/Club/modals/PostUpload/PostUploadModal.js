@@ -16,7 +16,7 @@ const PostUploadModal = (props) => {
   };
 
   return (
-    <modal>
+    <>
       <WhiteScreen onClick={onClickPostUploadModal} />
       <S.UpContent>
         <S.Title>
@@ -65,7 +65,7 @@ const PostUploadModal = (props) => {
           업로드 하기
         </S.UploadButton>
       </S.UpContent>
-    </modal>
+    </>
   );
 };
 
