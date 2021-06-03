@@ -12,7 +12,7 @@ const PostModifyModal = (props) => {
   };
 
   return (
-    <modal>
+    <>
       <WhiteScreen onClick={onClickPostModifyModal} />
       <S.ModifyContent>
         <S.Title>
@@ -43,7 +43,7 @@ const PostModifyModal = (props) => {
         </S.WriteBox>
         <S.UploadButton>업로드 하기</S.UploadButton>
       </S.ModifyContent>
-    </modal>
+    </>
   );
 };
 
