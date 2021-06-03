@@ -1,24 +1,23 @@
-import React from 'react';
-import * as s from './style';
-import picturesmall from '../../../IMG/picturesmall.png';
+import React from "react";
+import * as s from "./style";
+import picturesmall from "../../../Img/picturesmall.png";
 
 const PictureUploadModal = (props) => {
-
   const onClickWhiteScreen = () => {
     props.setPictureModal(false);
-  }
+  };
 
   const onClickProfileUpload = () => {
     props.setPictureModal(false);
     props.setProfileModal(true);
-  }
+  };
 
   const onClickBannerUpload = () => {
     props.setPictureModal(false);
     props.setBannerModal(true);
-  }
+  };
 
-  return(
+  return (
     <>
       <s.WhiteScreen onClick={onClickWhiteScreen}></s.WhiteScreen>
       <s.Modal>
@@ -37,7 +36,7 @@ const PictureUploadModal = (props) => {
         </s.List>
       </s.Modal>
     </>
-  )
-}
+  );
+};
 
 export default PictureUploadModal;
