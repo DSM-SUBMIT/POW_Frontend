@@ -5,9 +5,13 @@ export const CmContent = styled.div`
   height: 608px;
   background: #ffffff;
   border-radius: 23px;
-  z-index: 1;
   border: 1px solid #707070;
   text-align: center;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
 `;
 
 export const Title = styled.div`
@@ -45,6 +49,28 @@ export const InputContent = styled.textarea`
   }
   :focus {
     outline: none;
+  }
+  overflow-y: scroll;
+  overflow-x: hidden;
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #red;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #7662c6;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #f9f9f9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #7662c6;
+    border-radius: 30px;
   }
 `;
 
