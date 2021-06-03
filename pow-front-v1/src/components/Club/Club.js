@@ -14,8 +14,6 @@ import PostUploadModal from "../Club/modals/PostUpload/PostUploadModal";
 import PostDeleteModal from "../Club/modals/PostDelete/PostDelete";
 import ProjectIntroModal from "../Club/modals/ProjectIntro/ProjectIntroModal";
 import ClubModifyModal from "../Club/modals/ClubModfiy/ClubModifyModal";
-import { FileRequest } from "../Axios/Axios";
-
 
 const Club = () => {
   const [pictureModal, setPictureModal] = useState(false);
@@ -119,21 +117,21 @@ const Club = () => {
           <s.RightContent>
             <s.Upload>
               <s.PictureUpload onClick={onClickPictureModal}>
-                <img src={picture}></img>
+                <img alt="아이콘" src={picture}></img>
                 <span>사진 업로드</span>
               </s.PictureUpload>
               <s.ClubFix onClick={onClickClubModifyModal}>
-                <img src={edit}></img>
+                <img alt="아이콘" src={edit}></img>
                 <span>동아리 소개 수정</span>
               </s.ClubFix>
               <s.PostUpload onClick={onClickPostUploadModal}>
-                <img src={writing}></img>
+                <img alt="아이콘" src={writing}></img>
                 <span>게시물 업로드</span>
               </s.PostUpload>
             </s.Upload>
             <s.Content>
               <s.Post onClick={onClickProjectIntro}>
-                <img src={list} onClick={onClickPostModifyRemoveModal}></img>
+                <img alt="더보기" src={list} onClick={onClickPostModifyRemoveModal}></img>
                 <s.PostDiv>
                   <p>작성일 : 2021-04-10</p>
                   <p>수정일 : 2021-04-11</p>
@@ -142,7 +140,7 @@ const Club = () => {
                 <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
               </s.Post>
               <s.Post>
-                <img src={list}></img>
+                <img alt="더보기" src={list}></img>
                 <s.PostDiv>
                   <p>작성일 : 2021-04-10</p>
                   <p>수정일 : 2021-04-11</p>
@@ -151,7 +149,7 @@ const Club = () => {
                 <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
               </s.Post>
               <s.Post>
-                <img src={list}></img>
+                <img alt="더보기" src={list}></img>
                 <s.PostDiv>
                   <p>작성일 : 2021-04-10</p>
                   <p>수정일 : 2021-04-11</p>
@@ -160,7 +158,7 @@ const Club = () => {
                 <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
               </s.Post>
               <s.Post>
-                <img src={list}></img>
+                <img alt="더보기" src={list}></img>
                 <s.PostDiv>
                   <p>작성일 : 2021-04-10</p>
                   <p>수정일 : 2021-04-11</p>
