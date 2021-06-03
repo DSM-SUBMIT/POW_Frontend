@@ -1,6 +1,6 @@
 import React from "react";
 import * as s from "./style";
-import picturesmall from "../../../Img/picturesmall.png";
+import picturesmall from "../../../IMG/picturesmall.png";
 
 const PictureUploadModal = (props) => {
   const onClickWhiteScreen = () => {
@@ -26,11 +26,11 @@ const PictureUploadModal = (props) => {
         </s.Title>
         <s.List>
           <div onClick={onClickProfileUpload}>
-            <img src={picturesmall}></img>
+            <img alt="프로필 수정 아이콘" src={picturesmall}></img>
             <span>프로필 사진</span>
           </div>
           <div onClick={onClickBannerUpload}>
-            <img src={picturesmall}></img>
+            <img alt="배너 수정 아이콘" src={picturesmall}></img>
             <span>배너 사진</span>
           </div>
         </s.List>
