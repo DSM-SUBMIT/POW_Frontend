@@ -8,7 +8,7 @@ const ProjectlntroModal = (props) => {
     props.setProjectIntroModal(false);
   };
   return (
-    <modal>
+    <>
       <WhiteScreen onClick={onClickProjectIntroModal} />
       <S.IntroContent>
         <IntroduceHeader />
@@ -16,7 +16,7 @@ const ProjectlntroModal = (props) => {
           <p>.</p>
         </S.IntroduceBox>
       </S.IntroContent>
-    </modal>
+    </>
   );
 };
 
