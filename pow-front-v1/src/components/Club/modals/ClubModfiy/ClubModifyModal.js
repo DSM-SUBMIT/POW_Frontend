@@ -10,7 +10,7 @@ const ClubModifyModal = (props) => {
     props.setClubModifyModal(false);
   };
   return (
-    <modal>
+    <>
       <WhiteScreen onClick={onClickGreyBox} />
       <S.CmContent>
         <S.Title>
@@ -33,7 +33,7 @@ const ClubModifyModal = (props) => {
           업로드 하기
         </S.UploadButton>
       </S.CmContent>
-    </modal>
+    </>
   );
 };
 
