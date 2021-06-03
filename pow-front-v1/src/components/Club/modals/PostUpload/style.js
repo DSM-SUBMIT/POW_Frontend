@@ -23,7 +23,7 @@ export const Title = styled.div`
   transform: translateX(-50%);
   p {
     font-family: NanumSquare_ac;
-    font-seize: 20px;
+    font-size: 20px;
     margin-top: 27px;
     color: #8d8d8d;
   }
