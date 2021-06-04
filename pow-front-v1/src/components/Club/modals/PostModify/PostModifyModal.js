@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import * as S from "../PostModify/style";
+import * as S from "../postModify/style";
 import WhiteScreen from "../common/WhiteScreen";
 import "react-datepicker/dist/react-datepicker.css";
 
 const PostModifyModal = (props) => {
+  const { setPostModifyModal } = props;
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
   const onClickPostModifyModal = () => {
-    props.setPostModifyModal(false);
+    setPostModifyModal(false);
   };
 
   return (
