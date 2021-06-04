@@ -1,5 +1,5 @@
 import React from "react";
-import * as S from "../ProjectIntro/style";
+import * as S from "../projectIntro/style";
 
 const IntroduceHeader = () => {
   return (
