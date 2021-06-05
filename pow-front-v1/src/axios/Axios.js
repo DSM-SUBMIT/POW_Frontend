@@ -36,6 +36,39 @@ export const ClubModify = (content, clubId, token) => {
     });
 };
 
+export const PostModify = (
+  title,
+  content,
+  startedAt,
+  endedAt,
+  clubId,
+  projectId,
+  token
+) => {
+  return axios
+    .put(
+      `${crudURL}club/${clubId}/project/${projectId}`,
+      {
+        title: title,
+        contents: content,
+        started_at: startedAt,
+        ended_at: endedAt,
+        club_id: clubId,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+
 export const PostUpload = (
   title,
   content,
@@ -77,21 +110,6 @@ export const ProjectIntro = () => {
     })
     .catch(function (error) {
       console.log(error);
-    });
-};
-
-export const PostModify = (
-  title,
-  content,
-  startedAt,
-  endedAt,
-  clubId,
-  token
-) => {
-  return axios
-    .PUT(`${crudURL}club/${club_id}/project/${project_id}`, {})
-    .then(function (response) {
-      console.log(response);
     });
 };
 */
