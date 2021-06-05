@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import * as s from './style';
-import pow from '../Img/pow.png';
+import pow from '../IMG/pow.png';
 // import search from '../Img/search.png';
-import Login from '../Modal/Login';
-import AccountDel from '../Modal/AccountDel';
-import NewPw from '../Modal/NewPw';
+import Login from '../modal/Login';
+import AccountDel from '../modal/AccountDel';
+import NewPw from '../modal/NewPw';
 
 const Header = () => {
     const [loginModal, setLoginModal] = useState(false);
