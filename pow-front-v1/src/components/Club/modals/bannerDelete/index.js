@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './Style';
 import WhiteScreen from '../common/WhiteScreen';
-import {FileRequest} from '../../../Axios/Axios';
+import {FileRequest} from '../../../../axios/Axios';
 
 const BannerDelete = ({setBannerDeleteModal}) => {
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ';
