@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as S from "../clubModfiy/style";
+import * as S from "./style";
 import WhiteScreen from "../common/WhiteScreen";
 import { ClubModify } from "../../../../axios/Axios";
 
