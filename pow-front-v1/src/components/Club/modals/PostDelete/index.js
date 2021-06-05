@@ -1,5 +1,5 @@
 import React from "react";
-import * as S from "../postDelete/style";
+import * as S from "./style";
 import WhiteScreen from "../common/WhiteScreen";
 
 const PostDelete = (props) => {
