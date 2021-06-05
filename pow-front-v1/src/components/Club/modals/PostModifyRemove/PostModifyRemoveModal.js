@@ -19,7 +19,7 @@ const PostModifyRemoveModal = (props) => {
   };
 
   return (
-    <modal>
+    <>
       <WhiteScreen onClick={onClickGreyBox} />
       <S.PmrContent>
         <S.Title>
@@ -34,7 +34,7 @@ const PostModifyRemoveModal = (props) => {
           게시글 삭제
         </S.Button>
       </S.PmrContent>
-    </modal>
+    </>
   );
 };
 
