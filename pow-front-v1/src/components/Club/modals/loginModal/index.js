@@ -1,6 +1,6 @@
 import React from 'react';
-import * as s from './style';
-import pow from './Img/pow.png';
+import * as s from './Style';
+import pow from '../../../img/pow.png';
 
 const Login = ({setLoginModal, setAccountDelModal, setNewPwModal}) => {
     const onClickAway = () => {
