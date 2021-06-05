@@ -5,19 +5,24 @@ import WhiteScreen from '../common/WhiteScreen';
 const ProfileDeleteModal = ({setProfileDeleteModal}) => {
 
   const onClickWhiteScreen = () => {
+    setProfileDeleteModal(false);
+  }
+
+  const onClickCancelBtn = () => {
+    setProfileDeleteModal(false);
   }
 
   return(
-    <modal>
+    <>
       <WhiteScreen onClick={onClickWhiteScreen} />
       <S.DelContent>
         <S.Title>
-          <p>프로필 사진을 삭제합니다</p>
+          <p>프로필 사진을 초기화합니다</p>
         </S.Title>
         <S.CheckButton>확인</S.CheckButton>
-        <S.NoButton>취소</S.NoButton>
+        <S.NoButton onClick={onClickCancelBtn}>취소</S.NoButton>
       </S.DelContent>
-    </modal>
+    </>
   );
 }
 
