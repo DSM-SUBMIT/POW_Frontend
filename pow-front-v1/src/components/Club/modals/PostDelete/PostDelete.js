@@ -8,7 +8,7 @@ const PostDelete = (props) => {
     setPostDeleteModal(false);
   };
   return (
-    <modal>
+    <>
       <WhiteScreen onClick={onClickPostDelete} />
       <S.DelContent>
         <S.Title>
@@ -17,7 +17,7 @@ const PostDelete = (props) => {
         <S.CheckButton>확인</S.CheckButton>
         <S.NoButton>취소</S.NoButton>
       </S.DelContent>
-    </modal>
+    </>
   );
 };
 
