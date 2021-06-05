@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import * as s from './style';
 import edit from '../IMG/edit.png';
 import picture from '../IMG/picture.png';
@@ -14,14 +14,12 @@ import PostDeleteModal from "../Club/modals/PostDelete/PostDelete";
 import ProjectIntroModal from "../Club/modals/ProjectIntro/ProjectIntroModal";
 import ClubModifyModal from "../Club/modals/ClubModfiy/ClubModifyModal";
 import BannerDelete from './modals/bannerDelete/BannerDelete';
+import ProfileDeleteModal from './modals/profileDeleteModal/ProfileDeleteModal';
 
 const Club = () => {
   const [pictureModal, setPictureModal] = useState(false);
   const [profileModal, setProfileModal] = useState(false);
   const [bannerModal, setBannerModal] = useState(false);
-  const imgUrl = 'https://ehddkfl.herokuapp.com/public/';
-  let profilePath = 'DefaultImage.png';
-  let bannerPath = 'DefaultImage.png';
   const [postModifyModal, setPostModifyModal] = useState(false);
   const [postModifyRemoveModal, setPostModifyRemoveModal] = useState(false);
   const [postUploadModal, setPostUploadModal] = useState(false);
@@ -30,6 +28,11 @@ const Club = () => {
   const [clubModifyModal, setClubModifyModal] = useState(false);
   const [bannerDeleteModal, setBannerDeleteModal] = useState(false);
   const [profileDeleteModal, setProfileDeleteModal] = useState(false);
+
+  const imgUrl = 'https://ehddkfl.herokuapp.com/public/';
+  const profilePath = 'DefaultImage.png';
+  const bannerPath = 'DefaultImage.png';
+  
 
   const onClickPictureModal = () => {
     setPictureModal(true);
@@ -110,7 +113,9 @@ const Club = () => {
         <BannerDelete setBannerDeleteModal={setBannerDeleteModal}/>
       )}
 
-      
+      {profileDeleteModal && (
+        <ProfileDeleteModal setProfileDeleteModal={setProfileDeleteModal}/>
+      )}
 
       <header>
         <s.BannerImg>
@@ -147,42 +152,18 @@ const Club = () => {
               </s.PostUpload>
             </s.Upload>
             <s.Content>
-              <s.Post onClick={onClickProjectIntro}>
-                <img alt="더보기" src={list} onClick={onClickPostModifyRemoveModal}></img>
-                <s.PostDiv>
-                  <p>작성일 : 2021-04-10</p>
-                  <p>수정일 : 2021-04-11</p>
-                </s.PostDiv>
-                <s.Title>제목입니다.</s.Title>
-                <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
-              </s.Post>
-              <s.Post>
-                <img alt="더보기" src={list}></img>
-                <s.PostDiv>
-                  <p>작성일 : 2021-04-10</p>
-                  <p>수정일 : 2021-04-11</p>
-                </s.PostDiv>
-                <s.Title>제목입니다.</s.Title>
-                <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
-              </s.Post>
-              <s.Post>
-                <img alt="더보기" src={list}></img>
-                <s.PostDiv>
-                  <p>작성일 : 2021-04-10</p>
-                  <p>수정일 : 2021-04-11</p>
-                </s.PostDiv>
-                <s.Title>제목입니다.</s.Title>
-                <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
-              </s.Post>
-              <s.Post>
-                <img alt="더보기" src={list}></img>
-                <s.PostDiv>
-                  <p>작성일 : 2021-04-10</p>
-                  <p>수정일 : 2021-04-11</p>
-                </s.PostDiv>
-                <s.Title>제목입니다.</s.Title>
-                <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
-              </s.Post>
+              {[...Array(5)].map((v, i) => {
+                return(
+                  <s.Post key={i} onClick={onClickProjectIntro}>
+                    <img alt="더보기" src={list} onClick={onClickPostModifyRemoveModal}></img>
+                    <s.PostDiv>
+                      <p>작성일 : 2021-04-10</p>
+                      <p>수정일 : 2021-04-11</p>
+                    </s.PostDiv>
+                    <s.Title>제목입니다.</s.Title>
+                    <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
+                  </s.Post>
+                );})}
             </s.Content>
           </s.RightContent>
         </s.MainContent>
