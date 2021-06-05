@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import * as s from "./style";
-import edit from "../img/edit.png";
-import picture from "../img/picture.png";
-import writing from "../img/writing.png";
-import list from "../img/list.png";
-import PictureUploadModal from "./modals/pictureUploadModal/PictureUploadModal";
-import ProfileUpload from "./modals/profileUpload/ProfileUpload";
-import BannerUpload from "./modals/bannerUpload/BannerUpload";
-import PostModifyModal from "../club/modals/postModify/PostModifyModal";
-import PostModifyRemoveModal from "../club/modals/postModifyRemove/PostModifyRemoveModal";
-import PostUploadModal from "../club/modals/postUpload/PostUploadModal";
-import PostDeleteModal from "../club/modals/postDelete/PostDelete";
-import ProjectIntroModal from "../club/modals/projectIntro/ProjectIntroModal";
-import ClubModifyModal from "../club/modals/clubModfiy/ClubModifyModal";
+import edit from "../IMG/edit.png";
+import picture from "../IMG/picture.png";
+import writing from "../IMG/writing.png";
+import list from "../IMG/list.png";
+import PictureUploadModal from "./modals/pictureUploadModal";
+import ProfileUpload from "./modals/ProfileUpload";
+import BannerUpload from "./modals/BannerUpload";
+import PostModifyModal from "./modals/PostModify";
+import PostModifyRemoveModal from "./modals/PostModifyRemove";
+import PostUploadModal from "./modals/PostUpload";
+import PostDeleteModal from "./modals/PostDelete";
+import ProjectIntroModal from "./modals/ProjectIntro/ProjectIntroModal";
+import ClubModifyModal from "./modals/ClubModfiy";
+import ProfileDeleteModal from './modals/profileDeleteModal';
+import BannerDelete from './modals/bannerDelete';
 
 const Club = () => {
   const [pictureModal, setPictureModal] = useState(false);
