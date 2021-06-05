@@ -1,26 +1,22 @@
+/* eslint-disable */
 import React from 'react';
-import react from "react";
-// import ClubModifyModal from "./components/modal/ClubModfiy/ClubModifyModal";
-// import PostModifyModal from "./components/modal/PostModify/PostModifyModal";
-// import PostModifyRemoveModal from "./components/modal/PostModifyRemove/PostModifyRemoveModal";
-// import PostUploadModal from "./components/modal/PostUpload/PostUploadModal";
-import ProjectIntroModal from "./components/modal/ProjectIntro/ProjectIntroModal";
-// import PostDelete from "./components/modal/PostDelete/PostDelete";
-import React from "react";
-import Club from "./components/Club/Club";
 import Header from "./components/Header/Header";
-import Main from './component/Main/Main';
+import Main from './components/Main/Main';
+import AccountDel from './components/Modal/AccountDel';
+import { Route, BrowserRouter } from "react-router-dom";
 import "./App.css";
 
 const App = () => {
-  return (
+  return(
     <>
-      <Header></Header>
-      <Main></Main>
-      <Club></Club>
-      <ProjectIntroModal />
+      <BrowserRouter>
+        <Route path="/" exact>
+          <Header></Header>
+          <Main></Main>
+        </Route>
+      </BrowserRouter>
     </>
-  );
-};
+  )
+}
 
 export default App;
