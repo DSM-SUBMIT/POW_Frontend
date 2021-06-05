@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import * as s from './style';
-import logo from '../IMG/logo.png';
 import edit from '../IMG/edit.png';
 import picture from '../IMG/picture.png';
 import writing from '../IMG/writing.png';
@@ -14,6 +13,7 @@ import PostUploadModal from "../Club/modals/PostUpload/PostUploadModal";
 import PostDeleteModal from "../Club/modals/PostDelete/PostDelete";
 import ProjectIntroModal from "../Club/modals/ProjectIntro/ProjectIntroModal";
 import ClubModifyModal from "../Club/modals/ClubModfiy/ClubModifyModal";
+import BannerDelete from './modals/bannerDelete/BannerDelete';
 
 const Club = () => {
   const [pictureModal, setPictureModal] = useState(false);
@@ -28,7 +28,8 @@ const Club = () => {
   const [postDeleteModal, setPostDeleteModal] = useState(false);
   const [projectIntroModal, setProjectIntroModal] = useState(false);
   const [clubModifyModal, setClubModifyModal] = useState(false);
-
+  const [bannerDeleteModal, setBannerDeleteModal] = useState(false);
+  const [profileDeleteModal, setProfileDeleteModal] = useState(false);
 
   const onClickPictureModal = () => {
     setPictureModal(true);
@@ -50,6 +51,14 @@ const Club = () => {
   const onClickProjectIntro = () => {
     setProjectIntroModal(true);
   };
+
+  const onClickBannerDeleteModal = () => {
+    setBannerDeleteModal(true);
+  }
+
+  const onClickProfileDeleteModal = () => {
+    setProfileDeleteModal(true);
+  }
 
   return (
     <>
@@ -97,13 +106,21 @@ const Club = () => {
         <ProjectIntroModal setProjectIntroModal={setProjectIntroModal} />
       )}
 
+      {bannerDeleteModal && (
+        <BannerDelete setBannerDeleteModal={setBannerDeleteModal}/>
+      )}
+
+      
+
       <header>
         <s.BannerImg>
             <s.WhiteBox></s.WhiteBox>
             <s.LogoDiv>
-                <img alt="프로필 사진" src={`${imgUrl}profiles/${profilePath}`}></img>
+                <img alt="프로필 사진" src={`${imgUrl}profiles/${profilePath}`}
+                onClick = {onClickProfileDeleteModal} />
             </s.LogoDiv>
-            <img alt="베너 사진" src={`${imgUrl}banners/${bannerPath}`}></img>
+            <img alt="베너 사진" src={`${imgUrl}banners/${bannerPath}`}
+            onClick={onClickBannerDeleteModal}/>
         </s.BannerImg>
       </header>
       <section style={{ backgroundColor: "#FCFCFC" }}>
