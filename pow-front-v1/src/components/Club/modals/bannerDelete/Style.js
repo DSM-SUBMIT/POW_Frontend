@@ -1,4 +1,27 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+
+export const WhiteScreen = styled.div`
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #B9B9B9;
+  opacity: 0.5;
+  z-index: 3;
+`
+
+export const Modal = styled.div`
+  width: 660px;
+  height: 254px;
+  border-radius: 23px;
+  border: 1px solid #707070;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  background-color: white;
+`
 
 export const DelContent = styled.div`
   width: 620px;
@@ -12,7 +35,7 @@ export const DelContent = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 4;
-`;
+`
 
 export const Title = styled.div`
   border-bottom: 1px solid #707070;
@@ -20,11 +43,12 @@ export const Title = styled.div`
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  margin-top: 30px;
   p {
     font-family: NanumSquare_ac;
-    font-seize: 20px;
+    font-size: 20px;
   }
-`;
+`
 
 export const CheckButton = styled.button`
   width: 95px;
@@ -37,7 +61,11 @@ export const CheckButton = styled.button`
   margin: 20px;
   margin-top: 33px;
   cursor: pointer;
-`;
+
+  :hover{
+    background-color: #fea678;
+  }
+`
 
 export const NoButton = styled.button`
   width: 95px;
@@ -50,4 +78,8 @@ export const NoButton = styled.button`
   margin: 20px;
   margin-top: 33px;
   cursor: pointer;
-`;
+
+  :hover{
+    background-color: #73a4f8;
+  }
+`

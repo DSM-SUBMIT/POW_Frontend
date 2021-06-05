@@ -37,6 +37,7 @@ export const Button = styled.button`
   font-size: 19px;
   line-height: 49px;
   font-family: NanumSquare_ac;
+  cursor: pointer;
   svg {
     vertical-align: middle;
     margin-right: 9px;

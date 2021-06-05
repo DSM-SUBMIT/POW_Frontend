@@ -1,25 +1,36 @@
 import React, { useState } from "react";
-import * as S from "../PostModify/style";
+import * as S from "../postModify/style";
 import WhiteScreen from "../common/WhiteScreen";
 import "react-datepicker/dist/react-datepicker.css";
+import { PostModify } from "../../../../axios/Axios";
 
 const PostModifyModal = (props) => {
+  const { setPostModifyModal } = props;
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxfQ.HFXowaGXnoryNVa_SbW2TtkF8KzA9ZJDfX6OnXpR9_o`;
 
   const onClickPostModifyModal = () => {
-    props.setPostModifyModal(false);
+    setPostModifyModal(false);
   };
 
   return (
-    <modal>
+    <>
       <WhiteScreen onClick={onClickPostModifyModal} />
       <S.ModifyContent>
         <S.Title>
           <p>게시물 수정</p>
         </S.Title>
         <S.ModifyHeader>
-          <S.InputText placeholder="제목을 입력해 주세요" />
+          <S.InputText
+            placeholder="제목을 입력해 주세요"
+            value={title}
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+          />
           <S.DayBox>
             <S.DayLable>시작일 : </S.DayLable>
             <S.SelectDate
@@ -39,11 +50,23 @@ const PostModifyModal = (props) => {
           </S.DayBox>
         </S.ModifyHeader>
         <S.WriteBox>
-          <S.InputContent placeholder="내용을 입력해 주세요" />
+          <S.InputContent
+            placeholder="내용을 입력해 주세요"
+            value={content}
+            onChange={(e) => {
+              setContent(e.target.value);
+            }}
+          />
         </S.WriteBox>
-        <S.UploadButton>업로드 하기</S.UploadButton>
+        <S.UploadButton
+          onClick={(e) => {
+            PostModify(title, content, startDate, endDate, 1, 1, token);
+          }}
+        >
+          업로드 하기
+        </S.UploadButton>
       </S.ModifyContent>
-    </modal>
+    </>
   );
 };
 

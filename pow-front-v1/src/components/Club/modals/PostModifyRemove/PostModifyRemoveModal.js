@@ -1,25 +1,27 @@
 import React from "react";
-import * as S from "../PostModifyRemove/style";
+import * as S from "../postModifyRemove/style";
 import WhiteScreen from "../common/WhiteScreen";
 import * as SVG from "../common/SvgCollection";
 
 const PostModifyRemoveModal = (props) => {
+  const { setPostModifyRemoveModal, setPostModifyModal, setPostDeleteModal } =
+    props;
   const onClickGreyBox = () => {
-    props.setPostModifyRemoveModal(false);
+    setPostModifyRemoveModal(false);
   };
 
   const onClickPostModify = () => {
-    props.setPostModifyRemoveModal(false);
-    props.setPostModifyModal(true);
+    setPostModifyRemoveModal(false);
+    setPostModifyModal(true);
   };
 
   const onClickPostDelete = () => {
-    props.setPostModifyRemoveModal(false);
-    props.setPostDeleteModal(true);
+    setPostModifyRemoveModal(false);
+    setPostDeleteModal(true);
   };
 
   return (
-    <modal>
+    <>
       <WhiteScreen onClick={onClickGreyBox} />
       <S.PmrContent>
         <S.Title>
@@ -34,7 +36,7 @@ const PostModifyRemoveModal = (props) => {
           게시글 삭제
         </S.Button>
       </S.PmrContent>
-    </modal>
+    </>
   );
 };
 

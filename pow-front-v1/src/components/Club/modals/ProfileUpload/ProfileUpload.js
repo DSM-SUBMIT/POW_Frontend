@@ -1,39 +1,42 @@
-import React, { useState } from 'react';
-import { FileRequest } from '../../../Axios/Axios';
-import * as s from './style';
+import React, { useState } from "react";
+import { FileRequest } from "../../../../axios/Axios";
+import * as s from "./style";
 
-const ProfileUpload = (props) => {
+const ProfileUpload = ({setProfileModal}) => {
   const [file, setFile] = useState(null);
-  const [filePath, setFilePath] = useState('');
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ';
+  const [filePath, setFilePath] = useState("");
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ";
 
   const onClickWhiteScreen = () => {
-    props.setProfileModal(false);
+    setProfileModal(false);
   };
 
   const onChangeFile = (e) => {
-    console.log(e.target.files[0]);
     setFile(e.target.files[0]);
     let str = e.target.value.slice(12, e.target.value.length);
     setFilePath(str);
-  }
+  };
 
-  const onSubmitFile = async() => {
-    try{
+  const onSubmitFile = async () => {
+    try {
       const fd = new FormData();
       file&&fd.append("file", file);
-      const data = FileRequest('PUT', `banner/1`, {
+      FileRequest('PUT', `banner/2`, {
         authorization: `Bearer ${token}`,
       }, fd);
-      console.log(data);
+      setProfileModal(false);
+      alert("프로필 사진이 업로드 되었습니다.");
+      setFile(null);
+      setFilePath('');
     } catch(e) {
       console.log(e);
     }
-  } 
+  };
 
-  return(
+  return (
     <>
-      <s.WhiteScreen onClick={onClickWhiteScreen}></s.WhiteScreen>
+      <s.WhiteScreen onClick={onClickWhiteScreen}/>
       <s.Modal>
         <s.Title>
           <p>프로필 사진 업로드</p>
@@ -48,8 +51,8 @@ const ProfileUpload = (props) => {
           <s.FileUpload
             id="fileUpload"
             type="file"
-            onChange={onChangeFile}
-          ></s.FileUpload>
+            accept="image/jpeg,image/png"
+            onChange={onChangeFile}/>
         </s.FileInput>
         <s.UploadBtn onClick={onSubmitFile}>업로드 하기</s.UploadBtn>
       </s.Modal>

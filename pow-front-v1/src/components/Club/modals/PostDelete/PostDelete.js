@@ -1,13 +1,14 @@
 import React from "react";
-import * as S from "../PostDelete/style";
+import * as S from "../postDelete/style";
 import WhiteScreen from "../common/WhiteScreen";
 
 const PostDelete = (props) => {
+  const { setPostDeleteModal } = props;
   const onClickPostDelete = () => {
-    props.setPostDeleteModal(false);
+    setPostDeleteModal(false);
   };
   return (
-    <modal>
+    <>
       <WhiteScreen onClick={onClickPostDelete} />
       <S.DelContent>
         <S.Title>
@@ -16,7 +17,7 @@ const PostDelete = (props) => {
         <S.CheckButton>확인</S.CheckButton>
         <S.NoButton>취소</S.NoButton>
       </S.DelContent>
-    </modal>
+    </>
   );
 };
 

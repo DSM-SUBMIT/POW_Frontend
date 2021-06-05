@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import * as S from "../PostUpload/style";
+import * as S from "../postUpload/style";
 import WhiteScreen from "../common/WhiteScreen";
 import "react-datepicker/dist/react-datepicker.css";
-import { PostUpload } from "../../../Axios/Axios";
+import { PostUpload } from "../../../../axios/Axios";
 
 const PostUploadModal = (props) => {
+  const { setPostUploadModal } = props;
   const [title, setTitle] = useState("");
   const [content, setContnet] = useState("");
   const [startDate, setStartDate] = useState(new Date());
@@ -12,11 +13,11 @@ const PostUploadModal = (props) => {
   const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxfQ.HFXowaGXnoryNVa_SbW2TtkF8KzA9ZJDfX6OnXpR9_o`;
 
   const onClickPostUploadModal = () => {
-    props.setPostUploadModal(false);
+    setPostUploadModal(false);
   };
 
   return (
-    <modal>
+    <>
       <WhiteScreen onClick={onClickPostUploadModal} />
       <S.UpContent>
         <S.Title>
@@ -65,7 +66,7 @@ const PostUploadModal = (props) => {
           업로드 하기
         </S.UploadButton>
       </S.UpContent>
-    </modal>
+    </>
   );
 };
 

@@ -1,21 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as s from "./style";
-import Banner from "../Img/Banner.png";
-import logo from "../Img/logo.png";
-import edit from "../Img/edit.png";
-import picture from "../Img/picture.png";
-import writing from "../Img/writing.png";
-import list from "../Img/list.png";
+import edit from "../img/edit.png";
+import picture from "../img/picture.png";
+import writing from "../img/writing.png";
+import list from "../img/list.png";
 import PictureUploadModal from "./modals/pictureUploadModal/PictureUploadModal";
-import ProfileUpload from "./modals/ProfileUpload/ProfileUpload";
-import BannerUpload from "./modals/BannerUpload/BannerUpload";
-import PostModifyModal from "../Club/modals/PostModify/PostModifyModal";
-import PostModifyRemoveModal from "../Club/modals/PostModifyRemove/PostModifyRemoveModal";
-import PostUploadModal from "../Club/modals/PostUpload/PostUploadModal";
-import PostDeleteModal from "../Club/modals/PostDelete/PostDelete";
-import ProjectIntroModal from "../Club/modals/ProjectIntro/ProjectIntroModal";
-import ClubModifyModal from "../Club/modals/ClubModfiy/ClubModifyModal";
-import { FileRequest } from "../Axios/Axios";
+import ProfileUpload from "./modals/profileUpload/ProfileUpload";
+import BannerUpload from "./modals/bannerUpload/BannerUpload";
+import PostModifyModal from "../club/modals/postModify/PostModifyModal";
+import PostModifyRemoveModal from "../club/modals/postModifyRemove/PostModifyRemoveModal";
+import PostUploadModal from "../club/modals/postUpload/PostUploadModal";
+import PostDeleteModal from "../club/modals/postDelete/PostDelete";
+import ProjectIntroModal from "../club/modals/projectIntro/ProjectIntroModal";
+import ClubModifyModal from "../club/modals/clubModfiy/ClubModifyModal";
 
 const Club = () => {
   const [pictureModal, setPictureModal] = useState(false);
@@ -27,9 +24,12 @@ const Club = () => {
   const [postDeleteModal, setPostDeleteModal] = useState(false);
   const [projectIntroModal, setProjectIntroModal] = useState(false);
   const [clubModifyModal, setClubModifyModal] = useState(false);
-  const imgUrl = "https://ehddkfl.herokuapp.com/public/";
-  let imgPath = "1622034202935__Banner.png";
-
+  const [bannerDeleteModal, setBannerDeleteModal] = useState(false);
+  const [profileDeleteModal, setProfileDeleteModal] = useState(false);
+  const imgUrl = 'https://ehddkfl.herokuapp.com/public/';
+  const profilePath = 'DefaultImage.png';
+  const bannerPath = 'DefaultImage.png';
+  
   const onClickPictureModal = () => {
     setPictureModal(true);
   };
@@ -50,6 +50,14 @@ const Club = () => {
   const onClickProjectIntro = () => {
     setProjectIntroModal(true);
   };
+
+  const onClickBannerDeleteModal = () => {
+    setBannerDeleteModal(true);
+  }
+
+  const onClickProfileDeleteModal = () => {
+    setProfileDeleteModal(true);
+  }
 
   return (
     <>
@@ -78,7 +86,7 @@ const Club = () => {
       )}
 
       {postModifyModal && (
-        <PostModifyModal setPostModifyModal={setPostModifyRemoveModal} />
+        <PostModifyModal setPostModifyModal={setPostModifyModal} />
       )}
 
       {postUploadModal && (
@@ -97,13 +105,23 @@ const Club = () => {
         <ProjectIntroModal setProjectIntroModal={setProjectIntroModal} />
       )}
 
+      {bannerDeleteModal && (
+        <BannerDelete setBannerDeleteModal={setBannerDeleteModal}/>
+      )}
+
+      {profileDeleteModal && (
+        <ProfileDeleteModal setProfileDeleteModal={setProfileDeleteModal}/>
+      )}
+
       <header>
         <s.BannerImg>
-          <s.WhiteBox></s.WhiteBox>
-          <s.LogoDiv>
-            <img src={logo}></img>
-          </s.LogoDiv>
-          <img src={`${imgUrl}banners/${imgPath}`}></img>
+            <s.WhiteBox></s.WhiteBox>
+            <s.LogoDiv>
+                <img alt="프로필 사진" src={`${imgUrl}profiles/${profilePath}`}
+                onClick = {onClickProfileDeleteModal} />
+            </s.LogoDiv>
+            <img alt="베너 사진" src={`${imgUrl}banners/${bannerPath}`}
+            onClick={onClickBannerDeleteModal}/>
         </s.BannerImg>
       </header>
       <section style={{ backgroundColor: "#FCFCFC" }}>
@@ -117,55 +135,31 @@ const Club = () => {
           <s.RightContent>
             <s.Upload>
               <s.PictureUpload onClick={onClickPictureModal}>
-                <img src={picture}></img>
+                <img alt="아이콘" src={picture}></img>
                 <span>사진 업로드</span>
               </s.PictureUpload>
               <s.ClubFix onClick={onClickClubModifyModal}>
-                <img src={edit}></img>
+                <img alt="아이콘" src={edit}></img>
                 <span>동아리 소개 수정</span>
               </s.ClubFix>
               <s.PostUpload onClick={onClickPostUploadModal}>
-                <img src={writing}></img>
+                <img alt="아이콘" src={writing}></img>
                 <span>게시물 업로드</span>
               </s.PostUpload>
             </s.Upload>
             <s.Content>
-              <s.Post onClick={onClickProjectIntro}>
-                <img src={list} onClick={onClickPostModifyRemoveModal}></img>
-                <s.PostDiv>
-                  <p>작성일 : 2021-04-10</p>
-                  <p>수정일 : 2021-04-11</p>
-                </s.PostDiv>
-                <s.Title>제목입니다.</s.Title>
-                <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
-              </s.Post>
-              <s.Post>
-                <img src={list}></img>
-                <s.PostDiv>
-                  <p>작성일 : 2021-04-10</p>
-                  <p>수정일 : 2021-04-11</p>
-                </s.PostDiv>
-                <s.Title>제목입니다.</s.Title>
-                <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
-              </s.Post>
-              <s.Post>
-                <img src={list}></img>
-                <s.PostDiv>
-                  <p>작성일 : 2021-04-10</p>
-                  <p>수정일 : 2021-04-11</p>
-                </s.PostDiv>
-                <s.Title>제목입니다.</s.Title>
-                <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
-              </s.Post>
-              <s.Post>
-                <img src={list}></img>
-                <s.PostDiv>
-                  <p>작성일 : 2021-04-10</p>
-                  <p>수정일 : 2021-04-11</p>
-                </s.PostDiv>
-                <s.Title>제목입니다.</s.Title>
-                <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
-              </s.Post>
+              {[...Array(5)].map((v, i) => {
+                return(
+                  <s.Post key={i} onClick={onClickProjectIntro}>
+                    <img alt="더보기" src={list} onClick={onClickPostModifyRemoveModal}></img>
+                    <s.PostDiv>
+                      <p>작성일 : 2021-04-10</p>
+                      <p>수정일 : 2021-04-11</p>
+                    </s.PostDiv>
+                    <s.Title>제목입니다.</s.Title>
+                    <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
+                  </s.Post>
+                );})}
             </s.Content>
           </s.RightContent>
         </s.MainContent>
