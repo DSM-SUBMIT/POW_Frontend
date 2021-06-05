@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as S from "../postUpload/style";
+import * as S from "./style";
 import WhiteScreen from "../common/WhiteScreen";
 import "react-datepicker/dist/react-datepicker.css";
 import { PostUpload } from "../../../../axios/Axios";
