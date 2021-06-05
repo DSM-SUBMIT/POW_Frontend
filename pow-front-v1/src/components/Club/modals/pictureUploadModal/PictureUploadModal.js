@@ -1,6 +1,6 @@
 import React from "react";
 import * as s from "./style";
-import picturesmall from "../../../Img/picturesmall.png";
+import picturesmall from "../../../img/picturesmall.png";
 
 const PictureUploadModal = (props) => {
   const onClickWhiteScreen = () => {
