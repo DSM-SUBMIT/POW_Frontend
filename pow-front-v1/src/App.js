@@ -5,12 +5,16 @@ import "./App.css";
 import { Route, BrowserRouter } from "react-router-dom";
 
 const App = () => {
-  return (
+  return(
     <>
-      <Header></Header>
-      <Club></Club>
+      <BrowserRouter>
+        <Route path="/" exact>
+          <Header></Header>
+          <Main></Main>
+        </Route>
+      </BrowserRouter>
     </>
-  );
-};
+  )
+}
 
 export default App;
