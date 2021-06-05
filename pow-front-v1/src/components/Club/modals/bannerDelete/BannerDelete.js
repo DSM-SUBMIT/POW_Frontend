@@ -1,24 +1,41 @@
 import React from 'react';
 import * as S from './Style';
 import WhiteScreen from '../common/WhiteScreen';
+import {FileRequest} from '../../../Axios/Axios';
 
 const BannerDelete = ({setBannerDeleteModal}) => {
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ';
 
   const onClickWhiteScreen = () => {
     setBannerDeleteModal(false);
   }
 
+  const onClickCancelBtn = () => {
+    setBannerDeleteModal(false);
+  }
+
+  const onClickBannerDelete = () => {
+    try{
+      FileRequest("PATCH", 'profile/1', {
+        authorization: `Bearer ${token}`
+      }, {});
+      
+    } catch(e) {
+      console.log(e);
+    }
+  }
+
   return(
-    <modal>
+    <>
       <WhiteScreen onClick={onClickWhiteScreen} />
       <S.DelContent>
         <S.Title>
-          <p>베너사진을 삭제합니다</p>
+          <p>베너사진을 초기화합니다</p>
         </S.Title>
-        <S.CheckButton>확인</S.CheckButton>
-        <S.NoButton>취소</S.NoButton>
+        <S.CheckButton onClick={onClickBannerDelete}>확인</S.CheckButton>
+        <S.NoButton onClick={onClickCancelBtn}>취소</S.NoButton>
       </S.DelContent>
-    </modal>
+    </>
   );
 }
 
