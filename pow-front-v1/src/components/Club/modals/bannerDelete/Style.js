@@ -35,7 +35,7 @@ export const DelContent = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 4;
-`;
+`
 
 export const Title = styled.div`
   border-bottom: 1px solid #707070;
@@ -43,11 +43,12 @@ export const Title = styled.div`
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  margin-top: 30px;
   p {
     font-family: NanumSquare_ac;
     font-size: 20px;
   }
-`;
+`
 
 export const CheckButton = styled.button`
   width: 95px;
@@ -59,7 +60,12 @@ export const CheckButton = styled.button`
   color: #ffffff;
   margin: 20px;
   margin-top: 33px;
-`;
+  cursor: pointer;
+
+  :hover{
+    background-color: #fea678;
+  }
+`
 
 export const NoButton = styled.button`
   width: 95px;
@@ -71,4 +77,9 @@ export const NoButton = styled.button`
   color: #ffffff;
   margin: 20px;
   margin-top: 33px;
-`;
+  cursor: pointer;
+
+  :hover{
+    background-color: #73a4f8;
+  }
+`
