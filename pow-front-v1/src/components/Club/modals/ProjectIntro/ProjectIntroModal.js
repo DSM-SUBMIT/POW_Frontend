@@ -1,12 +1,14 @@
 import React from "react";
-import * as S from "../ProjectIntro/style";
+import * as S from "../projectIntro/style";
 import WhiteScreen from "../common/WhiteScreen";
 import IntroduceHeader from "./IntroduceHeader";
 
 const ProjectlntroModal = (props) => {
+  const { setProjectIntroModal } = props;
   const onClickProjectIntroModal = () => {
-    props.setProjectIntroModal(false);
+    setProjectIntroModal(false);
   };
+
   return (
     <>
       <WhiteScreen onClick={onClickProjectIntroModal} />

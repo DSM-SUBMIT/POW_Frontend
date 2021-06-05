@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
-import * as s from './style';
-import edit from '../IMG/edit.png';
-import picture from '../IMG/picture.png';
-import writing from '../IMG/writing.png';
-import list from '../IMG/list.png';
+import React, { useEffect, useState } from "react";
+import * as s from "./style";
+import edit from "../img/edit.png";
+import picture from "../img/picture.png";
+import writing from "../img/writing.png";
+import list from "../img/list.png";
 import PictureUploadModal from "./modals/pictureUploadModal/PictureUploadModal";
-import ProfileUpload from "./modals/ProfileUpload/ProfileUpload";
-import BannerUpload from "./modals/BannerUpload/BannerUpload";
-import PostModifyModal from "../Club/modals/PostModify/PostModifyModal";
-import PostModifyRemoveModal from "../Club/modals/PostModifyRemove/PostModifyRemoveModal";
-import PostUploadModal from "../Club/modals/PostUpload/PostUploadModal";
-import PostDeleteModal from "../Club/modals/PostDelete/PostDelete";
-import ProjectIntroModal from "../Club/modals/ProjectIntro/ProjectIntroModal";
-import ClubModifyModal from "../Club/modals/ClubModfiy/ClubModifyModal";
-import BannerDelete from './modals/bannerDelete/BannerDelete';
-import ProfileDeleteModal from './modals/profileDeleteModal/ProfileDeleteModal';
+import ProfileUpload from "./modals/profileUpload/ProfileUpload";
+import BannerUpload from "./modals/bannerUpload/BannerUpload";
+import PostModifyModal from "../club/modals/postModify/PostModifyModal";
+import PostModifyRemoveModal from "../club/modals/postModifyRemove/PostModifyRemoveModal";
+import PostUploadModal from "../club/modals/postUpload/PostUploadModal";
+import PostDeleteModal from "../club/modals/postDelete/PostDelete";
+import ProjectIntroModal from "../club/modals/projectIntro/ProjectIntroModal";
+import ClubModifyModal from "../club/modals/clubModfiy/ClubModifyModal";
 
 const Club = () => {
   const [pictureModal, setPictureModal] = useState(false);
@@ -28,12 +26,10 @@ const Club = () => {
   const [clubModifyModal, setClubModifyModal] = useState(false);
   const [bannerDeleteModal, setBannerDeleteModal] = useState(false);
   const [profileDeleteModal, setProfileDeleteModal] = useState(false);
-
   const imgUrl = 'https://ehddkfl.herokuapp.com/public/';
   const profilePath = 'DefaultImage.png';
   const bannerPath = 'DefaultImage.png';
   
-
   const onClickPictureModal = () => {
     setPictureModal(true);
   };
@@ -90,7 +86,7 @@ const Club = () => {
       )}
 
       {postModifyModal && (
-        <PostModifyModal setPostModifyModal={setPostModifyRemoveModal} />
+        <PostModifyModal setPostModifyModal={setPostModifyModal} />
       )}
 
       {postUploadModal && (

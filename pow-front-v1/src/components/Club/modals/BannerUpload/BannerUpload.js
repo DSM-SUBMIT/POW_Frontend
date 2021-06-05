@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import * as s from './style';
-import { FileRequest } from '../../../Axios/Axios';
+import React, { useState } from "react";
+import * as s from "./style";
+import { FileRequest } from "../../../../axios/Axios";
 
 const BannerUpload = ({setBannerModal}) => {
   const [filePath, setFilePath] = useState('');
   const [file, setFile] = useState(null);
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ';
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ";
 
   const onClickWhiteScreen = () => {
     setBannerModal(false);
@@ -15,10 +16,10 @@ const BannerUpload = ({setBannerModal}) => {
     setFile(e.target.files[0]);
     let str = e.target.value.slice(12, e.target.value.length);
     setFilePath(str);
-  }
+  };
 
   const onCLickUpload = () => {
-    try{
+    try {
       const fd = new FormData();
       fd.append("file", file);
       FileRequest('PUT', 'banner/1', {
@@ -30,10 +31,9 @@ const BannerUpload = ({setBannerModal}) => {
     } catch(e) {
       console.log(e);
     }
-    
-  }
+  };
 
-  return(
+  return (
     <>
       <s.WhiteScreen onClick={onClickWhiteScreen}/>
       <s.Modal>
@@ -52,7 +52,7 @@ const BannerUpload = ({setBannerModal}) => {
         <s.UploadBtn onClick={onCLickUpload}>업로드 하기</s.UploadBtn>
       </s.Modal>
     </>
-  )
-}
+  );
+};
 
 export default BannerUpload;

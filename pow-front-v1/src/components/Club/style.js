@@ -120,15 +120,15 @@ export const ClubIntroBox = styled.div`
     background-color: white;
     color: #707070;
   }
-`
+`;
 
 export const Writer = styled.div`
   float: right;
   font-size: 20px;
-  color: #8D8D8D;
+  color: #8d8d8d;
   margin-top: 30px;
   margin-right: 17px;
-`
+`;
 
 export const FixDate = styled.p`
   font-size: 20px;
@@ -217,11 +217,12 @@ export const Post = styled.div`
   box-shadow: 1px 1px 5px #cbcbcb;
   border-radius: 27px;
   margin-bottom: 30px;
-
+  cursor: pointer;
   img {
     float: right;
     margin-right: 25px;
     z-index: 3;
+    cursor: pointer;
   }
 `;
 
@@ -245,7 +246,7 @@ export const Title = styled.div`
   margin-top: 45px;
   margin-left: 50px;
   font-size: 40px;
-`
+`;
 
 export const StartDate = styled.div`
   margin-top: 25px;

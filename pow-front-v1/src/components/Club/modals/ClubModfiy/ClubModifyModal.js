@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import * as S from "../ClubModfiy/style";
+import * as S from "../clubModfiy/style";
 import WhiteScreen from "../common/WhiteScreen";
-import { ClubModify } from "../../../Axios/Axios";
+import { ClubModify } from "../../../../axios/Axios";
 
 const ClubModifyModal = (props) => {
+  const { setClubModifyModal } = props;
   const [content, setContent] = useState("");
   const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxfQ.HFXowaGXnoryNVa_SbW2TtkF8KzA9ZJDfX6OnXpR9_o`;
   const onClickGreyBox = () => {
-    props.setClubModifyModal(false);
+    setClubModifyModal(false);
   };
+
   return (
     <>
       <WhiteScreen onClick={onClickGreyBox} />

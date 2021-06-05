@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { FileRequest } from '../../../Axios/Axios';
-import * as s from './style';
+import React, { useState } from "react";
+import { FileRequest } from "../../../../axios/Axios";
+import * as s from "./style";
 
 const ProfileUpload = ({setProfileModal}) => {
   const [file, setFile] = useState(null);
-  const [filePath, setFilePath] = useState('');
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ';
+  const [filePath, setFilePath] = useState("");
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ";
 
   const onClickWhiteScreen = () => {
     setProfileModal(false);
@@ -15,10 +16,10 @@ const ProfileUpload = ({setProfileModal}) => {
     setFile(e.target.files[0]);
     let str = e.target.value.slice(12, e.target.value.length);
     setFilePath(str);
-  }
+  };
 
-  const onSubmitFile = async() => {
-    try{
+  const onSubmitFile = async () => {
+    try {
       const fd = new FormData();
       file&&fd.append("file", file);
       FileRequest('PUT', `banner/2`, {
@@ -31,9 +32,9 @@ const ProfileUpload = ({setProfileModal}) => {
     } catch(e) {
       console.log(e);
     }
-  } 
+  };
 
-  return(
+  return (
     <>
       <s.WhiteScreen onClick={onClickWhiteScreen}/>
       <s.Modal>

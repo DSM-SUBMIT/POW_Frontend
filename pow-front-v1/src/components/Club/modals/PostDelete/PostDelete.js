@@ -1,10 +1,11 @@
 import React from "react";
-import * as S from "../PostDelete/style";
+import * as S from "../postDelete/style";
 import WhiteScreen from "../common/WhiteScreen";
 
 const PostDelete = (props) => {
+  const { setPostDeleteModal } = props;
   const onClickPostDelete = () => {
-    props.setPostDeleteModal(false);
+    setPostDeleteModal(false);
   };
   return (
     <>

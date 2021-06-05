@@ -36,6 +36,7 @@ export const CheckButton = styled.button`
   color: #ffffff;
   margin: 20px;
   margin-top: 33px;
+  cursor: pointer;
 `;
 
 export const NoButton = styled.button`
@@ -48,4 +49,5 @@ export const NoButton = styled.button`
   color: #ffffff;
   margin: 20px;
   margin-top: 33px;
+  cursor: pointer;
 `;
