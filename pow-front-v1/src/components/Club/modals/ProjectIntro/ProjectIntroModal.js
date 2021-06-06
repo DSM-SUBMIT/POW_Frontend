@@ -1,5 +1,5 @@
 import React from "react";
-import * as S from "../projectIntro/style";
+import * as S from "./style";
 import WhiteScreen from "../common/WhiteScreen";
 import IntroduceHeader from "./IntroduceHeader";
 

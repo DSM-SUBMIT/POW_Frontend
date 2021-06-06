@@ -10,8 +10,11 @@ const App = () => {
     <>
       <BrowserRouter>
         <Route path="/" exact>
-          <Header></Header>
-          <Main></Main>
+          <Header />
+          <Main />
+        </Route>
+        <Route exact path="/club">
+          <Club />
         </Route>
       </BrowserRouter>
     </>

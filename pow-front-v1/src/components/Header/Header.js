@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import * as s from './style';
-import pow from '../Img/pow.png';
-// import search from '../Img/search.png';
-import Login from '../Modal/Login';
-import AccountDel from '../Modal/AccountDel';
-import NewPw from '../Modal/NewPw';
+import pow from '../img/pow.png';
+//import search from '../Img/search.png';
+import {Login, NewPw, AccountDel} from '../club/modals/index';
 
 const Header = () => {
     const [loginModal, setLoginModal] = useState(false);
@@ -22,13 +20,13 @@ const Header = () => {
                     setLoginModal={setLoginModal}
                     setAccountDelModal={setAccountDelModal}
                     setNewPwModal={setNewPwModal}
-                ></Login>
+                />
             )}
             {AccountDelModal && (
-                <AccountDel setAccountDelModal={setAccountDelModal}></AccountDel>
+                <AccountDel setAccountDelModal={setAccountDelModal}/>
             )}
             {NewPwModal && (
-                <NewPw setNewPwModal={setNewPwModal}></NewPw>
+                <NewPw setNewPwModal={setNewPwModal}/>
             )}
 
             <s.Header>

@@ -1,6 +1,6 @@
 import React from 'react';
 import * as s from './style';
-import rosie from '../Img/rosie.JPG';
+import rosie from '../img/rosie.JPG';
 
 const Main = () => {
     return(

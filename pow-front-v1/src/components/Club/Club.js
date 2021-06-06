@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from "react";
-import * as s from "./style";
+import * as s from "./Style";
 import edit from "../img/edit.png";
 import picture from "../img/picture.png";
 import writing from "../img/writing.png";
 import list from "../img/list.png";
-import PictureUploadModal from "./modals/pictureUploadModal/PictureUploadModal";
-import ProfileUpload from "./modals/profileUpload/ProfileUpload";
-import BannerUpload from "./modals/bannerUpload/BannerUpload";
-import PostModifyModal from "../club/modals/postModify/PostModifyModal";
-import PostModifyRemoveModal from "../club/modals/postModifyRemove/PostModifyRemoveModal";
-import PostUploadModal from "../club/modals/postUpload/PostUploadModal";
-import PostDeleteModal from "../club/modals/postDelete/PostDelete";
-import ProjectIntroModal from "../club/modals/projectIntro/ProjectIntroModal";
-import ClubModifyModal from "../club/modals/clubModfiy/ClubModifyModal";
+import {BannerDelete, BannerUpload, ClubModifyModal, PictureUploadModal,
+        PostDelete, PostModifyModal, PostModifyRemoveModal, PostUploadModal,
+        ProfileDeleteModal, ProfileUpload, ProjectIntroModal} from './modals/index';
 
 const Club = () => {
   const [pictureModal, setPictureModal] = useState(false);
@@ -98,7 +92,7 @@ const Club = () => {
       )}
 
       {postDeleteModal && (
-        <PostDeleteModal setPostDeleteModal={setPostDeleteModal} />
+        <PostDelete setPostDeleteModal={setPostDeleteModal} />
       )}
 
       {projectIntroModal && (

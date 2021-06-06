@@ -1,5 +1,5 @@
 import React from "react";
-import * as S from "../postModifyRemove/style";
+import * as S from "./Style";
 import WhiteScreen from "../common/WhiteScreen";
 import * as SVG from "../common/SvgCollection";
 

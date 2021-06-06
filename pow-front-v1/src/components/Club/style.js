@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const BannerImg = styled.div`
+  position: relative;
   width: 100%;
   height: 375px;
   border-bottom: 10px solid;
@@ -25,7 +26,7 @@ export const BannerImg = styled.div`
 
 export const LogoDiv = styled.div`
   position: absolute;
-  bottom: 27%;
+  bottom: -43%;
   margin-left: 365px;
   z-index: 2;
   --b: 20px;
@@ -85,7 +86,7 @@ export const WhiteBox = styled.div`
   height: 320px;
   background-color: white;
   position: absolute;
-  bottom: 27%;
+  bottom: -43%;
   margin-left: 365px;
   z-index: 2;
   border-radius: 50%;
