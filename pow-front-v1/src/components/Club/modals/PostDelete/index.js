@@ -1,9 +1,9 @@
 import React from "react";
-import * as S from "./style";
+import * as S from "./Style";
 import WhiteScreen from "../common/WhiteScreen";
 
-const PostDelete = (props) => {
-  const { setPostDeleteModal } = props;
+const PostDelete = ({setPostDeleteModal}) => {
+
   const onClickPostDelete = () => {
     setPostDeleteModal(false);
   };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as s from "./style";
+import * as s from "./Style";
 import { FileRequest } from "../../../../axios/Axios";
 
 const BannerUpload = ({setBannerModal}) => {
