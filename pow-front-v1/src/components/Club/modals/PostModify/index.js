@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as S from "./style";
+import * as S from "./Style";
 import WhiteScreen from "../common/WhiteScreen";
 import "react-datepicker/dist/react-datepicker.css";
 import { PostModify } from "../../../../axios/Axios";
