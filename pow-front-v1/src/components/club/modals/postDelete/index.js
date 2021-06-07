@@ -2,10 +2,9 @@ import React from "react";
 import * as S from "./Style";
 import WhiteScreen from "../common/WhiteScreen";
 
-const PostDelete = ({setPostDeleteModal}) => {
-
+const PostDelete = ({ selectModal }) => {
   const onClickPostDelete = () => {
-    setPostDeleteModal(false);
+    selectModal(null);
   };
   return (
     <>

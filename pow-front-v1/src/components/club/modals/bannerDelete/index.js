@@ -1,31 +1,36 @@
-import React from 'react';
-import * as S from './Style';
-import WhiteScreen from '../common/WhiteScreen';
-import {FileRequest} from '../../../../axios/Axios';
+import React from "react";
+import * as S from "./Style";
+import WhiteScreen from "../common/WhiteScreen";
+import { FileRequest } from "../../../../axios/Axios";
 
-const BannerDelete = ({setBannerDeleteModal}) => {
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ';
+const BannerDelete = ({ selectModal }) => {
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ";
 
   const onClickWhiteScreen = () => {
-    setBannerDeleteModal(false);
-  }
+    selectModal(null);
+  };
 
   const onClickCancelBtn = () => {
-    setBannerDeleteModal(false);
-  }
+    selectModal(null);
+  };
 
   const onClickBannerDelete = () => {
-    try{
-      FileRequest("PATCH", 'profile/1', {
-        authorization: `Bearer ${token}`
-      }, {});
-      
-    } catch(e) {
+    try {
+      FileRequest(
+        "PATCH",
+        "profile/1",
+        {
+          authorization: `Bearer ${token}`,
+        },
+        {}
+      );
+    } catch (e) {
       console.log(e);
     }
-  }
+  };
 
-  return(
+  return (
     <>
       <WhiteScreen onClick={onClickWhiteScreen} />
       <S.DelContent>
@@ -37,6 +42,6 @@ const BannerDelete = ({setBannerDeleteModal}) => {
       </S.DelContent>
     </>
   );
-}
+};
 
 export default BannerDelete;

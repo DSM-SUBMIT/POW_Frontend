@@ -2,22 +2,19 @@ import React from "react";
 import * as S from "./Style";
 import WhiteScreen from "../common/WhiteScreen";
 import * as SVG from "../common/SvgCollection";
+import { PostModifyModal, PostDelete } from "../index";
 
-const PostModifyRemoveModal = (props) => {
-  const { setPostModifyRemoveModal, setPostModifyModal, setPostDeleteModal } =
-    props;
+const PostModifyRemoveModal = ({ selectModal }) => {
   const onClickGreyBox = () => {
-    setPostModifyRemoveModal(false);
+    selectModal(null);
   };
 
   const onClickPostModify = () => {
-    setPostModifyRemoveModal(false);
-    setPostModifyModal(true);
+    selectModal(<PostModifyModal closeModal={selectModal} />);
   };
 
   const onClickPostDelete = () => {
-    setPostModifyRemoveModal(false);
-    setPostDeleteModal(true);
+    selectModal(<PostDelete closeModal={selectModal} />);
   };
 
   return (

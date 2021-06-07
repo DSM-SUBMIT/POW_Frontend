@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { FileRequest } from "../../../../axios/Axios";
 import * as s from "./style";
 
-const ProfileUpload = ({setProfileModal}) => {
+const ProfileUpload = ({ selectModal }) => {
   const [file, setFile] = useState(null);
   const [filePath, setFilePath] = useState("");
   const token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ";
 
   const onClickWhiteScreen = () => {
-    setProfileModal(false);
+    selectModal(null);
   };
 
   const onChangeFile = (e) => {
@@ -21,22 +21,27 @@ const ProfileUpload = ({setProfileModal}) => {
   const onSubmitFile = async () => {
     try {
       const fd = new FormData();
-      file&&fd.append("file", file);
-      FileRequest('PUT', `banner/2`, {
-        authorization: `Bearer ${token}`,
-      }, fd);
-      setProfileModal(false);
+      file && fd.append("file", file);
+      FileRequest(
+        "PUT",
+        `banner/2`,
+        {
+          authorization: `Bearer ${token}`,
+        },
+        fd
+      );
+      selectModal(null);
       alert("프로필 사진이 업로드 되었습니다.");
       setFile(null);
-      setFilePath('');
-    } catch(e) {
+      setFilePath("");
+    } catch (e) {
       console.log(e);
     }
   };
 
   return (
     <>
-      <s.WhiteScreen onClick={onClickWhiteScreen}/>
+      <s.WhiteScreen onClick={onClickWhiteScreen} />
       <s.Modal>
         <s.Title>
           <p>프로필 사진 업로드</p>
@@ -52,7 +57,8 @@ const ProfileUpload = ({setProfileModal}) => {
             id="fileUpload"
             type="file"
             accept="image/jpeg,image/png"
-            onChange={onChangeFile}/>
+            onChange={onChangeFile}
+          />
         </s.FileInput>
         <s.UploadBtn onClick={onSubmitFile}>업로드 하기</s.UploadBtn>
       </s.Modal>

@@ -1,25 +1,24 @@
 import React from "react";
 import * as s from "./Style";
+import { ProfileUpload, BannerUpload } from "../index";
 import picturesmall from "../../../img/picturesmall.png";
 
-const PictureUploadModal = ({setPictureModal, setProfileModal, setBannerModal}) => {
+const PictureUploadModal = ({ selectModal }) => {
   const onClickWhiteScreen = () => {
-    setPictureModal(false);
+    selectModal(null);
   };
 
   const onClickProfileUpload = () => {
-    setPictureModal(false);
-    setProfileModal(true);
+    selectModal(<ProfileUpload closeModal={selectModal} />);
   };
 
   const onClickBannerUpload = () => {
-    setPictureModal(false);
-    setBannerModal(true);
+    selectModal(<BannerUpload closeModal={selectModal} />);
   };
 
   return (
     <>
-      <s.WhiteScreen onClick={onClickWhiteScreen}></s.WhiteScreen>
+      <s.WhiteScreen onClick={onClickWhiteScreen} />
       <s.Modal>
         <s.Title>
           <p>사진 업로드</p>

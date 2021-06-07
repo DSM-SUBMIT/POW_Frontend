@@ -4,8 +4,7 @@ import WhiteScreen from "../common/WhiteScreen";
 import "react-datepicker/dist/react-datepicker.css";
 import { PostModify } from "../../../../axios/Axios";
 
-const PostModifyModal = (props) => {
-  const { setPostModifyModal } = props;
+const PostModifyModal = ({ selectModal }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [startDate, setStartDate] = useState(new Date());
@@ -13,7 +12,7 @@ const PostModifyModal = (props) => {
   const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxfQ.HFXowaGXnoryNVa_SbW2TtkF8KzA9ZJDfX6OnXpR9_o`;
 
   const onClickPostModifyModal = () => {
-    setPostModifyModal(false);
+    selectModal(null);
   };
 
   return (
