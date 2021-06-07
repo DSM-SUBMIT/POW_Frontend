@@ -4,117 +4,73 @@ import edit from "../img/edit.png";
 import picture from "../img/picture.png";
 import writing from "../img/writing.png";
 import list from "../img/list.png";
-import {BannerDelete, BannerUpload, ClubModifyModal, PictureUploadModal,
-        PostDelete, PostModifyModal, PostModifyRemoveModal, PostUploadModal,
-        ProfileDeleteModal, ProfileUpload, ProjectIntroModal} from './modals/index';
+import {
+  BannerUpload,
+  BannerDelete,
+  ClubModifyModal,
+  PictureUploadModal,
+  PostModifyModal,
+  PostModifyRemoveModal,
+  PostUploadModal,
+  ProfileDeleteModal,
+  ProjectIntroModal,
+} from "./modals/index";
 
 const Club = () => {
-  const [pictureModal, setPictureModal] = useState(false);
-  const [profileModal, setProfileModal] = useState(false);
-  const [bannerModal, setBannerModal] = useState(false);
-  const [postModifyModal, setPostModifyModal] = useState(false);
-  const [postModifyRemoveModal, setPostModifyRemoveModal] = useState(false);
-  const [postUploadModal, setPostUploadModal] = useState(false);
-  const [postDeleteModal, setPostDeleteModal] = useState(false);
-  const [projectIntroModal, setProjectIntroModal] = useState(false);
-  const [clubModifyModal, setClubModifyModal] = useState(false);
-  const [bannerDeleteModal, setBannerDeleteModal] = useState(false);
-  const [profileDeleteModal, setProfileDeleteModal] = useState(false);
-  const imgUrl = 'https://ehddkfl.herokuapp.com/public/';
-  const profilePath = 'DefaultImage.png';
-  const bannerPath = 'DefaultImage.png';
-  
+  const [modalComponents, setModalComponents] = useState(null);
+  const imgUrl = "https://ehddkfl.herokuapp.com/public/";
+  const profilePath = "DefaultImage.png";
+  const bannerPath = "DefaultImage.png";
+
   const onClickPictureModal = () => {
-    setPictureModal(true);
+    setModalComponents(<PictureUploadModal selectModal={setModalComponents} />);
   };
 
   const onClickPostModifyRemoveModal = (e) => {
     e.stopPropagation();
-    setPostModifyRemoveModal(true);
+    setModalComponents(
+      <PostModifyRemoveModal selectModal={setModalComponents} />
+    );
   };
 
   const onClickClubModifyModal = () => {
-    setClubModifyModal(true);
+    setModalComponents(<PostModifyModal closeModal={setModalComponents} />);
   };
 
   const onClickPostUploadModal = () => {
-    setPostUploadModal(true);
+    setModalComponents(<PostUploadModal closeModal={setModalComponents} />);
   };
 
   const onClickProjectIntro = () => {
-    setProjectIntroModal(true);
+    setModalComponents(<ProjectIntroModal closeModal={setModalComponents} />);
   };
 
   const onClickBannerDeleteModal = () => {
-    setBannerDeleteModal(true);
-  }
+    setModalComponents(<BannerDelete closeModal={setModalComponents} />);
+  };
 
   const onClickProfileDeleteModal = () => {
-    setProfileDeleteModal(true);
-  }
+    setModalComponents(<ProfileDeleteModal closeModal={setModalComponents} />);
+  };
 
   return (
     <>
-      {pictureModal && (
-        <PictureUploadModal
-          setPictureModal={setPictureModal}
-          setProfileModal={setProfileModal}
-          setBannerModal={setBannerModal}
-        />)}
-
-      {profileModal && (
-        <ProfileUpload setProfileModal={setProfileModal}/>
-      )}
-
-      {bannerModal && (
-        <BannerUpload setBannerModal={setBannerModal}/>
-      )}
-
-      {postModifyRemoveModal && (
-        <PostModifyRemoveModal
-          setPostModifyRemoveModal={setPostModifyRemoveModal}
-          setPostModifyModal={setPostModifyModal}
-          setPostDeleteModal={setPostDeleteModal}
-        />
-      )}
-
-      {postModifyModal && (
-        <PostModifyModal setPostModifyModal={setPostModifyModal} />
-      )}
-
-      {postUploadModal && (
-        <PostUploadModal setPostUploadModal={setPostUploadModal} />
-      )}
-
-      {clubModifyModal && (
-        <ClubModifyModal setClubModifyModal={setClubModifyModal} />
-      )}
-
-      {postDeleteModal && (
-        <PostDelete setPostDeleteModal={setPostDeleteModal} />
-      )}
-
-      {projectIntroModal && (
-        <ProjectIntroModal setProjectIntroModal={setProjectIntroModal} />
-      )}
-
-      {bannerDeleteModal && (
-        <BannerDelete setBannerDeleteModal={setBannerDeleteModal}/>
-      )}
-
-      {profileDeleteModal && (
-        <ProfileDeleteModal setProfileDeleteModal={setProfileDeleteModal}/>
-      )}
-
+      {modalComponents}
       <header>
         <s.BannerImg>
-            <s.WhiteBox></s.WhiteBox>
-            <s.LogoDiv>
-                <img alt="프로필 사진" src={`${imgUrl}profiles/${profilePath}`}
-                onClick = {onClickProfileDeleteModal} />
-            </s.LogoDiv>
-            <img alt="베너 사진" src={`${imgUrl}banners/${bannerPath}`}
-            onClick={onClickBannerDeleteModal}/>
+          <s.WhiteBox></s.WhiteBox>
+          <s.LogoDiv>
+            <img
+              alt="프로필 사진"
+              src={`${imgUrl}profiles/${profilePath}`}
+              onClick={onClickProfileDeleteModal}
+            />
+          </s.LogoDiv>
+          <img
+            alt="베너 사진"
+            src={`${imgUrl}banners/${bannerPath}`}
+            onClick={onClickBannerDeleteModal}
+          />
         </s.BannerImg>
       </header>
       <section style={{ backgroundColor: "#FCFCFC" }}>
@@ -142,17 +98,24 @@ const Club = () => {
             </s.Upload>
             <s.Content>
               {[...Array(5)].map((v, i) => {
-                return(
+                return (
                   <s.Post key={i} onClick={onClickProjectIntro}>
-                    <img alt="더보기" src={list} onClick={onClickPostModifyRemoveModal}></img>
+                    <img
+                      alt="더보기"
+                      src={list}
+                      onClick={onClickPostModifyRemoveModal}
+                    ></img>
                     <s.PostDiv>
                       <p>작성일 : 2021-04-10</p>
                       <p>수정일 : 2021-04-11</p>
                     </s.PostDiv>
                     <s.Title>제목입니다.</s.Title>
-                    <s.StartDate>프로젝트 시작일 : 21-03-02 ~ 21-06-30</s.StartDate>
+                    <s.StartDate>
+                      프로젝트 시작일 : 21-03-02 ~ 21-06-30
+                    </s.StartDate>
                   </s.Post>
-                );})}
+                );
+              })}
             </s.Content>
           </s.RightContent>
         </s.MainContent>
