@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import * as s from "./Style";
 import { FileRequest } from "../../../../axios/Axios";
 
-const BannerUpload = ({ selectModal }) => {
+const BannerUpload = ({ closeModal }) => {
   const [filePath, setFilePath] = useState("");
   const [file, setFile] = useState(null);
   const token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ";
 
   const onClickWhiteScreen = () => {
-    selectModal(null);
+    closeModal(null);
   };
 
   const onChangeFile = (e) => {
@@ -30,7 +30,7 @@ const BannerUpload = ({ selectModal }) => {
         },
         fd
       );
-      selectModal(null);
+      closeModal(null);
       alert("배너 사진이 업로드 되었습니다.");
     } catch (e) {
       console.log(e);
