@@ -3,10 +3,9 @@ import * as S from "./style";
 import WhiteScreen from "../common/WhiteScreen";
 import IntroduceHeader from "./IntroduceHeader";
 
-const ProjectlntroModal = (props) => {
-  const { setProjectIntroModal } = props;
+const ProjectlntroModal = ({ selectModal }) => {
   const onClickProjectIntroModal = () => {
-    setProjectIntroModal(false);
+    selectModal(null);
   };
 
   return (
