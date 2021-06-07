@@ -3,16 +3,15 @@ import * as S from "./Style";
 import WhiteScreen from "../common/WhiteScreen";
 import { FileRequest } from "../../../../axios/Axios";
 
-const BannerDelete = ({ selectModal }) => {
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ";
+const BannerDelete = ({ closeModal }) => {
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ";
 
   const onClickWhiteScreen = () => {
-    selectModal(null);
+    closeModal(null);
   };
 
   const onClickCancelBtn = () => {
-    selectModal(null);
+    closeModal(null);
   };
 
   const onClickBannerDelete = () => {
