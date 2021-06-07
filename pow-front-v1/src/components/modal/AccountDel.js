@@ -17,7 +17,7 @@ const AccountDel = ({setAccountDelModal}) => {
 
     return(
         <>
-            <s.Modal onClick={onClickAway}></s.Modal>
+            <s.Modal onClick={onClickAway}/>
             <s.ModalCenter>
                 <s.DelModal>
                     <s.Logo>
