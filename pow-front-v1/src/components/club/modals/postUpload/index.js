@@ -4,7 +4,7 @@ import WhiteScreen from "../common/WhiteScreen";
 import "react-datepicker/dist/react-datepicker.css";
 import { PostUpload } from "../../../../axios/Axios";
 
-const PostUploadModal = ({ selectModal }) => {
+const PostUploadModal = ({ closeModal }) => {
   const [title, setTitle] = useState("");
   const [content, setContnet] = useState("");
   const [startDate, setStartDate] = useState(new Date());
@@ -12,7 +12,7 @@ const PostUploadModal = ({ selectModal }) => {
   const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxfQ.HFXowaGXnoryNVa_SbW2TtkF8KzA9ZJDfX6OnXpR9_o`;
 
   const onClickPostUploadModal = () => {
-    selectModal(null);
+    closeModal(null);
   };
 
   return (

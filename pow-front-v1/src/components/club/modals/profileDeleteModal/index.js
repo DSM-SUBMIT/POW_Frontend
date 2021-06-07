@@ -2,14 +2,14 @@ import React from 'react';
 import * as S from './Style';
 import WhiteScreen from '../common/WhiteScreen';
 
-const ProfileDeleteModal = ({setProfileDeleteModal}) => {
+const ProfileDeleteModal = ({closeModal}) => {
 
   const onClickWhiteScreen = () => {
-    setProfileDeleteModal(false);
+    closeModal(null);
   }
 
   const onClickCancelBtn = () => {
-    setProfileDeleteModal(false);
+    closeModal(null);
   }
 
   return(
