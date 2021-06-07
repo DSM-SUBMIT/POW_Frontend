@@ -28,9 +28,7 @@ const Club = () => {
 
   const onClickPostModifyRemoveModal = (e) => {
     e.stopPropagation();
-    setModalComponents(
-      <PostModifyRemoveModal selectModal={setModalComponents} />
-    );
+    setModalComponents(<PostModifyRemoveModal selectModal={setModalComponents} />);
   };
 
   const onClickClubModifyModal = () => {
