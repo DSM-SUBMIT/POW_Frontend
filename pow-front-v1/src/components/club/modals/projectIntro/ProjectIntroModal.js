@@ -3,9 +3,9 @@ import * as S from "./style";
 import WhiteScreen from "../common/WhiteScreen";
 import IntroduceHeader from "./IntroduceHeader";
 
-const ProjectlntroModal = ({ selectModal }) => {
+const ProjectlntroModal = ({ closeModal }) => {
   const onClickProjectIntroModal = () => {
-    selectModal(null);
+    closeModal(null);
   };
 
   return (
