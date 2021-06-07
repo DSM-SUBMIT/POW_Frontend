@@ -17,29 +17,11 @@ import {
 } from "./modals/index";
 
 const Club = () => {
-<<<<<<< Updated upstream
   const [modalComponents, setModalComponents] = useState(null);
   const imgUrl = "https://ehddkfl.herokuapp.com/public/";
   const profilePath = "DefaultImage.png";
   const bannerPath = "DefaultImage.png";
-
-=======
-  const [pictureModal, setPictureModal] = useState(false);
-  const [profileModal, setProfileModal] = useState(false);
-  const [bannerModal, setBannerModal] = useState(false);
-  const [postModifyModal, setPostModifyModal] = useState(false);
-  const [postModifyRemoveModal, setPostModifyRemoveModal] = useState(false);
-  const [postUploadModal, setPostUploadModal] = useState(false);
-  const [postDeleteModal, setPostDeleteModal] = useState(false);
-  const [projectIntroModal, setProjectIntroModal] = useState(false);
-  const [clubModifyModal, setClubModifyModal] = useState(false);
-  const [bannerDeleteModal, setBannerDeleteModal] = useState(false);
-  const [profileDeleteModal, setProfileDeleteModal] = useState(false);
-  const imgUrl = 'https://ehddkfl.herokuapp.com/public/';
-  const profilePath = 'DefaultI,mage.png';
-  const bannerPath = 'DefaultImage.png';
   
->>>>>>> Stashed changes
   const onClickPictureModal = () => {
     setModalComponents(<PictureUploadModal selectModal={setModalComponents} />);
   };
