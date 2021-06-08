@@ -14,7 +14,7 @@ const Header = () => {
     const onClickLogin = () => {
         setLoginModal(true);
     }
-
+    
     return(
         <>
             {loginModal && (
