@@ -1,14 +1,23 @@
+/* eslint-disable */
 import React from "react";
-import Club from "./components/club/Club";
 import Header from "./components/header/Header";
-import "./App.css";
+import Main from "./components/main/Main";
+import Club from "./components/club/Club";
 import { Route, BrowserRouter } from "react-router-dom";
+import "./App.css";
 
 const App = () => {
   return (
     <>
-      <Header></Header>
-      <Club></Club>
+      <BrowserRouter>
+        <Route path="/" exact>
+          <Header />
+          <Main />
+        </Route>
+        <Route exact path="/club">
+          <Club />
+        </Route>
+      </BrowserRouter>
     </>
   );
 };
