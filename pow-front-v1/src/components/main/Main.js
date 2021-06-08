@@ -6,32 +6,23 @@ const Main = () => {
     return(
         <s.Main>
             <s.Center>
-                <s.Line>
-                    <s.Club>
-                        <img src={rosie} alt=""/>
-                    </s.Club>
-                    <s.Club/>
-                    <s.Club/>
-                    <s.Club/>
-                </s.Line>
-                <s.Line>
-                    <s.Club/>
-                    <s.Club/>
-                    <s.Club/>
-                    <s.Club/>
-                </s.Line>
-                <s.Line>
-                    <s.Club/>
-                    <s.Club/>
-                    <s.Club/>
-                    <s.Club/>
-                </s.Line>
-                <s.Line>
-                    <s.Club/>
-                    <s.Club/>
-                    <s.Club/>
-                    <s.Club/>
-                </s.Line>
+                <s.Club>
+                    <img src={rosie} alt=""/>
+                </s.Club>
+                <s.Club/>
+                <s.Club/>
+                <s.Club/>
+                <s.Club>
+                    <img src={rosie} alt=""/>
+                </s.Club>
+                <s.Club/>
+                <s.Club/>
+                <s.Club/><s.Club>
+                    <img src={rosie} alt=""/>
+                </s.Club>
+                <s.Club/>
+                <s.Club/>
+                <s.Club/>
             </s.Center>
         </s.Main>
     )

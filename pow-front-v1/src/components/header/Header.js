@@ -12,7 +12,7 @@ const Header = () => {
     const onClickLogin = () => {
         setLoginModal(true);
     }
-
+    
     return(
         <>
             {loginModal && (
@@ -44,7 +44,7 @@ const Header = () => {
                         </s.LoginArea>
                     </s.Area>
                     <s.Area>
-                        <s.KindCenter></s.KindCenter>
+                        <s.KindCenter/>
                         <s.Kind>
                             <s.Select>
                                 <span>전공</span>

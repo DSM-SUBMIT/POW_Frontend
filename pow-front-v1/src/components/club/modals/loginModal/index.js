@@ -19,7 +19,7 @@ const Login = ({setLoginModal, setAccountDelModal, setNewPwModal}) => {
 
     return(
         <>
-            <s.Modal onClick={onClickAway}></s.Modal>
+            <s.Modal onClick={onClickAway}/>
             <s.ModalCenter>
                 <s.LoginModal>
                     <s.Etc>
