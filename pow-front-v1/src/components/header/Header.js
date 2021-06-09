@@ -13,6 +13,10 @@ const Header = () => {
         setLoginModal(true);
     }
 
+    const onClickLogout = () => {
+        localStorage.removeItem('token');
+    }
+
     return(
         <>
             {loginModal && (

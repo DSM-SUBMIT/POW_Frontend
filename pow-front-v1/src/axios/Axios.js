@@ -2,6 +2,19 @@ import axios from "axios";
 
 const fileURL = "https://ehddkfl.herokuapp.com/";
 const crudURL = "https://powerofpow.herokuapp.com/";
+const ACCOUNT_BASE_URL = "https://submit-pow.herokuapp.com";
+
+export const getToken = () => {
+  const token = localStorage.getItem('token') || 'guest';
+
+  return `Bearer ${token}`;
+};
+
+export const login = (code, password) => {
+  return axios.post(`${ACCOUNT_BASE_URL}/auth`, {
+    code, password
+  });
+}
 
 export const FileRequest = async (method, url, head, file) => {
   return await axios({
@@ -57,7 +70,7 @@ export const PostModify = (
       },
       {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: getToken(),
         },
       }
     )
