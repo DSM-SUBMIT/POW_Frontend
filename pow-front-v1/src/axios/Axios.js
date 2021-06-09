@@ -4,6 +4,7 @@ const fileURL = "https://ehddkfl.herokuapp.com/";
 const crudURL = "https://powerofpow.herokuapp.com/";
 const ACCOUNT_BASE_URL = "https://submit-pow.herokuapp.com";
 
+// https://ko.javascript.info/logical-operators
 export const getToken = () => {
   const token = localStorage.getItem('token') || 'guest';
 
