@@ -1,7 +1,14 @@
 import axios from "axios";
 
+const ACCOUNT_BASEURL="https://submit-pow.herokuapp.com";
 const fileURL = "https://ehddkfl.herokuapp.com/";
 const crudURL = "https://powerofpow.herokuapp.com/";
+
+export const login = (code, password) => {
+  return axios.post(`${ACCOUNT_BASEURL}/auth`, {
+    code, password
+  }) 
+}
 
 export const FileRequest = async (method, url, head, file) => {
   return await axios({
