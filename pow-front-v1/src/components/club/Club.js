@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import * as s from "./Style";
+import React, { useState, useEffect } from "react";
+import * as S from "./Style";
 import edit from "../img/edit.png";
 import picture from "../img/picture.png";
 import writing from "../img/writing.png";
 import list from "../img/list.png";
+import { ClubPage } from "../../axios/Axios";
 import {
   BannerUpload,
   BannerDelete,
@@ -18,21 +19,42 @@ import {
 
 const Club = () => {
   const [modalComponents, setModalComponents] = useState(null);
+  const [name, setName] = useState("");
+  const [profilePath, setProfilePath] = useState("");
+  const [bannerPath, setBannerPath] = useState("");
+  const [contents, setContents] = useState("");
+  const [projectList, setProjectList] = useState([]);
   const imgUrl = "https://ehddkfl.herokuapp.com/public/";
-  const profilePath = "DefaultImage.png";
-  const bannerPath = "DefaultImage.png";
-  
+
+  useEffect(() => {
+    LoadClubInfo();
+  }, []);
+
+  const LoadClubInfo = async () => {
+    const res = await ClubPage(1);
+    console.log(res.data);
+    if (res) {
+      setName(res.data.name);
+      setProfilePath(res.data.profilePath);
+      setBannerPath(res.data.bannerPath);
+      setContents(res.data.contents);
+      setProjectList(res.data.introduction);
+    }
+  };
+
   const onClickPictureModal = () => {
     setModalComponents(<PictureUploadModal selectModal={setModalComponents} />);
   };
 
   const onClickPostModifyRemoveModal = (e) => {
     e.stopPropagation();
-    setModalComponents(<PostModifyRemoveModal selectModal={setModalComponents} />);
+    setModalComponents(
+      <PostModifyRemoveModal selectModal={setModalComponents} />
+    );
   };
 
   const onClickClubModifyModal = () => {
-    setModalComponents(<PostModifyModal closeModal={setModalComponents} />);
+    setModalComponents(<ClubModifyModal closeModal={setModalComponents} />);
   };
 
   const onClickPostUploadModal = () => {
@@ -55,68 +77,65 @@ const Club = () => {
     <>
       {modalComponents}
       <header>
-        <s.BannerImg>
-          <s.WhiteBox></s.WhiteBox>
-          <s.LogoDiv>
+        <S.BannerImg>
+          <S.WhiteBox></S.WhiteBox>
+          <S.LogoDiv>
             <img
               alt="프로필 사진"
               src={`${imgUrl}profiles/${profilePath}`}
               onClick={onClickProfileDeleteModal}
             />
-          </s.LogoDiv>
+          </S.LogoDiv>
           <img
             alt="베너 사진"
             src={`${imgUrl}banners/${bannerPath}`}
             onClick={onClickBannerDeleteModal}
           />
-        </s.BannerImg>
+        </S.BannerImg>
       </header>
       <section style={{ backgroundColor: "#FCFCFC" }}>
-        <s.MainContent>
-          <s.LeftContent>
-            <s.ClubIntroBox>
-              <span>Submit</span>
-              <s.FixDate>수정일 : 2021-05-07</s.FixDate>
-            </s.ClubIntroBox>
-          </s.LeftContent>
-          <s.RightContent>
-            <s.Upload>
-              <s.PictureUpload onClick={onClickPictureModal}>
+        <S.MainContent>
+          <S.LeftContent>
+            <S.ClubIntroBox>
+              <span>{name}</span>
+              <S.ClubContent>{contents}</S.ClubContent>
+            </S.ClubIntroBox>
+          </S.LeftContent>
+          <S.RightContent>
+            <S.Upload>
+              <S.PictureUpload onClick={onClickPictureModal}>
                 <img alt="아이콘" src={picture}></img>
                 <span>사진 업로드</span>
-              </s.PictureUpload>
-              <s.ClubFix onClick={onClickClubModifyModal}>
+              </S.PictureUpload>
+              <S.ClubFix onClick={onClickClubModifyModal}>
                 <img alt="아이콘" src={edit}></img>
                 <span>동아리 소개 수정</span>
-              </s.ClubFix>
-              <s.PostUpload onClick={onClickPostUploadModal}>
+              </S.ClubFix>
+              <S.PostUpload onClick={onClickPostUploadModal}>
                 <img alt="아이콘" src={writing}></img>
                 <span>게시물 업로드</span>
-              </s.PostUpload>
-            </s.Upload>
-            <s.Content>
-              {[...Array(5)].map((v, i) => {
+              </S.PostUpload>
+            </S.Upload>
+            <S.Content>
+              {projectList.map((project, i) => {
                 return (
-                  <s.Post key={i} onClick={onClickProjectIntro}>
+                  <S.Post key={i} onClick={onClickProjectIntro}>
                     <img
                       alt="더보기"
                       src={list}
                       onClick={onClickPostModifyRemoveModal}
                     ></img>
-                    <s.PostDiv>
-                      <p>작성일 : 2021-04-10</p>
-                      <p>수정일 : 2021-04-11</p>
-                    </s.PostDiv>
-                    <s.Title>제목입니다.</s.Title>
-                    <s.StartDate>
-                      프로젝트 시작일 : 21-03-02 ~ 21-06-30
-                    </s.StartDate>
-                  </s.Post>
+                    <S.PostDiv>
+                      <p>작성일 : {project.createdAt}</p>
+                      {/*<p>수정일 : 2021-04-11</p>*/}
+                    </S.PostDiv>
+                    <S.Title>{project.title}</S.Title>
+                  </S.Post>
                 );
               })}
-            </s.Content>
-          </s.RightContent>
-        </s.MainContent>
+            </S.Content>
+          </S.RightContent>
+        </S.MainContent>
       </section>
     </>
   );

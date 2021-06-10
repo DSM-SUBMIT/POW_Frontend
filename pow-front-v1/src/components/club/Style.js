@@ -123,20 +123,18 @@ export const ClubIntroBox = styled.div`
   }
 `;
 
+export const ClubContent = styled.div`
+  width: 300px;
+  height: 280px;
+  border: 1px solid #aeadad;
+`;
+
 export const Writer = styled.div`
   float: right;
   font-size: 20px;
   color: #8d8d8d;
   margin-top: 30px;
   margin-right: 17px;
-`;
-
-export const FixDate = styled.p`
-  font-size: 20px;
-  color: #8d8d8d;
-  position: relative;
-  top: 65%;
-  left: 7%;
 `;
 
 export const RightContent = styled.div`
@@ -247,12 +245,4 @@ export const Title = styled.div`
   margin-top: 45px;
   margin-left: 50px;
   font-size: 40px;
-`;
-
-export const StartDate = styled.div`
-  margin-top: 25px;
-  position: relative;
-  left: 50%;
-  font-size: 20px;
-  color: #8d8d8d;
 `;
