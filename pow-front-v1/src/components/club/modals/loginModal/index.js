@@ -13,6 +13,7 @@ const Login = ({setLoginModal, setAccountDelModal, setNewPwModal}) => {
             const token = data['access-token'];
             localStorage.setItem('token', token);
             alert('로그인 되었습니다!');
+            setLoginModal(false);
         } catch (error) {
             if(error.response.data.code === 'CLUB404-0') {
                 alert('동아리 계정을 찾을 수 없습니다');
