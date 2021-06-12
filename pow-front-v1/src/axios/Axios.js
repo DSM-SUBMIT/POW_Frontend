@@ -108,7 +108,7 @@ export const ClubPage = (id) => {
   });
 };
 
-export const PostDelect = (token, clubId, projectId) => {
+export const DeletePost = (token, clubId, projectId) => {
   return axios
     .delete(`${crudURL}/club/${clubId}/project/${projectId}`, {
       headers: {
