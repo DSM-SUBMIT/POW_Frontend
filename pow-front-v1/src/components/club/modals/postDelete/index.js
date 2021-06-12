@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./Style";
 import WhiteScreen from "../common/WhiteScreen";
-import { PostDelect } from "../../../../axios/Axios";
+import { DeletePost } from "../../../../axios/Axios";
 
 const PostDelete = ({ closeModal }) => {
   const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxfQ.HFXowaGXnoryNVa_SbW2TtkF8KzA9ZJDfX6OnXpR9_o`;
@@ -22,7 +22,7 @@ const PostDelete = ({ closeModal }) => {
         </S.Title>
         <S.CheckButton
           onClick={(e) => {
-            PostDelete(token, 1, 1);
+            DeletePost(token, 1, 1);
           }}
         >
           확인
