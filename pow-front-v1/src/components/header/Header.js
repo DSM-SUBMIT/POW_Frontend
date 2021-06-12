@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import * as s from './style';
 import pow from '../img/pow.png';
 //import search from '../Img/search.png';
-import {Login, NewPw, AccountDel} from '../club/modals/index';
+import { Login, NewPw, AccountDel } from '../club/modals/index';
 
-const Header = () => {
+const Header = ({setAccountState}) => {
     const [loginModal, setLoginModal] = useState(false);
     const [AccountDelModal, setAccountDelModal] = useState(false);
     const [NewPwModal, setNewPwModal] = useState(false);
@@ -12,7 +12,7 @@ const Header = () => {
     const onClickLogin = () => {
         setLoginModal(true);
     }
-    
+   
     return(
         <>
             {loginModal && (
@@ -40,7 +40,7 @@ const Header = () => {
                             <input placeholder="검색어를 입력해주세요"></input>
                         </s.Searching>
                         <s.LoginArea>
-                            <button onClick={onClickLogin}>LOGIN</button>
+                            <button onClick={onClickLogin}>{setAccountState}</button>
                         </s.LoginArea>
                     </s.Area>
                     <s.Area>
