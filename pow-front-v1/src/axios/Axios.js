@@ -6,7 +6,7 @@ const crudURL = "https://powerofpow.herokuapp.com/";
 
 export const deleteAccount = () => {
   return axios.delete(`${ACCOUNT_BASEURL}/account`, {
-    header: {
+    headers: {
       Authorization: `Bearer${getToken}`
     }
   })
@@ -16,7 +16,7 @@ export const changePw = (password) => {
   return axios.put(`${ACCOUNT_BASEURL}/account`, {
     password
   }, {
-    header: {
+    headers: {
       Authorization: `Bearer${getToken}`
     }
   })
