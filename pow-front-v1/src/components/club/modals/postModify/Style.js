@@ -23,7 +23,7 @@ export const Title = styled.div`
   transform: translateX(-50%);
   p {
     font-family: NanumSquare_ac;
-    font-seize: 20px;
+    font-size: 20px;
     margin-top: 27px;
   }
 `;
@@ -41,6 +41,7 @@ export const InputText = styled.input`
   background-color: #f4f4f4;
   border-radius: 17px;
   border: none;
+  outline: none;
   margin-right: 49px;
   ::placeholder {
     text-align: center;
@@ -104,7 +105,7 @@ export const InputContent = styled.textarea`
     width: 10px;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: #red;
+    background-color: red;
   }
   ::-webkit-scrollbar-track {
     background-color: #7662c6;
@@ -132,4 +133,7 @@ export const UploadButton = styled.button`
   margin-top: 30px;
   font-size: 17px;
   cursor: pointer;
+  :hover {
+    background-color: #f29969;
+  }
 `;

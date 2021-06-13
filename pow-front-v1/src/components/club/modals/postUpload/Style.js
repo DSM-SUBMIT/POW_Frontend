@@ -43,6 +43,7 @@ export const InputText = styled.input`
   border-radius: 17px;
   border: none;
   margin-right: 49px;
+  outline: none;
   ::placeholder {
     text-align: center;
     font-size: 18px;
@@ -133,4 +134,7 @@ export const UploadButton = styled.button`
   margin-top: 30px;
   font-size: 17px;
   cursor: pointer;
+  :hover {
+    background-color: #f29969;
+  }
 `;
