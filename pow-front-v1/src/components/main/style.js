@@ -15,7 +15,7 @@ export const Center = styled.div`
     height: 100%;
     background-color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: row;
     flex-wrap: wrap;
     
