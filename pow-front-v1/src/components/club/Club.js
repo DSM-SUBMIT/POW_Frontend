@@ -16,11 +16,13 @@ import {
   ProjectIntroModal,
 } from "./modals/index";
 
+
+const imgUrl = "https://ehddkfl.herokuapp.com/public/";
+const profilePath = "DefaultImage.png";
+const bannerPath = "1622874966523__test.jpg";
+
 const Club = () => {
   const [modalComponents, setModalComponents] = useState(null);
-  const imgUrl = "https://ehddkfl.herokuapp.com/public/";
-  const profilePath = "DefaultImage.png";
-  const bannerPath = "DefaultImage.png";
   
   const onClickPictureModal = () => {
     setModalComponents(<PictureUploadModal selectModal={setModalComponents} />);
