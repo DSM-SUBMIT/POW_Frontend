@@ -83,4 +83,7 @@ export const UploadButton = styled.button`
   color: #ffffff;
   margin-top: 30px;
   cursor: pointer;
+  :hover {
+    background-color: #f29969;
+  }
 `;
