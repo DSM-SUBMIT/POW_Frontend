@@ -29,9 +29,11 @@ const ProfileUpload = ({ closeModal }) => {
           authorization: `Bearer ${token}`,
         },
         fd
-      );
-      closeModal(null);
-      alert("프로필 사진이 업로드 되었습니다.");
+      ).then((e) => {
+        closeModal(null);
+        alert("프로필 사진이 업로드 되었습니다.");
+        window.location.reload();
+      });
       setFile(null);
       setFilePath("");
     } catch (e) {
