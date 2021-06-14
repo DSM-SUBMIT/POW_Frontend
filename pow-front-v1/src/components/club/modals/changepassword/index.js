@@ -4,13 +4,21 @@ import { changePw } from '../../../../axios/Axios';
 import pow from '../../../img/pow.png';
 
 const NewPw = ({setNewPwModal}) => {
-    const [password, setPassword] = useState();
-
+    const [existring_password, setExistring_password] = useState();
+    const [new_password, setNew_password] = useState();
+    // const [new_passwordCheck, setNew_passwordCheck] = useState();
+    
     const onClickEnter = async() => {
-        const { data } = await changePw(password);
-        const token = data['access-token'];
-        
-        alert("성공 ..!");
+        try {
+            await changePw(existring_password, new_password);
+            // const { data } = await changePw(existring_password, new_password);
+            // const token = data['access-token'];
+            // localStorage.setItem('token', token);
+            alert("비밀번호가 변경되었습니다.");
+            setNewPwModal(false);
+        } catch (error) {
+            alert(error.response.data.code);
+        }
     }
     const onClickAway = () => {
         setNewPwModal(false);
@@ -30,25 +38,25 @@ const NewPw = ({setNewPwModal}) => {
                     <s.PwInput>
                         <input
                             onChange={(event) => {
-                                setPassword(event.target.value);
+                                setExistring_password(event.target.value);
                             }}
-                            value={password}
+                            value={existring_password}
                             className="ModalInput"
                             placeholder="현재 비밀번호를 입력해주세요"/>
                     </s.PwInput>
                     <s.NewPwInput>
                         <input
                             onChange={(event) => {
-                                setPassword(event.target.value);
+                                setNew_password(event.target.value);
                             }}
-                            value={password}
+                            value={new_password}
                             className="ModalInput"
                             placeholder="변경할 비밀번호를 입력해주세요"/>
                         <input
                             onChange={(event) => {
-                                setPassword(event.target.value);
+                                setNew_password(event.target.value);
                             }}
-                            value={password}
+                            value={new_password}
                             className="ModalInput"
                             placeholder="비밀번호 확인"/>
                     </s.NewPwInput>

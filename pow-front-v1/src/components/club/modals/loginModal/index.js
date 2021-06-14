@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import * as s from './Style';
 import pow from '../../../img/pow.png';
 import { login } from '../../../../axios/Axios';
-import Header from '../../../header/Header';
 
 const Login = ({setLoginModal, setAccountDelModal, setNewPwModal}) => {
     const [code, setCode] = useState();
@@ -15,15 +14,12 @@ const Login = ({setLoginModal, setAccountDelModal, setNewPwModal}) => {
             localStorage.setItem('token', token);
             alert('로그인 되었습니다!');
             setLoginModal(false);
-            setAccountState('Logout');
         } catch (error) {
             if(error.response.data.code === 'CLUB404-0') {
-                alert('동아리 계정을 찾을 수 없습니다');
+                alert('계정을 찾을 수 없습니다');
             }
         }
     }
-
-    const [AccountState, setAccountState] = useState('Login');
 
     const onClickAway = () => {
         setLoginModal(false);
@@ -41,11 +37,6 @@ const Login = ({setLoginModal, setAccountDelModal, setNewPwModal}) => {
 
     return(
         <>
-        {AccountState && (
-            <Header
-                setAccountState={setAccountState}
-            />
-        )}
             <s.Modal onClick={onClickAway}/>
             <s.ModalCenter>
                 <s.LoginModal>

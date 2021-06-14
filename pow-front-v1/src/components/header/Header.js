@@ -4,7 +4,7 @@ import pow from '../img/pow.png';
 //import search from '../Img/search.png';
 import { Login, NewPw, AccountDel } from '../club/modals/index';
 
-const Header = ({setAccountState}) => {
+const Header = ({AccountState, setAccountState}) => {
     const [loginModal, setLoginModal] = useState(false);
     const [AccountDelModal, setAccountDelModal] = useState(false);
     const [NewPwModal, setNewPwModal] = useState(false);
@@ -12,7 +12,7 @@ const Header = ({setAccountState}) => {
     const onClickLogin = () => {
         setLoginModal(true);
     }
-   
+
     return(
         <>
             {loginModal && (
@@ -40,7 +40,7 @@ const Header = ({setAccountState}) => {
                             <input placeholder="검색어를 입력해주세요"></input>
                         </s.Searching>
                         <s.LoginArea>
-                            <button onClick={onClickLogin}>{setAccountState}</button>
+                            <button onClick={onClickLogin}>Login</button>
                         </s.LoginArea>
                     </s.Area>
                     <s.Area>
