@@ -108,7 +108,7 @@ export const ClubPage = (id) => {
   });
 };
 
-export const PostDelect = (token, clubId, projectId) => {
+export const DeletePost = (token, clubId, projectId) => {
   return axios
     .delete(`${crudURL}/club/${clubId}/project/${projectId}`, {
       headers: {
@@ -119,15 +119,11 @@ export const PostDelect = (token, clubId, projectId) => {
       console.log(error);
     });
 };
-/*
-export const ProjectIntro = () => {
+
+export const ProjectIntro = (clubId, projectId) => {
   return axios
-    .get(`${crudURL}club/${club_id}/project/${project_id}`, {})
-    .then(function (response) {
-      console.log(response);
-    })
+    .get(`${clubURL}/club/${clubId}/project/${projectId}`)
     .catch(function (error) {
       console.log(error);
     });
 };
-*/

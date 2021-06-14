@@ -43,4 +43,7 @@ export const Button = styled.button`
     margin-right: 9px;
     margin-bottom: 4px;
   }
+  :hover {
+    background-color: #cecece;
+  }
 `;
