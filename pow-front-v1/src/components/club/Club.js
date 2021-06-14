@@ -19,7 +19,7 @@ import {
 
 const imgUrl = "https://ehddkfl.herokuapp.com/public/";
 const profilePath = "DefaultImage.png";
-const bannerPath = "1622874966523__test.jpg";
+const bannerPath = "1623680917707__character_img01.png";
 
 const Club = () => {
   const [modalComponents, setModalComponents] = useState(null);
