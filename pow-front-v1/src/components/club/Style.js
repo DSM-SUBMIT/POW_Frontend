@@ -117,7 +117,7 @@ export const ClubIntroBox = styled.div`
     top: -9%;
     transform: translateY(-50%);
     margin-left: 44px;
-    font-size: 40px;
+    font-size: 38px;
     background-color: white;
     color: #707070;
   }
@@ -125,8 +125,11 @@ export const ClubIntroBox = styled.div`
 
 export const ClubContent = styled.div`
   width: 300px;
-  height: 280px;
+  height: 260px;
   border: 1px solid #aeadad;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 export const Writer = styled.div`
