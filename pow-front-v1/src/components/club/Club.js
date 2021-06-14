@@ -61,8 +61,13 @@ const Club = () => {
     setModalComponents(<PostUploadModal closeModal={setModalComponents} />);
   };
 
-  const onClickProjectIntro = () => {
-    setModalComponents(<ProjectIntroModal closeModal={setModalComponents} />);
+  const onClickProjectIntro = (e) => {
+    setModalComponents(
+      <ProjectIntroModal
+        projectId={e.currentTarget.pid}
+        closeModal={setModalComponents}
+      />
+    );
   };
 
   const onClickBannerDeleteModal = () => {
@@ -78,7 +83,7 @@ const Club = () => {
       {modalComponents}
       <header>
         <S.BannerImg>
-          <S.WhiteBox></S.WhiteBox>
+          <S.WhiteBox />
           <S.LogoDiv>
             <img
               alt="프로필 사진"
@@ -119,7 +124,11 @@ const Club = () => {
             <S.Content>
               {projectList.map((project, i) => {
                 return (
-                  <S.Post key={i} onClick={onClickProjectIntro}>
+                  <S.Post
+                    pid={project.id}
+                    key={i}
+                    onClick={onClickProjectIntro}
+                  >
                     <img
                       alt="더보기"
                       src={list}
