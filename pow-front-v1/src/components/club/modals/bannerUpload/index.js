@@ -5,8 +5,7 @@ import { FileRequest } from "../../../../axios/Axios";
 const BannerUpload = ({ closeModal }) => {
   const [filePath, setFilePath] = useState("");
   const [file, setFile] = useState(null);
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ";
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ";
 
   const onClickWhiteScreen = () => {
     closeModal(null);
@@ -29,10 +28,16 @@ const BannerUpload = ({ closeModal }) => {
           authorization: `Bearer ${token}`,
         },
         fd
-      );
-      closeModal(null);
-      alert("배너 사진이 업로드 되었습니다.");
+      ).then((e)=> {
+        closeModal(null);
+        alert("배너 사진이 업로드 되었습니다.");
+        window.location.reload();
+      });
+      setFile(null);
+      setFilePath("");
     } catch (e) {
+      closeModal(null);
+      alert("업로드에 실패했습니다.");
       console.log(e);
     }
   };
