@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import * as s from "./Style";
+import * as S from "./Style";
 import { useParams } from "react-router";
 import { clubPage } from "../../axios/Axios";
 import edit from "../img/edit.png";
@@ -21,7 +21,7 @@ import {
 
 
 const imgUrl = "https://ehddkfl.herokuapp.com/public/";
-const profilePath = "DefaultImage.png";
+const profileImgPath = "DefaultImage.png";
 const bannerPath = "1623680917707__character_img01.png";
 
 const Club = () => {
@@ -31,10 +31,6 @@ const Club = () => {
   const [bannerPath, setBannerPath] = useState("");
   const [contents, setContents] = useState("");
   const [projectList, setProjectList] = useState([]);
-  const imgUrl = "https://ehddkfl.herokuapp.com/public/";
-  const profilePath = "DefaultImage.png";
-  const bannerPath = "DefaultImage.png";
-
   const {id} = useParams()
   const [data, setData] = useState();
 
@@ -111,7 +107,7 @@ const Club = () => {
           <S.LogoDiv>
             <img
               alt="프로필 사진"
-              src={`${imgUrl}profiles/${profilePath}`}
+              src={`${imgUrl}profiles/${profileImgPath}`}
               onClick={onClickProfileDeleteModal}
             />
           </S.LogoDiv>
