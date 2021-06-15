@@ -1,28 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { getAccountImg } from '../../axios/Axios';
 import * as s from './style';
-import rosie from '../img/rosie.JPG';
 
 const Main = () => {
+    const IMG_BASEURL="https://ehddkfl.herokuapp.com";
+    const [data, setData] = useState();
+    const history = useHistory()
+
+    const clubClick = (id) => {
+        history.push(`/club/${id}`)
+    }
+
+    useEffect(()  => {
+        getAccountImg().then((res) => {
+            setData(res.data.clubs)
+        }).catch((err) => {
+            console.log(err)
+        })
+    }, [])
+    // console.log(data[0].profilePath)
     return(
         <s.Main>
             <s.Center>
-                <s.Club>
-                    <img src={rosie} alt=""/>
-                </s.Club>
-                <s.Club/>
-                <s.Club/>
-                <s.Club/>
-                <s.Club>
-                    <img src={rosie} alt=""/>
-                </s.Club>
-                <s.Club/>
-                <s.Club/>
-                <s.Club/><s.Club>
-                    <img src={rosie} alt=""/>
-                </s.Club>
-                <s.Club/>
-                <s.Club/>
-                <s.Club/>
+                {
+                    data && data.map((res) => {
+                        console.log(res)
+                        return (<s.Club onClick={() => clubClick(res.id)} key={res.name}>
+                        <img src={`${IMG_BASEURL}/public/profiles/${res.profilePath}`} alt=""/>
+                    </s.Club>)
+                    })
+                }
             </s.Center>
         </s.Main>
     )

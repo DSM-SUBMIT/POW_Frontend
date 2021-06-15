@@ -15,7 +15,7 @@ export const Center = styled.div`
     height: 100%;
     background-color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
     
@@ -26,7 +26,7 @@ export const Club = styled.div`
     height: 227px;
     border-radius: 50%;
     border: 0.1em solid #707070;
-    margin-bottom: 40px;
+    margin: 0 28px 40px 28px;
     img {
         width: 227px;
         height: 227px;

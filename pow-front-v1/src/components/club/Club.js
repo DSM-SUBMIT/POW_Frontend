@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./Style";
+import { useParams } from "react-router";
+import { clubPage } from "../../axios/Axios";
 import edit from "../img/edit.png";
 import picture from "../img/picture.png";
 import writing from "../img/writing.png";
@@ -17,6 +19,11 @@ import {
   ProjectIntroModal,
 } from "./modals/index";
 
+
+const imgUrl = "https://ehddkfl.herokuapp.com/public/";
+const profileImgPath = "DefaultImage.png";
+const bannerPath = "1623680917707__character_img01.png";
+
 const Club = () => {
   const [modalComponents, setModalComponents] = useState(null);
   const [name, setName] = useState("");
@@ -24,7 +31,22 @@ const Club = () => {
   const [bannerPath, setBannerPath] = useState("");
   const [contents, setContents] = useState("");
   const [projectList, setProjectList] = useState([]);
-  const imgUrl = "https://ehddkfl.herokuapp.com/public/";
+  const {id} = useParams()
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    clubPage(id)
+      .then(async (res) => {
+        await setData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [id]);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   useEffect(() => {
     LoadClubInfo();
@@ -87,7 +109,7 @@ const Club = () => {
           <S.LogoDiv>
             <img
               alt="프로필 사진"
-              src={`${imgUrl}profiles/${profilePath}`}
+              src={`${imgUrl}profiles/${profileImgPath}`}
               onClick={onClickProfileDeleteModal}
             />
           </S.LogoDiv>
@@ -135,7 +157,7 @@ const Club = () => {
                       onClick={onClickPostModifyRemoveModal}
                     ></img>
                     <S.PostDiv>
-                      <p>작성일 : {project.createdAt}</p>
+                      <p>작성일 : {project.created_at}</p>
                       {/*<p>수정일 : 2021-04-11</p>*/}
                     </S.PostDiv>
                     <S.Title>{project.title}</S.Title>
