@@ -1,16 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as s from './style';
 import pow from '../img/pow.png';
 //import search from '../Img/search.png';
 import { Login, NewPw, AccountDel } from '../club/modals/index';
+import { search } from '../../axios/Axios';
 
 const Header = ({AccountState, setAccountState}) => {
     const [loginModal, setLoginModal] = useState(false);
     const [AccountDelModal, setAccountDelModal] = useState(false);
     const [NewPwModal, setNewPwModal] = useState(false);
+    const [searching, setSearching] = useState();
+
+    useEffect(() => {
+        // componentDidMount
+    }, []);
 
     const onClickLogin = () => {
         setLoginModal(true);
+    }
+
+    const onSubmitSearch = (event) => {
+        event.preventDefault();
+
+        search(searching)
+        .then((res) => {
+            console.log(res)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
     }
 
     return(
@@ -37,7 +55,14 @@ const Header = ({AccountState, setAccountState}) => {
                             <span>Project Once Writing</span>
                         </s.PowLogo>
                         <s.Searching>
-                            <input placeholder="검색어를 입력해주세요"></input>
+                            <form onSubmit={onSubmitSearch}>
+                                <input
+                                    onChange={(event) => {
+                                        setSearching(event.target.value)
+                                    }}
+                                    value={searching}
+                                    placeholder="검색어를 입력해주세요" />
+                            </form>
                         </s.Searching>
                         <s.LoginArea>
                             <button onClick={onClickLogin}>Login</button>
