@@ -117,10 +117,19 @@ export const ClubIntroBox = styled.div`
     top: -9%;
     transform: translateY(-50%);
     margin-left: 44px;
-    font-size: 40px;
+    font-size: 38px;
     background-color: white;
     color: #707070;
   }
+`;
+
+export const ClubContent = styled.div`
+  width: 300px;
+  height: 260px;
+  border: 1px solid #aeadad;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 export const Writer = styled.div`
@@ -129,14 +138,6 @@ export const Writer = styled.div`
   color: #8d8d8d;
   margin-top: 30px;
   margin-right: 17px;
-`;
-
-export const FixDate = styled.p`
-  font-size: 20px;
-  color: #8d8d8d;
-  position: relative;
-  top: 65%;
-  left: 7%;
 `;
 
 export const RightContent = styled.div`
@@ -247,12 +248,4 @@ export const Title = styled.div`
   margin-top: 45px;
   margin-left: 50px;
   font-size: 40px;
-`;
-
-export const StartDate = styled.div`
-  margin-top: 25px;
-  position: relative;
-  left: 50%;
-  font-size: 20px;
-  color: #8d8d8d;
 `;

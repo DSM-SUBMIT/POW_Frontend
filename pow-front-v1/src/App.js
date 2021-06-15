@@ -13,7 +13,7 @@ const App = () => {
           <Header />
           <Main />
         </Route>
-        <Route exact path="/club">
+        <Route exact path="/club/:id">
           <Club />
         </Route>
       </BrowserRouter>

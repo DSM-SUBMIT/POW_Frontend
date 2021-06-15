@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import * as s from "./Style";
 import pow from "../../../img/pow.png";
+import { deleteAccount, getToken } from "../../../../axios/Axios";
 
 const AccountDel = ({ setAccountDelModal }) => {
+  const [password, setPassword] = useState();
+
   const onClickAway = () => {
     setAccountDelModal(false);
   };
 
-  const onClickAgree = () => {
-    alert("계정 탈퇴 성공 !");
+  const onClickAgree = async () => {
+    try {
+      await deleteAccount();
+        if(password === getToken()){
+          alert("계정 탈퇴 성공");
+        }
+        else {
+          alert("비밀번호를 다시 입력하세요")
+        }
+    } catch (err) {
+      console.log(err)
+    }
   };
 
   const onClickCancel = () => {
@@ -26,6 +39,10 @@ const AccountDel = ({ setAccountDelModal }) => {
           </s.Logo>
           <s.PwInput>
             <input
+              onChange={(event) => {
+                setPassword(event.target.value)
+              }}
+              value={password}
               className="ModalInput"
               placeholder="비밀번호를 입력해주세요"
             ></input>

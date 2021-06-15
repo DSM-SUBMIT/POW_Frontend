@@ -15,18 +15,10 @@ export const Center = styled.div`
     height: 100%;
     background-color: white;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
     
-`
-
-export const Line = styled.div`
-    width: 100%;
-    height: 299px;
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    margin-top: 3em;
 `
 
 export const Club = styled.div`
@@ -34,6 +26,7 @@ export const Club = styled.div`
     height: 227px;
     border-radius: 50%;
     border: 0.1em solid #707070;
+    margin: 0 28px 40px 28px;
     img {
         width: 227px;
         height: 227px;

@@ -1,16 +1,17 @@
 import React from "react";
 import * as S from "./Style";
 import WhiteScreen from "../common/WhiteScreen";
+import { DeletePost } from "../../../../axios/Axios";
 
 const PostDelete = ({ closeModal }) => {
-
+  const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxfQ.HFXowaGXnoryNVa_SbW2TtkF8KzA9ZJDfX6OnXpR9_o`;
   const onClickPostDelete = () => {
     closeModal(null);
   };
 
   const onClickCancel = () => {
     closeModal(null);
-  }
+  };
 
   return (
     <>
@@ -19,7 +20,13 @@ const PostDelete = ({ closeModal }) => {
         <S.Title>
           <p>게시글을 삭제합니다</p>
         </S.Title>
-        <S.CheckButton>확인</S.CheckButton>
+        <S.CheckButton
+          onClick={(e) => {
+            DeletePost(token, 1, 1);
+          }}
+        >
+          확인
+        </S.CheckButton>
         <S.NoButton onClick={onClickCancel}>취소</S.NoButton>
       </S.DelContent>
     </>

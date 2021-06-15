@@ -1,7 +1,46 @@
 import axios from "axios";
 
+const ACCOUNT_BASEURL="https://submit-pow.herokuapp.com";
 const fileURL = "https://ehddkfl.herokuapp.com/";
 const crudURL = "https://powerofpow.herokuapp.com/";
+const clubURL = "https://submit-pow.herokuapp.com";
+
+export const clubPage = async (id) => {
+  return axios.get(`${ACCOUNT_BASEURL}/clubpage/${id}`)
+}
+
+export const login = (code, password) => {
+  return axios.post(`${ACCOUNT_BASEURL}/auth`, {
+    code, password
+  }) 
+}
+
+export const getAccountImg = async () => {
+    return axios.get(`${ACCOUNT_BASEURL}/club`);
+}
+
+export const deleteAccount = () => {
+  return axios.delete(`${ACCOUNT_BASEURL}/account`, {
+    headers: {
+      Authorization: getToken()
+    }
+  })
+}
+
+export const changePw = (existring_password, new_password) => {
+  return axios.put(`${ACCOUNT_BASEURL}/account`, {
+    existring_password, new_password
+  }, {
+    headers: {
+      Authorization: getToken()
+    }
+  })
+}
+
+export const getToken = () => {
+  const token = localStorage.getItem('token') || 'guest';
+  return `Bearer ${token}`;
+}
 
 export const FileRequest = async (method, url, head, file) => {
   return await axios({
@@ -101,15 +140,28 @@ export const PostUpload = (
     });
 };
 
-/*
-export const ProjectIntro = () => {
+export const ClubPage = (id) => {
+  return axios.get(`${clubURL}/clubpage/${id}`).catch(function (error) {
+    console.log(error);
+  });
+};
+
+export const DeletePost = (token, clubId, projectId) => {
   return axios
-    .get(`${crudURL}club/${club_id}/project/${project_id}`, {})
-    .then(function (response) {
-      console.log(response);
+    .delete(`${crudURL}/club/${clubId}/project/${projectId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     })
     .catch(function (error) {
       console.log(error);
     });
 };
-*/
+
+export const ProjectIntro = (clubId, projectId) => {
+  return axios
+    .get(`${clubURL}/club/${clubId}/project/${projectId}`)
+    .catch(function (error) {
+      console.log(error);
+    });
+};
