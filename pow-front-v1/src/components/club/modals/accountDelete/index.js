@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import * as s from "./Style";
 import pow from "../../../img/pow.png";
-import { deleteAccount, getToken } from "../../../../axios/Axios";
+import { deleteAccount, getToken, login } from "../../../../axios/Axios";
 
 const AccountDel = ({ setAccountDelModal }) => {
   const [password, setPassword] = useState();
-
   const onClickAway = () => {
     setAccountDelModal(false);
   };
@@ -13,7 +12,7 @@ const AccountDel = ({ setAccountDelModal }) => {
   const onClickAgree = async () => {
     try {
       await deleteAccount();
-        if(password === getToken()){
+        if(password === login(password)){
           alert("계정 탈퇴 성공");
         }
         else {
