@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { getAccountImg } from '../../axios/Axios';
+import { getAccount } from '../../axios/Axios';
 import * as s from './style';
 
 const Main = () => {
@@ -13,7 +13,7 @@ const Main = () => {
     }
 
     useEffect(()  => {
-        getAccountImg().then((res) => {
+        getAccount().then((res) => {
             setData(res.data.clubs)
         }).catch((err) => {
             console.log(err)
@@ -27,7 +27,7 @@ const Main = () => {
                     data && data.map((res) => {
                         console.log(res)
                         return (<s.Club onClick={() => clubClick(res.id)} key={res.name}>
-                        <img src={`${IMG_BASEURL}/public/profiles/${res.profilePath}`} alt=""/>
+                        <img src={`${IMG_BASEURL}/public/profiles/${res.profile_path}`} alt=""/>
                     </s.Club>)
                     })
                 }
