@@ -18,13 +18,17 @@ const BannerDelete = ({ closeModal }) => {
     try {
       FileRequest(
         "PATCH",
-        "profile/1",
+        "banner/1",
         {
           authorization: `Bearer ${token}`,
         },
         {}
-      );
+      ).then((e)=>{
+        alert("베너사진이 초기화되었습니다.");
+        closeModal(null);
+      });
     } catch (e) {
+      alert("잠시 후 다시 시도해주세요.")
       console.log(e);
     }
   };
