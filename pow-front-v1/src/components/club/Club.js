@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
-import * as S from "./Style";
+import React, { useEffect, useState } from "react";
+import * as s from "./Style";
+import { useParams } from "react-router";
+import { clubPage } from "../../axios/Axios";
 import edit from "../img/edit.png";
 import picture from "../img/picture.png";
 import writing from "../img/writing.png";
@@ -25,6 +27,23 @@ const Club = () => {
   const [contents, setContents] = useState("");
   const [projectList, setProjectList] = useState([]);
   const imgUrl = "https://ehddkfl.herokuapp.com/public/";
+  const profilePath = "DefaultImage.png";
+  const bannerPath = "DefaultImage.png";
+
+  const {id} = useParams()
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    clubPage(id).then(async(res) => {
+      await setData(res.data);
+    }).catch((err) => {
+      console.log(err);
+    })
+  }, [id]);
+
+  useEffect(() => {
+    console.log(data)
+  }, [data])
 
   useEffect(() => {
     LoadClubInfo();
