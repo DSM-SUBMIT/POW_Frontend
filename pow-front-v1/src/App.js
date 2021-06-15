@@ -7,11 +7,12 @@ import { Route, BrowserRouter } from "react-router-dom";
 import "./App.css";
 
 const App = () => {
+
   return (
     <>
       <BrowserRouter>
         <Route path="/" exact>
-          <Header />
+            <Header/>
           <Main />
         </Route>
         <Route exact path="/club/:id">
