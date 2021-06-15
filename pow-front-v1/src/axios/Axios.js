@@ -3,6 +3,7 @@ import axios from "axios";
 const ACCOUNT_BASEURL="https://submit-pow.herokuapp.com";
 const fileURL = "https://ehddkfl.herokuapp.com/";
 const crudURL = "https://powerofpow.herokuapp.com/";
+const clubURL = "https://submit-pow.herokuapp.com";
 
 export const search = async (name) => {
   return axios.get(`${ACCOUNT_BASEURL}/search`, {
@@ -150,15 +151,28 @@ export const PostUpload = (
     });
 };
 
-/*
-export const ProjectIntro = () => {
+export const ClubPage = (id) => {
+  return axios.get(`${clubURL}/clubpage/${id}`).catch(function (error) {
+    console.log(error);
+  });
+};
+
+export const DeletePost = (token, clubId, projectId) => {
   return axios
-    .get(`${crudURL}club/${club_id}/project/${project_id}`, {})
-    .then(function (response) {
-      console.log(response);
+    .delete(`${crudURL}/club/${clubId}/project/${projectId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     })
     .catch(function (error) {
       console.log(error);
     });
 };
-*/
+
+export const ProjectIntro = (clubId, projectId) => {
+  return axios
+    .get(`${clubURL}/club/${clubId}/project/${projectId}`)
+    .catch(function (error) {
+      console.log(error);
+    });
+};
