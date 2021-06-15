@@ -5,7 +5,7 @@ import pow from '../img/pow.png';
 import { Login, NewPw, AccountDel } from '../club/modals/index';
 import { search } from '../../axios/Axios';
 
-const Header = ({AccountState, setAccountState}) => {
+const Header = () => {
     const [loginModal, setLoginModal] = useState(false);
     const [AccountDelModal, setAccountDelModal] = useState(false);
     const [NewPwModal, setNewPwModal] = useState(false);
@@ -15,20 +15,31 @@ const Header = ({AccountState, setAccountState}) => {
         // componentDidMount
     }, []);
 
+    const getToken = localStorage.getItem('token');
+
     const onClickLogin = () => {
         setLoginModal(true);
     }
 
     const onSubmitSearch = (event) => {
         event.preventDefault();
-
+        if(getToken === null){
+            alert("로그인을 먼저 해주세요!")
+        }
         search(searching)
-        .then((res) => {
-            console.log(res)
+        .then((response) => {
+            console.log(response.data)
         })
         .catch((err) => {
             console.log(err)
         })
+    }
+    const logoutClickHandler = () => {
+        alert("로그아웃 되었습니다")
+        return(
+            localStorage.removeItem('token'),
+            window.location.replace("/")
+        )
     }
 
     return(
@@ -65,7 +76,11 @@ const Header = ({AccountState, setAccountState}) => {
                             </form>
                         </s.Searching>
                         <s.LoginArea>
-                            <button onClick={onClickLogin}>Login</button>
+                            {getToken === null ? (
+                                <button onClick={onClickLogin}>login</button>    
+                             ) : (
+                                <button onClick={logoutClickHandler}>logout</button>
+                             )}
                         </s.LoginArea>
                     </s.Area>
                     <s.Area>
@@ -85,7 +100,10 @@ const Header = ({AccountState, setAccountState}) => {
                             </s.Select>
                         </s.Kind>
                         <s.State>
-                            <h4>로그인을 해주세요!</h4>
+                            {getToken === null ? (
+                                <h4>로그인을 해주세요!</h4>) 
+                                : (<h4>현재 로그인 중입니다</h4>
+                            )}
                         </s.State>
                     </s.Area>
                 </s.Center>
