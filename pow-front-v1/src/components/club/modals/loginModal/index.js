@@ -3,7 +3,7 @@ import * as s from './Style';
 import pow from '../../../img/pow.png';
 import { login } from '../../../../axios/Axios';
 
-const Login = ({setLoginModal, setAccountDelModal, setNewPwModal}) => {
+const Login = ({setLoginModal, setAccountDelModal, setNewPwModal }) => {
     const [code, setCode] = useState();
     const [password, setPassword] = useState();
 
