@@ -6,6 +6,7 @@ import edit from "../img/edit.png";
 import picture from "../img/picture.png";
 import writing from "../img/writing.png";
 import list from "../img/list.png";
+import Header from "../header/Header";
 import { ClubPage } from "../../axios/Axios";
 import {
   BannerUpload,
@@ -21,8 +22,6 @@ import {
 
 
 const imgUrl = "https://ehddkfl.herokuapp.com/public/";
-const profileImgPath = "DefaultImage.png";
-const bannerPath = "1623680917707__character_img01.png";
 
 const Club = () => {
   const [modalComponents, setModalComponents] = useState(null);
@@ -63,7 +62,7 @@ const Club = () => {
   };
 
   const onClickPictureModal = () => {
-    setModalComponents(<PictureUploadModal selectModal={setModalComponents} />);
+    setModalComponents(<PictureUploadModal selectModal={setModalComponents} clubId={id} />);
   };
 
   const onClickPostModifyRemoveModal = (e) => {
@@ -91,15 +90,16 @@ const Club = () => {
   };
 
   const onClickBannerDeleteModal = () => {
-    setModalComponents(<BannerDelete closeModal={setModalComponents} />);
+    setModalComponents(<BannerDelete closeModal={setModalComponents} clubId={id}/>);
   };
 
   const onClickProfileDeleteModal = () => {
-    setModalComponents(<ProfileDeleteModal closeModal={setModalComponents} />);
+    setModalComponents(<ProfileDeleteModal closeModal={setModalComponents} clubId={id} />);
   };
 
   return (
     <>
+      <Header />
       {modalComponents}
       <header>
         <S.BannerImg>
@@ -107,13 +107,13 @@ const Club = () => {
           <S.LogoDiv>
             <img
               alt="프로필 사진"
-              src={`${imgUrl}profiles/${profileImgPath}`}
+              src={`${imgUrl}profiles/${data ? data.profile_path : null}`}
               onClick={onClickProfileDeleteModal}
             />
           </S.LogoDiv>
           <img
             alt="베너 사진"
-            src={`${imgUrl}banners/${bannerPath}`}
+            src={`${imgUrl}banners/${data ? data.banner_path : null}`}
             onClick={onClickBannerDeleteModal}
           />
         </S.BannerImg>
