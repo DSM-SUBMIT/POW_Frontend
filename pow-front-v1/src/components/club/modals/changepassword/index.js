@@ -6,18 +6,22 @@ import pow from '../../../img/pow.png';
 const NewPw = ({setNewPwModal}) => {
     const [existring_password, setExistring_password] = useState();
     const [new_password, setNew_password] = useState();
-    // const [new_passwordCheck, setNew_passwordCheck] = useState();
-    
+    const [new_passwordCheck, setNew_passwordCheck] = useState();
+
     const onClickEnter = async() => {
         try {
+            if(new_password !== new_passwordCheck) {
+                alert("변경 비밀번호가 일치하지 않습니다")
+            }
+            else if(new_password === new_passwordCheck){
             await changePw(existring_password, new_password);
-            // const { data } = await changePw(existring_password, new_password);
-            // const token = data['access-token'];
-            // localStorage.setItem('token', token);
             alert("비밀번호가 변경되었습니다.");
             setNewPwModal(false);
+            }
         } catch (error) {
-            alert(error.response.data.code);
+            if(error.response.data.code === 'CLUB400-2'){
+                alert("비밀번호를 다시 확인해주세요")
+            }
         }
     }
     const onClickAway = () => {
@@ -54,9 +58,9 @@ const NewPw = ({setNewPwModal}) => {
                             placeholder="변경할 비밀번호를 입력해주세요"/>
                         <input
                             onChange={(event) => {
-                                setNew_password(event.target.value);
+                                setNew_passwordCheck(event.target.value);
                             }}
-                            value={new_password}
+                            value={new_passwordCheck}
                             className="ModalInput"
                             placeholder="비밀번호 확인"/>
                     </s.NewPwInput>
