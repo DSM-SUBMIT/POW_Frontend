@@ -35,16 +35,18 @@ const Club = () => {
   const [data, setData] = useState();
 
   useEffect(() => {
-    clubPage(id).then(async(res) => {
-      await setData(res.data);
-    }).catch((err) => {
-      console.log(err);
-    })
+    clubPage(id)
+      .then(async (res) => {
+        await setData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [id]);
 
   useEffect(() => {
-    console.log(data)
-  }, [data])
+    console.log(data);
+  }, [data]);
 
   useEffect(() => {
     LoadClubInfo();
@@ -155,7 +157,7 @@ const Club = () => {
                       onClick={onClickPostModifyRemoveModal}
                     ></img>
                     <S.PostDiv>
-                      <p>작성일 : {project.createdAt}</p>
+                      <p>작성일 : {project.created_at}</p>
                       {/*<p>수정일 : 2021-04-11</p>*/}
                     </S.PostDiv>
                     <S.Title>{project.title}</S.Title>
