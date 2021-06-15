@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { FileRequest } from "../../../../axios/Axios";
 import * as s from "./style";
 
-const ProfileUpload = ({ closeModal }) => {
+const ProfileUpload = ({ closeModal, clubId }) => {
   const [file, setFile] = useState(null);
   const [filePath, setFilePath] = useState("");
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ";
 
   const onClickWhiteScreen = () => {
     closeModal(null);
@@ -19,26 +17,27 @@ const ProfileUpload = ({ closeModal }) => {
   };
 
   const onSubmitFile = async () => {
-    try {
-      const fd = new FormData();
-      file && fd.append("file", file);
-      FileRequest(
-        "PUT",
-        `banner/2`,
-        {
-          authorization: `Bearer ${token}`,
-        },
-        fd
-      ).then((e) => {
-        closeModal(null);
-        alert("프로필 사진이 업로드 되었습니다.");
-        window.location.reload();
-      });
+    const token = localStorage.getItem("token");
+    console.log(token);
+    const fd = new FormData();
+    file && fd.append("file", file);
+    FileRequest(
+      "PUT",
+      `profile/${clubId}`,
+      {
+        authorization: `Bearer ${token}`,
+      },
+      fd
+    ).then((e) => {
+      closeModal(null);
+      alert("프로필 사진이 업로드 되었습니다.");
+      window.location.reload();
+    }).catch((e)=> {
+      closeModal(null);
+      alert("업로드에 실패했습니다.");
       setFile(null);
       setFilePath("");
-    } catch (e) {
-      console.log(e);
-    }
+    });
   };
 
   return (
