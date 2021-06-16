@@ -3,9 +3,9 @@ import * as S from "./Style";
 import WhiteScreen from "../common/WhiteScreen";
 import { ClubModify } from "../../../../axios/Axios";
 
-const ClubModifyModal = ({ closeModal }) => {
+const ClubModifyModal = ({ closeModal, clubId }) => {
   const [content, setContent] = useState("");
-  const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxfQ.HFXowaGXnoryNVa_SbW2TtkF8KzA9ZJDfX6OnXpR9_o`;
+  const token = `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjM4MzE3NzgsInN1YiI6IjEiLCJleHAiOjE2MjQwNDIzODIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.KOc1sbOUuPGpfp5Y-3azFMXSeCwGm2rouRYnXLDj78Q`;
   const onClickGreyBox = () => {
     closeModal(null);
   };
@@ -28,7 +28,7 @@ const ClubModifyModal = ({ closeModal }) => {
         </S.WriteBox>
         <S.UploadButton
           onClick={(e) => {
-            ClubModify(content, 1, token);
+            ClubModify(content, clubId, token);
           }}
         >
           업로드 하기
