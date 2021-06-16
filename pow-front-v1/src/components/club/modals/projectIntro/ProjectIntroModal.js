@@ -16,6 +16,7 @@ const ProjectlntroModal = ({ closeModal, clubId, projectId }) => {
   useEffect(() => {
     LoadProjectIntro();
   }, []);
+
   const LoadProjectIntro = async () => {
     const res = await ProjectIntro(clubId, projectId);
     if (res) {
@@ -27,6 +28,7 @@ const ProjectlntroModal = ({ closeModal, clubId, projectId }) => {
       setEndDate(res.data.ended_at);
     }
   };
+
   const onClickProjectIntroModal = () => {
     closeModal(null);
   };

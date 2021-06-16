@@ -34,6 +34,11 @@ const Club = () => {
     clubPage(id)
       .then(async (res) => {
         await setData(res.data);
+        setName(res.data.name);
+        setProfilePath(res.data.profilePath);
+        setBannerPath(res.data.bannerPath);
+        setContents(res.data.contents);
+        setProjectList(res.data.introduction);
       })
       .catch((err) => {
         console.log(err);
@@ -44,24 +49,10 @@ const Club = () => {
     console.log(data);
   }, [data]);
 
-  useEffect(() => {
-    LoadClubInfo();
-  }, []);
-
-  const LoadClubInfo = async () => {
-    const res = await ClubPage(id);
-    console.log(res.data);
-    if (res) {
-      setName(res.data.name);
-      setProfilePath(res.data.profilePath);
-      setBannerPath(res.data.bannerPath);
-      setContents(res.data.contents);
-      setProjectList(res.data.introduction);
-    }
-  };
-
   const onClickPictureModal = () => {
-    setModalComponents(<PictureUploadModal selectModal={setModalComponents} clubId={id} />);
+    setModalComponents(
+      <PictureUploadModal selectModal={setModalComponents} clubId={id} />
+    );
   };
 
   const onClickPostModifyRemoveModal = (e, projectId) => {
@@ -98,11 +89,15 @@ const Club = () => {
   };
 
   const onClickBannerDeleteModal = () => {
-    setModalComponents(<BannerDelete closeModal={setModalComponents} clubId={id}/>);
+    setModalComponents(
+      <BannerDelete closeModal={setModalComponents} clubId={id} />
+    );
   };
 
   const onClickProfileDeleteModal = () => {
-    setModalComponents(<ProfileDeleteModal closeModal={setModalComponents} clubId={id} />);
+    setModalComponents(
+      <ProfileDeleteModal closeModal={setModalComponents} clubId={id} />
+    );
   };
 
   return (
