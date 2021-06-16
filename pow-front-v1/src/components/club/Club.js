@@ -20,9 +20,6 @@ import {
   ProjectIntroModal,
 } from "./modals/index";
 
-
-const imgUrl = "https://ehddkfl.herokuapp.com/public/";
-
 const Club = () => {
   const [modalComponents, setModalComponents] = useState(null);
   const [name, setName] = useState("");
@@ -109,13 +106,13 @@ const Club = () => {
           <S.LogoDiv>
             <img
               alt="프로필 사진"
-              src={`${imgUrl}profiles/${data ? data.profile_path : null}`}
+              src={`${data ? data.profile_path : null}`}
               onClick={onClickProfileDeleteModal}
             />
           </S.LogoDiv>
           <img
             alt="베너 사진"
-            src={`${imgUrl}banners/${data ? data.banner_path : null}`}
+            src={`${data ? data.banner_path : null}`}
             onClick={onClickBannerDeleteModal}
           />
         </S.BannerImg>
