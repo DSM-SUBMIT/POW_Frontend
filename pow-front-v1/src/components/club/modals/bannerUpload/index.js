@@ -29,14 +29,14 @@ const BannerUpload = ({ closeModal, clubId }) => {
       },
       fd
     ).then((e)=> {
-      closeModal(null);
-      alert("배너 사진이 업로드 되었습니다.");
-      window.location.reload();
-    }).catch((e) => {
-      closeModal(null);
-      alert("업로드에 실패했습니다.");
-      setFile(null);
-      setFilePath("");
+      if(e.data === "file updated"){
+        closeModal(null);
+        alert("배너 사진이 업로드 되었습니다.");
+        // window.location.reload();
+      } else {
+        alert(e.data.name);
+        closeModal(null);
+      }
     });
   };
 
