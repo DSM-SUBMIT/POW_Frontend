@@ -4,7 +4,7 @@ export const Header = styled.div`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    position: fixed;
+    position: relative;
     width: 100%;
     height: 200px;
     background-color: white;
