@@ -19,7 +19,6 @@ import {
   ProjectIntroModal,
 } from "./modals/index";
 
-
 const imgUrl = "https://ehddkfl.herokuapp.com/public/";
 const profileImgPath = "DefaultImage.png";
 const bannerPath = "1623680917707__character_img01.png";
@@ -31,7 +30,7 @@ const Club = () => {
   const [bannerPath, setBannerPath] = useState("");
   const [contents, setContents] = useState("");
   const [projectList, setProjectList] = useState([]);
-  const {id} = useParams()
+  const { id } = useParams();
   const [data, setData] = useState();
 
   useEffect(() => {
@@ -53,7 +52,7 @@ const Club = () => {
   }, []);
 
   const LoadClubInfo = async () => {
-    const res = await ClubPage(1);
+    const res = await ClubPage(id);
     console.log(res.data);
     if (res) {
       setName(res.data.name);
@@ -68,25 +67,34 @@ const Club = () => {
     setModalComponents(<PictureUploadModal selectModal={setModalComponents} />);
   };
 
-  const onClickPostModifyRemoveModal = (e) => {
+  const onClickPostModifyRemoveModal = (e, projectId) => {
     e.stopPropagation();
     setModalComponents(
-      <PostModifyRemoveModal selectModal={setModalComponents} />
+      <PostModifyRemoveModal
+        clubId={id}
+        projectId={projectId}
+        selectModal={setModalComponents}
+      />
     );
   };
 
   const onClickClubModifyModal = () => {
-    setModalComponents(<ClubModifyModal closeModal={setModalComponents} />);
+    setModalComponents(
+      <ClubModifyModal clubId={id} closeModal={setModalComponents} />
+    );
   };
 
   const onClickPostUploadModal = () => {
-    setModalComponents(<PostUploadModal closeModal={setModalComponents} />);
+    setModalComponents(
+      <PostUploadModal clubId={id} closeModal={setModalComponents} />
+    );
   };
 
-  const onClickProjectIntro = (e) => {
+  const onClickProjectIntro = (projectId) => {
     setModalComponents(
       <ProjectIntroModal
-        projectId={e.currentTarget.pid}
+        clubId={id}
+        projectId={projectId}
         closeModal={setModalComponents}
       />
     );
@@ -147,14 +155,15 @@ const Club = () => {
               {projectList.map((project, i) => {
                 return (
                   <S.Post
-                    pid={project.id}
                     key={i}
-                    onClick={onClickProjectIntro}
+                    onClick={() => onClickProjectIntro(project.id)}
                   >
                     <img
                       alt="더보기"
                       src={list}
-                      onClick={onClickPostModifyRemoveModal}
+                      onClick={(e) =>
+                        onClickPostModifyRemoveModal(e, project.id)
+                      }
                     ></img>
                     <S.PostDiv>
                       <p>작성일 : {project.created_at}</p>
