@@ -9,7 +9,7 @@ const PostModifyModal = ({ closeModal }) => {
   const [content, setContent] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxfQ.HFXowaGXnoryNVa_SbW2TtkF8KzA9ZJDfX6OnXpR9_o`;
+  const token = localStorage.getItem("token");
 
   const onClickPostModifyModal = () => {
     closeModal(null);
