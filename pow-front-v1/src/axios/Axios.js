@@ -7,9 +7,6 @@ const clubURL = "https://submit-pow.herokuapp.com";
 
 export const search = async (name) => {
   return axios.get(`${ACCOUNT_BASEURL}/club/search`, {
-    headers: {
-      Authorization: getToken(),
-    },
     params: {
       name,
     }
