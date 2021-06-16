@@ -6,7 +6,7 @@ export const Modal = styled.div`
     position: fixed;
     background-color: #B9B9B9;
     opacity: 0.5;
-    z-index: 1;
+    z-index: 3;
 `
 
 export const ModalCenter = styled.div`

@@ -3,8 +3,7 @@ import * as S from './Style';
 import WhiteScreen from '../common/WhiteScreen';
 import { FileRequest } from '../../../../axios/Axios';
 
-const ProfileDeleteModal = ({closeModal}) => {
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ";
+const ProfileDeleteModal = ({closeModal, clubId}) => {
 
   const onClickWhiteScreen = () => {
     closeModal(null);
@@ -16,8 +15,8 @@ const ProfileDeleteModal = ({closeModal}) => {
 
   const onClickProfileDelete = () => {
     try{
-      FileRequest("patch", 'profile/1', {
-        authorization: `Bearer ${token}`
+      FileRequest("patch", `profile/${clubId}`, {
+        authorization: `Bearer ${localStorage.getItem("token")}`
       },{}).then((e)=>{
         alert("프로필 사진이 초기화되었습니다.");
         closeModal(null);
