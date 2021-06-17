@@ -24,9 +24,9 @@ const Main = () => {
         <s.Main>
             <s.Center>
                 {
-                    data && data.map((res) => {
+                    data && data.map((res, index) => {
                         console.log(res)
-                        return (<s.Club onClick={() => clubClick(res.id)} key={res.name}>
+                        return (<s.Club onClick={() => clubClick(res.id)} key={index}>
                         <img src={`${IMG_BASEURL}/public/profiles/${res.profile_path}`} alt=""/>
                     </s.Club>)
                     })
