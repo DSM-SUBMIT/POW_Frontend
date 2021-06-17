@@ -43,8 +43,9 @@ export const InputText = styled.input`
   border: none;
   outline: none;
   margin-right: 49px;
+  text-align: center;
+  font-size: 18px;
   ::placeholder {
-    text-align: center;
     font-size: 18px;
     color: #8d8d8d;
   }
@@ -93,6 +94,7 @@ export const InputContent = styled.textarea`
   border-radius: 23px;
   border: none;
   padding: 10px;
+  text-align: center;
   ::placeholder {
     text-align: center;
   }
