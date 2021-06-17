@@ -38,11 +38,11 @@ const ProjectlntroModal = ({ closeModal, clubId, projectId }) => {
       <WhiteScreen onClick={onClickProjectIntroModal} />
       <S.IntroContent>
         <IntroduceHeader
-          writeDate={writeDate}
-          modifyDate={modifyDate}
+          writeDate={writeDate.substring(0, 10)}
+          modifyDate={modifyDate.substring(0, 10)}
           title={title}
-          startDate={startDate}
-          endDate={endDate}
+          startDate={startDate.substring(0, 10)}
+          endDate={endDate.substring(0, 10)}
         />
         <S.IntroduceBox>{contents}</S.IntroduceBox>
       </S.IntroContent>
