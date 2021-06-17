@@ -58,7 +58,14 @@ const PostUploadModal = ({ closeModal, clubId }) => {
         </S.WriteBox>
         <S.UploadButton
           onClick={(e) => {
-            PostUpload(title, content, startDate, endDate, clubId, token);
+            PostUpload(
+              title,
+              content,
+              startDate,
+              endDate,
+              parseInt(clubId, 10),
+              token
+            );
           }}
         >
           업로드 하기
