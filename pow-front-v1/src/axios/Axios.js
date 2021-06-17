@@ -103,7 +103,7 @@ export const PostModify = (
       },
       {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjM4MzE3NzgsInN1YiI6IjEiLCJleHAiOjE2MjQwNDIzODIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.KOc1sbOUuPGpfp5Y-3azFMXSeCwGm2rouRYnXLDj78Q`,
         },
       }
     )
@@ -125,7 +125,7 @@ export const PostUpload = (
   token
 ) => {
   return axios
-    .POST(
+    .post(
       `${crudURL}club/${clubId}/project`,
       {
         title: title,
