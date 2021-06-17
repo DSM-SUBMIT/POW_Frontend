@@ -74,6 +74,7 @@ export const ClubModify = (content, clubId, token) => {
     )
     .then(function (response) {
       alert("소개글이 수정되었습니다.");
+      window.location.reload();
       console.log(response);
     })
     .catch(function (error) {
@@ -102,13 +103,13 @@ export const PostModify = (
       },
       {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjM4MzE3NzgsInN1YiI6IjEiLCJleHAiOjE2MjQwNDIzODIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.KOc1sbOUuPGpfp5Y-3azFMXSeCwGm2rouRYnXLDj78Q`,
         },
       }
     )
-    .then(function (response) {
+    .then(function () {
       alert("게시글이 수정되었습니다.");
-      console.log(response);
+      window.location.reload();
     })
     .catch(function (error) {
       console.log(error);
@@ -142,6 +143,7 @@ export const PostUpload = (
     .then(function (response) {
       alert("게시글이 업로드 되었습니다.");
       console.log(response);
+      window.location.reload();
     })
     .catch(function (error) {
       alert("오류났음요");
@@ -151,12 +153,17 @@ export const PostUpload = (
 
 export const DeletePost = (token, clubId, projectId) => {
   return axios
-    .delete(`${crudURL}/club/${clubId}/project/${projectId}`, {
+    .delete(`${crudURL}club/${clubId}/project/${projectId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     })
+    .then(function () {
+      alert("됨 ㅅㄱ");
+      window.location.reload();
+    })
     .catch(function (error) {
+      alert("ㄴㄴㄴ");
       console.log(error);
     });
 };

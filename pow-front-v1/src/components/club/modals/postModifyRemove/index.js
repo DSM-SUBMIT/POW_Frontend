@@ -10,7 +10,13 @@ const PostModifyRemoveModal = ({ selectModal, clubId, projectId }) => {
   };
 
   const onClickPostModify = () => {
-    selectModal(<PostModifyModal closeModal={selectModal} />);
+    selectModal(
+      <PostModifyModal
+        clubId={clubId}
+        projectId={projectId}
+        closeModal={selectModal}
+      />
+    );
   };
 
   const onClickPostDelete = () => {

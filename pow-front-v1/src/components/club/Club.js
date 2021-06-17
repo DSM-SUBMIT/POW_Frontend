@@ -145,7 +145,7 @@ const Club = () => {
               </S.PostUpload>
             </S.Upload>
             <S.Content>
-              {projectList.map((project, i) => {
+              {projectList.reverse().map((project, i) => {
                 return (
                   <S.Post
                     key={i}
@@ -159,8 +159,7 @@ const Club = () => {
                       }
                     ></img>
                     <S.PostDiv>
-                      <p>작성일 : {project.created_at}</p>
-                      {/*<p>수정일 : 2021-04-11</p>*/}
+                      <p>작성일 : {project.created_at.substring(0, 10)}</p>
                     </S.PostDiv>
                     <S.Title>{project.title}</S.Title>
                   </S.Post>

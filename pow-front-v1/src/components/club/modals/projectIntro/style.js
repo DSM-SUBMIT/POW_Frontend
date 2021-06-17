@@ -25,19 +25,23 @@ export const HeaderContent = styled.div`
 
 export const WriteBar = styled.div`
   width: 1054px;
-  height: 61px;
+  height: 41px;
 `;
 
 export const CreatedDate = styled.p`
   width: 200px;
   float: left;
   font-size: 20px;
+  margin-bottom: 0;
+  text-align: left;
 `;
 
 export const ModifiedDate = styled.p`
   width: 200px;
   float: left;
   font-size: 20px;
+  margin-bottom: 0;
+  text-align: left;
 `;
 
 export const Writer = styled.p`
@@ -48,28 +52,32 @@ export const Writer = styled.p`
 
 export const TitleBar = styled.div`
   width: 1054px;
-  height: 61px;
+  height: 41px;
   margin-bottom: 27px;
   display: inline;
 `;
 
 export const IntroduceTitle = styled.h3`
-  width: 656px;
-  float: left;
+  width: 606px;
   text-align: left;
+  margin-top: 10;
+  margin-bottom: 0px;
 `;
 
 export const StartDate = styled.p`
-  width: 378px;
+  width: 409px;
   float: right;
   font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 `;
 
 export const IntroduceBox = styled.div`
   width: 1054px;
-  height: 490px;
+  height: 454px;
   background: #f3f3f3;
-  margin-top: 18px;
+  margin-top: 28px;
+  padding: 18px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -79,7 +87,7 @@ export const IntroduceBox = styled.div`
     width: 15px;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: #red;
+    background-color: red;
   }
   ::-webkit-scrollbar-track {
     background-color: #7662c6;

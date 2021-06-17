@@ -4,12 +4,12 @@ import WhiteScreen from "../common/WhiteScreen";
 import "react-datepicker/dist/react-datepicker.css";
 import { PostModify } from "../../../../axios/Axios";
 
-const PostModifyModal = ({ closeModal }) => {
+const PostModifyModal = ({ closeModal, clubId, projectId }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  const token = localStorage.getItem("token");
+  const token = `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjM4MzE3NzgsInN1YiI6IjEiLCJleHAiOjE2MjQwNDIzODIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.KOc1sbOUuPGpfp5Y-3azFMXSeCwGm2rouRYnXLDj78Q`;
 
   const onClickPostModifyModal = () => {
     closeModal(null);
@@ -59,7 +59,15 @@ const PostModifyModal = ({ closeModal }) => {
         </S.WriteBox>
         <S.UploadButton
           onClick={(e) => {
-            PostModify(title, content, startDate, endDate, 1, 1, token);
+            PostModify(
+              title,
+              content,
+              startDate,
+              endDate,
+              clubId,
+              projectId,
+              token
+            );
           }}
         >
           업로드 하기

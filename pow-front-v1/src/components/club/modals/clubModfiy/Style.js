@@ -36,14 +36,17 @@ export const WriteBox = styled.div`
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  padding: 8px;
 `;
 
 export const InputContent = styled.textarea`
   width: 474px;
-  height: 380px;
+  height: 370px;
   border: none;
   border-radius: 23px;
-  padding: 7px;
+  padding-top: 10px;
+  text-align: center;
+  font-size: 18px;
   ::placeholder {
     text-align: center;
   }
@@ -63,7 +66,7 @@ export const InputContent = styled.textarea`
     border-radius: 10px;
   }
   ::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
   }
   ::-webkit-scrollbar-track {
     background-color: #f9f9f9;
