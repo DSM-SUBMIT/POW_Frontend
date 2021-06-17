@@ -159,7 +159,7 @@ const Club = () => {
                       }
                     ></img>
                     <S.PostDiv>
-                      <p>작성일 : {project.created_at}</p>
+                      <p>작성일 : {project.created_at.substring(0, 10)}</p>
                       {/*<p>수정일 : 2021-04-11</p>*/}
                     </S.PostDiv>
                     <S.Title>{project.title}</S.Title>
