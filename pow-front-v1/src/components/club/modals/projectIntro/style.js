@@ -79,6 +79,7 @@ export const IntroduceBox = styled.div`
   margin-top: 28px;
   padding: 18px;
   position: relative;
+  font-size: 18px;
   left: 50%;
   transform: translateX(-50%);
   overflow-y: scroll;
