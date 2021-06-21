@@ -44,6 +44,7 @@ export const PowLogo = styled.div`
 `
 
 export const Searching = styled.div`
+    display: flex;
     input {
         width: 522px;
         height: 35px;
