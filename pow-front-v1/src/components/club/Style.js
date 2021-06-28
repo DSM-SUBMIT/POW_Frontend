@@ -213,8 +213,8 @@ export const Content = styled.div`
 `;
 
 export const Post = styled.div`
-  width: 785px;
-  height: 200px;
+  width: 777px;
+  height: 169px;
   border: 3px solid #cbcbcb;
   box-shadow: 1px 1px 5px #cbcbcb;
   border-radius: 27px;
