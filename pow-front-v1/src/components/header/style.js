@@ -20,7 +20,7 @@ export const Header = styled.div`
 
 export const Center = styled.div`
   width: 1280px;
-  height: 200px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -34,11 +34,11 @@ export const Area = styled.div`
 `;
 
 export const PowLogo = styled.div`
-  width: 138px;
-  height: 38px;
+  width: 142px;
+  height: 44px;
   text-align: center;
   span {
-    font-size: 10px;
+    font-size: 12px;
     color: #8d8d8d;
   }
 `;
@@ -46,7 +46,7 @@ export const PowLogo = styled.div`
 export const Searching = styled.div`
   input {
     width: 522px;
-    height: 30px;
+    height: 25px;
     font-size: 15px;
     border-radius: 3em;
     border: 0.12px solid #5345b2;
@@ -72,12 +72,16 @@ export const KindCenter = styled.div`
 
 export const Kind = styled.div`
   width: 367px;
-  height: 49px;
+  height: 79px;
+  display: flex;
 `;
-
 export const Select = styled.div`
   width: 113px;
-  height: 71px;
+  height: 58px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
   span {
     font-size: 25px;
@@ -85,7 +89,7 @@ export const Select = styled.div`
   }
   div {
     width: 113px;
-    height: 18px;
+    height: 16px;
     background-color: #f1a882;
     border-radius: 3em;
   }
@@ -96,7 +100,7 @@ export const State = styled.div`
   display: flex;
   justify-content: flex-end;
   h4 {
-    padding-bottom: 15px;
+    padding-bottom: 20px;
     left: 0;
     color: #8d8d8d;
   }
