@@ -30,7 +30,7 @@ const Club = () => {
   const [bannerPath, setBannerPath] = useState("");
   const [contents, setContents] = useState("");
   const [projectList, setProjectList] = useState([]);
-  const {id} = useParams()
+  const {id} = useParams();
   const [data, setData] = useState();
 
   useEffect(() => {
@@ -107,13 +107,13 @@ const Club = () => {
           <S.LogoDiv>
             <img
               alt="프로필 사진"
-              src={`${imgUrl}profiles/${data ? data.profile_path : null}`}
+              src={`${data ? data.profile_path : null}`}
               onClick={onClickProfileDeleteModal}
             />
           </S.LogoDiv>
           <img
             alt="베너 사진"
-            src={`${imgUrl}banners/${data ? data.banner_path : null}`}
+            src={`${data ? data.banner_path : null}`}
             onClick={onClickBannerDeleteModal}
           />
         </S.BannerImg>
@@ -156,7 +156,6 @@ const Club = () => {
                     ></img>
                     <S.PostDiv>
                       <p>작성일 : {project.createdAt}</p>
-                      {/*<p>수정일 : 2021-04-11</p>*/}
                     </S.PostDiv>
                     <S.Title>{project.title}</S.Title>
                   </S.Post>
