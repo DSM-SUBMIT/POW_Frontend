@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const IntroContent = styled.div`
-  width: 1188px;
-  height: 708px;
+  width: 1010px;
+  height: 748px;
   background: #ffffff;
   border-radius: 27px;
   border: 1px solid #707070;
@@ -15,8 +15,8 @@ export const IntroContent = styled.div`
 `;
 
 export const HeaderContent = styled.div`
-  width: 1054px;
-  height: 116px;
+  width: 1010px;
+  height: 136px;
   padding-top: 18px;
   position: relative;
   left: 50%;
@@ -24,7 +24,7 @@ export const HeaderContent = styled.div`
 `;
 
 export const WriteBar = styled.div`
-  width: 1054px;
+  width: 1010px;
   height: 41px;
 `;
 
@@ -33,6 +33,7 @@ export const CreatedDate = styled.p`
   float: left;
   font-size: 20px;
   margin-bottom: 0;
+  margin-left: 55px;
   text-align: left;
 `;
 
@@ -51,7 +52,7 @@ export const Writer = styled.p`
 `;
 
 export const TitleBar = styled.div`
-  width: 1054px;
+  width: 1010px;
   height: 41px;
   margin-bottom: 27px;
   display: inline;
@@ -60,8 +61,9 @@ export const TitleBar = styled.div`
 export const IntroduceTitle = styled.h3`
   width: 606px;
   text-align: left;
-  margin-top: 10;
+  margin-top: 28px;
   margin-bottom: 0px;
+  margin-left: 55px;
 `;
 
 export const StartDate = styled.p`
@@ -70,11 +72,12 @@ export const StartDate = styled.p`
   font-size: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-right: 55px;
 `;
 
 export const IntroduceBox = styled.div`
-  width: 1054px;
-  height: 454px;
+  width: 858px;
+  height: 464px;
   background: #f3f3f3;
   margin-top: 28px;
   padding: 18px;

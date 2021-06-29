@@ -2,33 +2,32 @@ import { useState } from 'react';
 import {Link} from 'react-router-dom'
 import * as s from './style';
 import pow from '../img/pow.png';
+
 //import search from '../Img/search.png';
-import { Login, NewPw, AccountDel } from '../club/modals/index';
+import { Login, NewPw, AccountDel } from "../club/modals/index";
 
-const Header = ({AccountState, setAccountState}) => {
-    const [loginModal, setLoginModal] = useState(false);
-    const [AccountDelModal, setAccountDelModal] = useState(false);
-    const [NewPwModal, setNewPwModal] = useState(false);
+const Header = ({ AccountState, setAccountState }) => {
+  const [loginModal, setLoginModal] = useState(false);
+  const [AccountDelModal, setAccountDelModal] = useState(false);
+  const [NewPwModal, setNewPwModal] = useState(false);
 
-    const onClickLogin = () => {
-        setLoginModal(true);
-    }
+  const onClickLogin = () => {
+    setLoginModal(true);
+  };
 
-    return(
-        <>
-            {loginModal && (
-                <Login
-                    setLoginModal={setLoginModal}
-                    setAccountDelModal={setAccountDelModal}
-                    setNewPwModal={setNewPwModal}
-                />
-            )}
-            {AccountDelModal && (
-                <AccountDel setAccountDelModal={setAccountDelModal}/>
-            )}
-            {NewPwModal && (
-                <NewPw setNewPwModal={setNewPwModal}/>
-            )}
+  return (
+    <>
+      {loginModal && (
+        <Login
+          setLoginModal={setLoginModal}
+          setAccountDelModal={setAccountDelModal}
+          setNewPwModal={setNewPwModal}
+        />
+      )}
+      {AccountDelModal && (
+        <AccountDel setAccountDelModal={setAccountDelModal} />
+      )}
+      {NewPwModal && <NewPw setNewPwModal={setNewPwModal} />}
 
             <s.Header>
                 <s.Center>
