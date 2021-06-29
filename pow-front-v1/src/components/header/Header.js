@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import {Link} from 'react-router-dom'
 import * as s from './style';
 import pow from '../img/pow.png';
 //import search from '../Img/search.png';
@@ -32,10 +33,12 @@ const Header = ({AccountState, setAccountState}) => {
             <s.Header>
                 <s.Center>
                     <s.Area>
-                        <s.PowLogo>
-                            <img src={pow} alt=""></img>
-                            <span>Project Once Writing</span>
-                        </s.PowLogo>
+                        <Link to="/">
+                            <s.PowLogo>
+                                <img src={pow} alt=""></img>
+                                <span>Project Once Writing</span>
+                            </s.PowLogo>
+                        </Link>
                         <s.Searching>
                             <input placeholder="검색어를 입력해주세요"></input>
                         </s.Searching>
