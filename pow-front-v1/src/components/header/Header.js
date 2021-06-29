@@ -17,10 +17,9 @@ const Header = () => {
     // const [account, setAccount] = useState();
 
     const getToken = localStorage.getItem('token');
-
-    const onClickLogin = () => {
-        setLoginModal(true);
-    }
+  const onClickLogin = () => {
+    setLoginModal(true);
+  };
 
     const history = useHistory();
 
@@ -78,10 +77,12 @@ const Header = () => {
             <s.Header>
                 <s.Center>
                     <s.Area>
-                        <s.PowLogo>
-                            <img src={pow} alt=""></img>
-                            <span>Project Once Writing</span>
-                        </s.PowLogo>
+                        <Link to="/">
+                            <s.PowLogo>
+                                <img src={pow} alt=""></img>
+                                <span>Project Once Writing</span>
+                            </s.PowLogo>
+                        </Link>
                         <s.Searching>
                             <form onSubmit={onSubmitSearch}>
                                 <input

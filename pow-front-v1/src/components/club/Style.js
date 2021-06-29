@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BannerImg = styled.div`
   position: relative;
   width: 100%;
-  height: 375px;
+  height: 275px;
   border-bottom: 10px solid;
   border-image: linear-gradient(
     to right,
@@ -26,18 +26,18 @@ export const BannerImg = styled.div`
 
 export const LogoDiv = styled.div`
   position: absolute;
-  bottom: -43%;
+  bottom: -49%;
   margin-left: 365px;
   z-index: 2;
   --b: 20px;
   display: inline-block;
-  width: 320px;
+  width: 300px;
 
   img {
     position: absolute;
     border-radius: 50%;
-    width: 285px;
-    height: 285px;
+    width: 225px;
+    height: 225px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -53,8 +53,8 @@ export const LogoDiv = styled.div`
     content: "";
     position: absolute;
     z-index: -1;
-    width: 280px;
-    height: 280px;
+    width: 260px;
+    height: 260px;
     top: 0;
     left: 0;
     right: 0;
@@ -100,13 +100,13 @@ export const MainContent = styled.div`
 `;
 
 export const LeftContent = styled.div`
-  margin-top: 220px;
+  margin-top: 200px;
   float: left;
 `;
 
 export const ClubIntroBox = styled.div`
-  width: 340px;
-  height: 330px;
+  width: 320px;
+  height: 200px;
   border: 3px solid #aeadad;
   border-radius: 27px;
   margin-left: 50px;
@@ -114,7 +114,7 @@ export const ClubIntroBox = styled.div`
 
   span {
     position: relative;
-    top: -9%;
+    top: -15%;
     transform: translateY(-50%);
     margin-left: 44px;
     font-size: 38px;
@@ -125,7 +125,7 @@ export const ClubIntroBox = styled.div`
 
 export const ClubContent = styled.div`
   width: 300px;
-  height: 260px;
+  height: 130px;
   border: 1px solid #aeadad;
   position: relative;
   left: 50%;
@@ -149,7 +149,7 @@ export const Upload = styled.div`
   align-items: center;
 
   div {
-    margin-top: 80px;
+    margin-top: 50px;
     display: flex;
     align-items: center;
     margin-right: 25px;
@@ -213,8 +213,8 @@ export const Content = styled.div`
 `;
 
 export const Post = styled.div`
-  width: 785px;
-  height: 200px;
+  width: 777px;
+  height: 169px;
   border: 3px solid #cbcbcb;
   box-shadow: 1px 1px 5px #cbcbcb;
   border-radius: 27px;

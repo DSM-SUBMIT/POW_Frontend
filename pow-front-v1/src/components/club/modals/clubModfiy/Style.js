@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CmContent = styled.div`
   width: 644px;
-  height: 608px;
+  height: 585px;
   background: #ffffff;
   border-radius: 23px;
   border: 1px solid #707070;
@@ -21,6 +21,7 @@ export const Title = styled.div`
   left: 50%;
   transform: translateX(-50%);
   p {
+    margin-top: 28px;
     font-family: NanumSquare_ac;
     font-size: 20px;
   }
@@ -28,7 +29,7 @@ export const Title = styled.div`
 
 export const WriteBox = styled.div`
   width: 488px;
-  height: 394px;
+  height: 334px;
   border: 1px solid #707070;
   border-radius: 23px;
   margin-top: 30px;
@@ -36,14 +37,17 @@ export const WriteBox = styled.div`
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  padding: 8px;
 `;
 
 export const InputContent = styled.textarea`
   width: 474px;
-  height: 380px;
+  height: 304px;
   border: none;
   border-radius: 23px;
-  padding: 7px;
+  padding-top: 10px;
+  text-align: center;
+  font-size: 18px;
   ::placeholder {
     text-align: center;
   }
@@ -63,7 +67,7 @@ export const InputContent = styled.textarea`
     border-radius: 10px;
   }
   ::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
   }
   ::-webkit-scrollbar-track {
     background-color: #f9f9f9;
@@ -81,7 +85,7 @@ export const UploadButton = styled.button`
   border-radius: 30px;
   border: none;
   color: #ffffff;
-  margin-top: 30px;
+  margin-top: 40px;
   cursor: pointer;
   :hover {
     background-color: #f29969;
