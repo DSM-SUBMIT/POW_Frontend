@@ -44,8 +44,8 @@ export const InputText = styled.input`
   border: none;
   margin-right: 49px;
   outline: none;
+  text-align: center;
   ::placeholder {
-    text-align: center;
     font-size: 18px;
     color: #8d8d8d;
   }
@@ -94,6 +94,9 @@ export const InputContent = styled.textarea`
   border-radius: 23px;
   border: none;
   padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-family: NanumSquare_ac;
   ::placeholder {
     text-align: center;
   }
@@ -106,7 +109,7 @@ export const InputContent = styled.textarea`
     width: 10px;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: #red;
+    background-color: red;
   }
   ::-webkit-scrollbar-track {
     background-color: #7662c6;

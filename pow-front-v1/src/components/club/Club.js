@@ -20,9 +20,6 @@ import {
   ProjectIntroModal,
 } from "./modals/index";
 
-
-const imgUrl = "https://ehddkfl.herokuapp.com/public/";
-
 const Club = () => {
   const [modalComponents, setModalComponents] = useState(null);
   const [name, setName] = useState("");
@@ -34,67 +31,73 @@ const Club = () => {
   const [data, setData] = useState();
 
   useEffect(() => {
-    clubPage(id).then(async(res) => {
-      await setData(res.data);
-    }).catch((err) => {
-      console.log(err);
-    })
+    clubPage(id)
+      .then(async (res) => {
+        await setData(res.data);
+        setName(res.data.name);
+        setProfilePath(res.data.profilePath);
+        setBannerPath(res.data.bannerPath);
+        setContents(res.data.contents);
+        setProjectList(res.data.introduction);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [id]);
 
   useEffect(() => {
-    console.log(data)
-  }, [data])
-
-  useEffect(() => {
-    LoadClubInfo();
-  }, []);
-
-  const LoadClubInfo = async () => {
-    const res = await ClubPage(1);
-    console.log(res.data);
-    if (res) {
-      setName(res.data.name);
-      setProfilePath(res.data.profilePath);
-      setBannerPath(res.data.bannerPath);
-      setContents(res.data.contents);
-      setProjectList(res.data.introduction);
-    }
-  };
+    console.log(data);
+  }, [data]);
 
   const onClickPictureModal = () => {
-    setModalComponents(<PictureUploadModal selectModal={setModalComponents} clubId={id} />);
+    setModalComponents(
+      <PictureUploadModal selectModal={setModalComponents} clubId={id} />
+    );
   };
 
-  const onClickPostModifyRemoveModal = (e) => {
+  const onClickPostModifyRemoveModal = (e, projectId) => {
     e.stopPropagation();
     setModalComponents(
-      <PostModifyRemoveModal selectModal={setModalComponents} />
+      <PostModifyRemoveModal
+        clubId={id}
+        projectId={projectId}
+        selectModal={setModalComponents}
+      />
     );
   };
 
   const onClickClubModifyModal = () => {
-    setModalComponents(<ClubModifyModal closeModal={setModalComponents} />);
+    setModalComponents(
+      <ClubModifyModal clubId={id} closeModal={setModalComponents} />
+    );
   };
 
   const onClickPostUploadModal = () => {
-    setModalComponents(<PostUploadModal closeModal={setModalComponents} />);
+    setModalComponents(
+      <PostUploadModal clubId={id} closeModal={setModalComponents} />
+    );
   };
 
-  const onClickProjectIntro = (e) => {
+  const onClickProjectIntro = (projectId) => {
     setModalComponents(
       <ProjectIntroModal
-        projectId={e.currentTarget.pid}
+        clubId={id}
+        projectId={projectId}
         closeModal={setModalComponents}
       />
     );
   };
 
   const onClickBannerDeleteModal = () => {
-    setModalComponents(<BannerDelete closeModal={setModalComponents} clubId={id}/>);
+    setModalComponents(
+      <BannerDelete closeModal={setModalComponents} clubId={id} />
+    );
   };
 
   const onClickProfileDeleteModal = () => {
-    setModalComponents(<ProfileDeleteModal closeModal={setModalComponents} clubId={id} />);
+    setModalComponents(
+      <ProfileDeleteModal closeModal={setModalComponents} clubId={id} />
+    );
   };
 
   return (
@@ -142,20 +145,21 @@ const Club = () => {
               </S.PostUpload>
             </S.Upload>
             <S.Content>
-              {projectList.map((project, i) => {
+              {projectList.reverse().map((project, i) => {
                 return (
                   <S.Post
-                    pid={project.id}
                     key={i}
-                    onClick={onClickProjectIntro}
+                    onClick={() => onClickProjectIntro(project.id)}
                   >
                     <img
                       alt="더보기"
                       src={list}
-                      onClick={onClickPostModifyRemoveModal}
+                      onClick={(e) =>
+                        onClickPostModifyRemoveModal(e, project.id)
+                      }
                     ></img>
                     <S.PostDiv>
-                      <p>작성일 : {project.createdAt}</p>
+                      <p>작성일 : {project.created_at.substring(0, 10)}</p>
                     </S.PostDiv>
                     <S.Title>{project.title}</S.Title>
                   </S.Post>
