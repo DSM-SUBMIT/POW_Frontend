@@ -18,9 +18,8 @@ const BannerUpload = ({ closeModal, clubId }) => {
 
   const onCLickUpload = () => {
     const token = localStorage.getItem("token");
-    console.log(token)
     const fd = new FormData();
-    fd.append("file", file);
+    file && fd.append("file", file);
     FileRequest(
       "PUT",
       `banner/${clubId}`,
