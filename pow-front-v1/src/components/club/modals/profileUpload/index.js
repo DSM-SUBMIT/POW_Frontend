@@ -18,7 +18,6 @@ const ProfileUpload = ({ closeModal, clubId }) => {
 
   const onSubmitFile = async () => {
     const token = localStorage.getItem("token");
-    console.log(token);
     const fd = new FormData();
     file && fd.append("file", file);
     FileRequest(
