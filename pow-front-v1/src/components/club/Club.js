@@ -28,7 +28,7 @@ const Club = () => {
   const imgUrl = "https://ehddkfl.herokuapp.com/public/";
   // const profilePath = "DefaultImage.png";
   // const bannerPath = "DefaultImage.png";
-
+  const {searchResult} = useParams()
   const {id} = useParams()
   const [clubName, setClubName] = useState();
 
@@ -41,6 +41,14 @@ const Club = () => {
   }, [id]);
 
   useEffect(() => {
+    clubPage(searchResult).then((res) => {
+      setClubName(res.data.name);
+    }).catch((err) => {
+      console.log(err);
+    })
+  }, [searchResult]);
+
+  useEffect(() => {
     console.log(clubName)
   }, [clubName])
 
@@ -49,8 +57,8 @@ const Club = () => {
   }, []);
 
   const LoadClubInfo = async () => {
-    const res = await ClubPage(1);
-    console.log(res.data);
+    const res = await ClubPage(id);
+    // console.log(res.data);
     if (res) {
       setProfilePath(res.data.profile_path);
       setBannerPath(res.data.banner_path);
