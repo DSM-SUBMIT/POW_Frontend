@@ -7,7 +7,6 @@ import picture from "../img/picture.png";
 import writing from "../img/writing.png";
 import list from "../img/list.png";
 import Header from "../header/Header";
-import { ClubPage } from "../../axios/Axios";
 import {
   BannerUpload,
   BannerDelete,
@@ -20,15 +19,14 @@ import {
   ProjectIntroModal,
 } from "./modals/index";
 
+const DEFAULTIMG = 'https://pow-bucket.s3.ap-northeast-2.amazonaws.com/1624976379907__asdsad.jpg';
+
 const Club = () => {
   const [modalComponents, setModalComponents] = useState(null);
-  const [profilePath, setProfilePath] = useState("");
-  const [bannerPath, setBannerPath] = useState("");
+  const [profilePath, setProfilePath] = useState(null);
+  const [bannerPath, setBannerPath] = useState(null);
   const [contents, setContents] = useState("");
   const [projectList, setProjectList] = useState([]);
-  const imgUrl = "https://ehddkfl.herokuapp.com/public/";
-  // const profilePath = "DefaultImage.png";
-  // const bannerPath = "DefaultImage.png";
   const {searchResult} = useParams()
   const {id} = useParams()
   const [clubName, setClubName] = useState();
@@ -58,7 +56,7 @@ const Club = () => {
   }, []);
 
   const LoadClubInfo = async () => {
-    const res = await ClubPage(id);
+    const res = await clubPage(id);
     // console.log(res.data);
     if (res) {
       setProfilePath(res.data.profile_path);
@@ -145,41 +143,41 @@ const Club = () => {
       <Header />
       {modalComponents}
       <header>
-        <s.BannerImg>
-          <s.WhiteBox />
-          <s.LogoDiv>
+        <S.BannerImg>
+          <S.WhiteBox />
+          <S.LogoDiv>
             <img
               alt="프로필 사진"
-              src={`${data ? data.profile_path : null}`}
+              src={`${profilePath ? profilePath : DEFAULTIMG}`}
               onClick={onClickProfileDeleteModal}
             />
-          </s.LogoDiv>
+          </S.LogoDiv>
           <img
             alt="베너 사진"
-            src={`${data ? data.banner_path : null}`}
+            src={`${bannerPath ? bannerPath : DEFAULTIMG}`}
             onClick={onClickBannerDeleteModal}
           />
-        </s.BannerImg>
+        </S.BannerImg>
       </header>
       <section style={{ backgroundColor: "#FCFCFC" }}>
-        <s.MainContent>
-          <s.LeftContent>
-            <s.ClubIntroBox>
+        <S.MainContent>
+          <S.LeftContent>
+            <S.ClubIntroBox>
               <span>{clubName}</span>
-              <s.ClubContent>{contents}</s.ClubContent>
-            </s.ClubIntroBox>
-          </s.LeftContent>
-          <s.RightContent>
-            <s.Upload>
-              <s.PictureUpload onClick={onClickPictureModal}>
+              <S.ClubContent>{contents}</S.ClubContent>
+            </S.ClubIntroBox>
+          </S.LeftContent>
+          <S.RightContent>
+            <S.Upload>
+              <S.PictureUpload onClick={onClickPictureModal}>
                 <img alt="아이콘" src={picture}></img>
                 <span>사진 업로드</span>
-              </s.PictureUpload>
-              <s.ClubFix onClick={onClickClubModifyModal}>
+              </S.PictureUpload>
+              <S.ClubFix onClick={onClickClubModifyModal}>
                 <img alt="아이콘" src={edit}></img>
                 <span>동아리 소개 수정</span>
-              </s.ClubFix>
-              <s.PostUpload onClick={onClickPostUploadModal}>
+              </S.ClubFix>
+              <S.PostUpload onClick={onClickPostUploadModal}>
                 <img alt="아이콘" src={writing}></img>
                 <span>게시물 업로드</span>
               </S.PostUpload>
@@ -205,9 +203,9 @@ const Club = () => {
                   </S.Post>
                 );
               })}
-            </s.Content>
-          </s.RightContent>
-        </s.MainContent>
+            </S.Content>
+          </S.RightContent>
+        </S.MainContent>
       </section>
     </>
   );

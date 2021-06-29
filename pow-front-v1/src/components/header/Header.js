@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import * as s from './style';
 import pow from '../img/pow.png';
 import searchImg from '../img/search.png'
-//import search from '../Img/search.png';
 import { Login, NewPw, AccountDel } from '../club/modals/index';
 import { search } from '../../axios/Axios';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const [loginModal, setLoginModal] = useState(false);

@@ -42,7 +42,7 @@ export const changePw = (existing_password, new_password) => {
     headers: {
       Authorization: getToken()
     }
-  );
+  });
 };
 
 export const getToken = () => {
