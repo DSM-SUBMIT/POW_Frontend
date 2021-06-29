@@ -44,16 +44,16 @@ export const PowLogo = styled.div`
 `;
 
 export const Searching = styled.div`
-  input {
-    width: 522px;
-    height: 25px;
-    font-size: 15px;
-    border-radius: 3em;
-    border: 0.12px solid #5345b2;
-    padding: 15px;
-  }
-`;
-
+    display: flex;
+    input {
+        width: 522px;
+        height: 35px;
+        font-size: 15px;
+        border-radius: 3em;
+        border: 0.12px solid #5345B2;
+        padding: 15px;
+    }
+`
 export const LoginArea = styled.div`
   button {
     width: 142px;
