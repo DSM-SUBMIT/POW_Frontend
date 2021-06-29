@@ -9,7 +9,7 @@ const PostUploadModal = ({ closeModal, clubId }) => {
   const [content, setContnet] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  const token = `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjM4MzE3NzgsInN1YiI6IjEiLCJleHAiOjE2MjQwNDIzODIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.KOc1sbOUuPGpfp5Y-3azFMXSeCwGm2rouRYnXLDj78Q`;
+  const token = `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjM5MTI3NDksInN1YiI6IjEiLCJleHAiOjE2MjQxMjMzNTMsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.SfqUIzF1vAph3bjQPf2Gg6qQe4_zTaFAGXmgsvK-EKo`;
   const onClickPostUploadModal = () => {
     closeModal(null);
   };
