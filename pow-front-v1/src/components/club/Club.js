@@ -31,6 +31,7 @@ const Club = () => {
   const {id} = useParams()
   const [clubName, setClubName] = useState();
 
+
   useEffect(() => {
     clubPage(id).then((res) => {
       setClubName(res.data.name);
