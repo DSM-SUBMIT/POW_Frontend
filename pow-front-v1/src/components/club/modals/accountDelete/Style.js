@@ -22,9 +22,9 @@ export const ModalCenter = styled.div`
     .ModalInput {
         box-sizing: border-box;
         padding: 5px 15px 5px 20px;
-        width: 354px;
-        height: 59px;
-        border-radius: 30em;
+        width: 300px;
+        height: 55px;
+        margin-bottom: 8px;
         background-color: #F4F4F4;
         color: black;
         border: none;
@@ -32,12 +32,12 @@ export const ModalCenter = styled.div`
     }
     .LoginBtn {
         background-color: white;
-        color: #51ADCF;
-        width: 172px;
-        height: 65px;
-        border-radius: 30em;
+        color: #F4BEA1;
+        width: 70px;
+        height: 30px;
+        border-radius: 30px;
         border: 1px solid #707070;
-        font-size: 20px;
+        font-size: 10px;
     }
 `
 
@@ -57,13 +57,14 @@ export const Logo = styled.div`
 `
 
 export const DelModal = styled.div`
-    width: 460px;
-    height: 400px;
+    width: 430px;
+    height: 450px;
     box-sizing: border-box;
     border: 1px solid #707070;
     padding-top: 30px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-direction: column;
     background-color: white;
     z-index: 5;
@@ -74,16 +75,16 @@ export const DelModal = styled.div`
 `
 
 export const PwInput = styled.div`
-    height: 102px;
     width: 452px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
 `
 
 export const DelBtn = styled.div`
     width: 250px;
-    height: 112px;
+    padding-bottom: 30px;
     display: flex;
     align-items: center;
     justify-content: space-around;

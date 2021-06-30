@@ -47,16 +47,18 @@ export const PowLogo = styled.div`
 `;
 
 export const Searching = styled.div`
+  display: flex;
   input {
+
     width: 502px;
     height: 22px;
+
     font-size: 15px;
     border-radius: 3em;
     border: 0.12px solid #5345b2;
     padding: 15px;
   }
 `;
-
 export const LoginArea = styled.div`
   button {
     width: 142px;

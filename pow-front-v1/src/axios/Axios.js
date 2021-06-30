@@ -4,6 +4,14 @@ const ACCOUNT_BASEURL = "https://submit-pow.herokuapp.com";
 const fileURL = "https://ehddkfl.herokuapp.com/";
 const crudURL = "https://powerofpow.herokuapp.com/";
 
+export const search = async (name) => {
+  return axios.get(`${ACCOUNT_BASEURL}/club/search`, {
+    params: {
+      name,
+    }
+  })
+}
+
 export const clubPage = async (id) => {
   return axios.get(`${ACCOUNT_BASEURL}/clubpage/${id}`);
 };
@@ -15,9 +23,9 @@ export const login = (code, password) => {
   });
 };
 
-export const getAccountImg = async () => {
-  return axios.get(`${ACCOUNT_BASEURL}/club`);
-};
+export const getAccount = async () => {
+    return axios.get(`${ACCOUNT_BASEURL}/club`);
+}
 
 export const deleteAccount = () => {
   return axios.delete(`${ACCOUNT_BASEURL}/account`, {
@@ -27,19 +35,14 @@ export const deleteAccount = () => {
   });
 };
 
-export const changePw = (existring_password, new_password) => {
-  return axios.put(
-    `${ACCOUNT_BASEURL}/account`,
-    {
-      existring_password,
-      new_password,
-    },
-    {
-      headers: {
-        Authorization: getToken(),
-      },
+export const changePw = (existing_password, new_password) => {
+  return axios.put(`${ACCOUNT_BASEURL}/account`, {
+    existing_password, new_password
+  }, {
+    headers: {
+      Authorization: getToken()
     }
-  );
+  });
 };
 
 export const getToken = () => {
