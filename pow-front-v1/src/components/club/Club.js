@@ -27,7 +27,7 @@ const Club = () => {
   const [bannerPath, setBannerPath] = useState("");
   const [contents, setContents] = useState("");
   const [projectList, setProjectList] = useState([]);
-  const {id} = useParams();
+  const { id } = useParams();
   const [data, setData] = useState();
 
   useEffect(() => {
