@@ -16,7 +16,7 @@ const Header = () => {
 
   // const [account, setAccount] = useState();
 
-  const getToken = localStorage.getItem("token");
+  const getToken = localStorage.getItem("token");  
   const onClickLogin = () => {
     setLoginModal(true);
   };
