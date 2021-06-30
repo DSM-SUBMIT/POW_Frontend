@@ -49,7 +49,6 @@ export const PowLogo = styled.div`
 export const Searching = styled.div`
   display: flex;
   input {
-
     width: 502px;
     height: 22px;
 
@@ -106,7 +105,6 @@ export const State = styled.div`
   justify-content: flex-end;
   h4 {
     padding-bottom: 20px;
-    left: 0;
     color: #8d8d8d;
   }
 `;
