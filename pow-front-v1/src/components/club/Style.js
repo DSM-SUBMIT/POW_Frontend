@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BannerImg = styled.div`
   position: relative;
   width: 100%;
-  height: 275px;
+  height: 245px;
   border-bottom: 10px solid;
   border-image: linear-gradient(
     to right,
@@ -16,7 +16,7 @@ export const BannerImg = styled.div`
   border-image-slice: 1;
   img {
     width: 1375px;
-    height: 330px;
+    height: 220px;
     position: relative;
     left: 50%;
     top: 50%;
@@ -36,8 +36,8 @@ export const LogoDiv = styled.div`
   img {
     position: absolute;
     border-radius: 50%;
-    width: 225px;
-    height: 225px;
+    width: 205px;
+    height: 205px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -53,8 +53,8 @@ export const LogoDiv = styled.div`
     content: "";
     position: absolute;
     z-index: -1;
-    width: 260px;
-    height: 260px;
+    width: 205px;
+    height: 205px;
     top: 0;
     left: 0;
     right: 0;
@@ -82,8 +82,8 @@ export const LogoDiv = styled.div`
 `;
 
 export const WhiteBox = styled.div`
-  width: 320px;
-  height: 320px;
+  width: 245px;
+  height: 245px;
   background-color: white;
   position: absolute;
   bottom: -43%;
@@ -106,7 +106,7 @@ export const LeftContent = styled.div`
 
 export const ClubIntroBox = styled.div`
   width: 320px;
-  height: 200px;
+  height: 188px;
   border: 3px solid #aeadad;
   border-radius: 27px;
   margin-left: 50px;
@@ -125,7 +125,7 @@ export const ClubIntroBox = styled.div`
 
 export const ClubContent = styled.div`
   width: 300px;
-  height: 130px;
+  height: 120px;
   border: 1px solid #aeadad;
   position: relative;
   left: 50%;
