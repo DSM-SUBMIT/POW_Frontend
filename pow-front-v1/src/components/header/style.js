@@ -6,7 +6,7 @@ export const Header = styled.div`
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  height: 185px;
+  height: 168px;
   background-color: white;
   border-bottom: 1px solid #5348b2;
   display: flex;
@@ -20,14 +20,14 @@ export const Header = styled.div`
 
 export const Center = styled.div`
   width: 1280px;
-  height: 100px;
+  height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `;
 
 export const Area = styled.div`
-  margin-top: 28.5px;
+  margin-top: 22.5px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -35,8 +35,11 @@ export const Area = styled.div`
 
 export const PowLogo = styled.div`
   width: 142px;
-  height: 44px;
+  height: 38px;
   text-align: center;
+  img {
+    width: 120px;
+  }
   span {
     font-size: 12px;
     color: #8d8d8d;
@@ -45,8 +48,8 @@ export const PowLogo = styled.div`
 
 export const Searching = styled.div`
   input {
-    width: 522px;
-    height: 25px;
+    width: 502px;
+    height: 22px;
     font-size: 15px;
     border-radius: 3em;
     border: 0.12px solid #5345b2;

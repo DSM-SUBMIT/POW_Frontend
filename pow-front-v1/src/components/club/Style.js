@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BannerImg = styled.div`
   position: relative;
   width: 100%;
-  height: 275px;
+  height: 245px;
   border-bottom: 10px solid;
   border-image: linear-gradient(
     to right,
@@ -16,7 +16,7 @@ export const BannerImg = styled.div`
   border-image-slice: 1;
   img {
     width: 1375px;
-    height: 330px;
+    height: 220px;
     position: relative;
     left: 50%;
     top: 50%;
@@ -36,8 +36,8 @@ export const LogoDiv = styled.div`
   img {
     position: absolute;
     border-radius: 50%;
-    width: 225px;
-    height: 225px;
+    width: 205px;
+    height: 205px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
