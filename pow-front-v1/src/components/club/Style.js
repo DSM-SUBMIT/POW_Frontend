@@ -77,7 +77,13 @@ export const LogoDiv = styled.div`
   }
 `;
 
-export const WhiteBox = styled.div``;
+export const WhiteBox = styled.div`
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  border-radius: 50%;
+`;
 // export const LogoDiv = styled.div`
 //   position: absolute;
 //   bottom: -49%;
