@@ -77,7 +77,13 @@ export const LogoDiv = styled.div`
   }
 `;
 
-export const WhiteBox = styled.div``;
+export const WhiteBox = styled.div`
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  border-radius: 50%;
+`;
 // export const LogoDiv = styled.div`
 //   position: absolute;
 //   bottom: -49%;
@@ -154,13 +160,13 @@ export const MainContent = styled.div`
 `;
 
 export const LeftContent = styled.div`
-  margin-top: 200px;
+  margin-top: 188px;
   float: left;
 `;
 
 export const ClubIntroBox = styled.div`
   width: 320px;
-  height: 188px;
+  height: 140px;
   border: 3px solid #aeadad;
   border-radius: 27px;
   margin-left: 50px;
@@ -179,7 +185,7 @@ export const ClubIntroBox = styled.div`
 
 export const ClubContent = styled.div`
   width: 300px;
-  height: 120px;
+  height: 80px;
   border: 1px solid #aeadad;
   position: relative;
   left: 50%;
@@ -206,7 +212,7 @@ export const Upload = styled.div`
     margin-top: 50px;
     display: flex;
     align-items: center;
-    margin-right: 25px;
+    margin-right: 18px;
     height: 50px;
     background-color: #f4f4f4;
     border-radius: 17px;
@@ -235,11 +241,11 @@ export const PictureUpload = styled.div`
 `;
 
 export const ClubFix = styled.div`
-  width: 275px;
+  width: 258px;
 `;
 
 export const PostUpload = styled.div`
-  width: 250px;
+  width: 238px;
 `;
 
 export const Content = styled.div`
@@ -268,7 +274,7 @@ export const Content = styled.div`
 
 export const Post = styled.div`
   width: 777px;
-  height: 169px;
+  height: 162px;
   border: 3px solid #cbcbcb;
   box-shadow: 1px 1px 5px #cbcbcb;
   border-radius: 27px;

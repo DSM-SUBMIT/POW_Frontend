@@ -32,7 +32,6 @@ const Club = () => {
   const { id } = useParams();
   const [clubName, setClubName] = useState();
 
-
   useEffect(() => {
     clubPage(id)
       .then((res) => {
@@ -150,16 +149,19 @@ const Club = () => {
       {modalComponents}
       <header>
         <S.BannerImg>
-          <S.LogoDiv>
+          <div>
             <S.WhiteBox />
-            <div>
-              <img
+            <S.LogoDiv>
+              <div>
+                <img
                   alt="프로필 사진"
                   src={`${profilePath ? profilePath : DEFAULTIMG}`}
                   onClick={onClickProfileDeleteModal}
                 />
-            </div>
-          </S.LogoDiv>
+              </div>
+            </S.LogoDiv>
+          </div>
+
           <img
             alt="베너 사진"
             src={`${bannerPath ? bannerPath : DEFAULTIMG}`}
