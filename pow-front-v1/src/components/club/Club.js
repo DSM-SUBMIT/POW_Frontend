@@ -19,7 +19,8 @@ import {
   ProjectIntroModal,
 } from "./modals/index";
 
-const DEFAULTIMG = 'https://pow-bucket.s3.ap-northeast-2.amazonaws.com/1624976379907__asdsad.jpg';
+const DEFAULTIMG =
+  "https://pow-bucket.s3.ap-northeast-2.amazonaws.com/1624976379907__asdsad.jpg";
 
 const Club = () => {
   const [modalComponents, setModalComponents] = useState(null);
@@ -27,30 +28,34 @@ const Club = () => {
   const [bannerPath, setBannerPath] = useState(null);
   const [contents, setContents] = useState("");
   const [projectList, setProjectList] = useState([]);
-  const {searchResult} = useParams()
-  const {id} = useParams()
+  const { searchResult } = useParams();
+  const { id } = useParams();
   const [clubName, setClubName] = useState();
 
 
   useEffect(() => {
-    clubPage(id).then((res) => {
-      setClubName(res.data.name);
-    }).catch((err) => {
-      console.log(err);
-    })
+    clubPage(id)
+      .then((res) => {
+        setClubName(res.data.name);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [id]);
 
   useEffect(() => {
-    clubPage(searchResult).then((res) => {
-      setClubName(res.data.name);
-    }).catch((err) => {
-      console.log(err);
-    })
+    clubPage(searchResult)
+      .then((res) => {
+        setClubName(res.data.name);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [searchResult]);
 
   useEffect(() => {
-    console.log(clubName)
-  }, [clubName])
+    console.log(clubName);
+  }, [clubName]);
 
   useEffect(() => {
     LoadClubInfo();
@@ -66,27 +71,27 @@ const Club = () => {
       setProjectList(res.data.introduction);
     }
   };
-    // const {id} = useParams();
-    // const [data, setData] = useState();
-  
-    // useEffect(() => {
-    //   clubPage(id)
-    //     .then(async (res) => {
-    //       await setData(res.data);
-    //       setName(res.data.name);
-    //       setProfilePath(res.data.profilePath);
-    //       setBannerPath(res.data.bannerPath);
-    //       setContents(res.data.contents);
-    //       setProjectList(res.data.introduction);
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    // }, [id]);
-  
-    // useEffect(() => {
-    //   console.log(data);
-    // }, [data]);
+  // const {id} = useParams();
+  // const [data, setData] = useState();
+
+  // useEffect(() => {
+  //   clubPage(id)
+  //     .then(async (res) => {
+  //       await setData(res.data);
+  //       setName(res.data.name);
+  //       setProfilePath(res.data.profilePath);
+  //       setBannerPath(res.data.bannerPath);
+  //       setContents(res.data.contents);
+  //       setProjectList(res.data.introduction);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [id]);
+
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
 
   const onClickPictureModal = () => {
     setModalComponents(
@@ -145,13 +150,15 @@ const Club = () => {
       {modalComponents}
       <header>
         <S.BannerImg>
-          <S.WhiteBox />
           <S.LogoDiv>
-            <img
-              alt="프로필 사진"
-              src={`${profilePath ? profilePath : DEFAULTIMG}`}
-              onClick={onClickProfileDeleteModal}
-            />
+            <S.WhiteBox />
+            <div>
+              <img
+                  alt="프로필 사진"
+                  src={`${profilePath ? profilePath : DEFAULTIMG}`}
+                  onClick={onClickProfileDeleteModal}
+                />
+            </div>
           </S.LogoDiv>
           <img
             alt="베너 사진"
