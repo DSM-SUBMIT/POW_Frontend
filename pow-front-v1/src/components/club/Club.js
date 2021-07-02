@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import * as S from "./Style";
+import * as s from "./Style";
 import { useParams } from "react-router";
 import { clubPage } from "../../axios/Axios";
 import edit from "../img/edit.png";
@@ -7,7 +7,6 @@ import picture from "../img/picture.png";
 import writing from "../img/writing.png";
 import list from "../img/list.png";
 import Header from "../header/Header";
-import { ClubPage } from "../../axios/Axios";
 import {
   BannerUpload,
   BannerDelete,
@@ -25,12 +24,13 @@ const Club = () => {
   const [profilePath, setProfilePath] = useState("");
   const [bannerPath, setBannerPath] = useState("");
   const [contents, setContents] = useState("");
+  const [name, setName] = useState();
   const [projectList, setProjectList] = useState([]);
   const imgUrl = "https://ehddkfl.herokuapp.com/public/";
   // const profilePath = "DefaultImage.png";
   // const bannerPath = "DefaultImage.png";
   const {searchResult} = useParams()
-  const {id} = useParams()
+  // const {id} = useParams()
   const [clubName, setClubName] = useState();
 
   useEffect(() => {
@@ -58,7 +58,7 @@ const Club = () => {
   }, []);
 
   const LoadClubInfo = async () => {
-    const res = await ClubPage(id);
+    const res = await clubPage(id);
     // console.log(res.data);
     if (res) {
       setProfilePath(res.data.profile_path);
@@ -67,27 +67,27 @@ const Club = () => {
       setProjectList(res.data.introduction);
     }
   };
-    // const {id} = useParams();
-    // const [data, setData] = useState();
+    const {id} = useParams();
+    const [data, setData] = useState();
   
-    // useEffect(() => {
-    //   clubPage(id)
-    //     .then(async (res) => {
-    //       await setData(res.data);
-    //       setName(res.data.name);
-    //       setProfilePath(res.data.profilePath);
-    //       setBannerPath(res.data.bannerPath);
-    //       setContents(res.data.contents);
-    //       setProjectList(res.data.introduction);
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    // }, [id]);
+    useEffect(() => {
+      clubPage(id)
+        .then(async (res) => {
+          await setData(res.data);
+          setName(res.data.name);
+          setProfilePath(res.data.profilePath);
+          setBannerPath(res.data.bannerPath);
+          setContents(res.data.contents);
+          setProjectList(res.data.introduction);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, [id]);
   
-    // useEffect(() => {
-    //   console.log(data);
-    // }, [data]);
+    useEffect(() => {
+      console.log(data);
+    }, [data]);
 
   const onClickPictureModal = () => {
     setModalComponents(
@@ -182,12 +182,12 @@ const Club = () => {
               <s.PostUpload onClick={onClickPostUploadModal}>
                 <img alt="아이콘" src={writing}></img>
                 <span>게시물 업로드</span>
-              </S.PostUpload>
-            </S.Upload>
-            <S.Content>
+              </s.PostUpload>
+            </s.Upload>
+            <s.Content>
               {projectList.reverse().map((project, i) => {
                 return (
-                  <S.Post
+                  <s.Post
                     key={i}
                     onClick={() => onClickProjectIntro(project.id)}
                   >
@@ -198,11 +198,11 @@ const Club = () => {
                         onClickPostModifyRemoveModal(e, project.id)
                       }
                     ></img>
-                    <S.PostDiv>
+                    <s.PostDiv>
                       <p>작성일 : {project.created_at.substring(0, 10)}</p>
-                    </S.PostDiv>
-                    <S.Title>{project.title}</S.Title>
-                  </S.Post>
+                    </s.PostDiv>
+                    <s.Title>{project.title}</s.Title>
+                  </s.Post>
                 );
               })}
             </s.Content>
