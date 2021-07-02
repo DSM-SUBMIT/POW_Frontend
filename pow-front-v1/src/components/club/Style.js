@@ -16,7 +16,7 @@ export const BannerImg = styled.div`
   border-image-slice: 1;
   img {
     width: 1375px;
-    height: 220px;
+    height: 100%;
     position: relative;
     left: 50%;
     top: 50%;
