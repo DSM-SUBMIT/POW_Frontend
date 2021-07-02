@@ -24,6 +24,10 @@ export const BannerImg = styled.div`
   }
 `;
 
+export const Logo = styled.div`
+  position: relative;
+`;
+
 export const LogoDiv = styled.div`
   z-index: 2;
   width: 240px;
@@ -79,10 +83,14 @@ export const LogoDiv = styled.div`
 
 export const WhiteBox = styled.div`
   background-color: white;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
+  width: 200px;
+  height: 200px;
+  z-index: -1;
   border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `;
 // export const LogoDiv = styled.div`
 //   position: absolute;

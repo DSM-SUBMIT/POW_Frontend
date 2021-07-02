@@ -149,25 +149,22 @@ const Club = () => {
       {modalComponents}
       <header>
         <S.BannerImg>
-          <div>
-            <S.WhiteBox />
-            <S.LogoDiv>
-              <div>
-                <img
-                  alt="프로필 사진"
-                  src={`${profilePath ? profilePath : DEFAULTIMG}`}
-                  onClick={onClickProfileDeleteModal}
-                />
-              </div>
-            </S.LogoDiv>
-          </div>
-
           <img
             alt="베너 사진"
             src={`${bannerPath ? bannerPath : DEFAULTIMG}`}
             onClick={onClickBannerDeleteModal}
           />
         </S.BannerImg>
+        <S.Logo>
+          <S.LogoDiv>
+            <S.WhiteBox />
+            <img
+              alt="프로필 사진"
+              src={`${profilePath ? profilePath : DEFAULTIMG}`}
+              onClick={onClickProfileDeleteModal}
+            />
+          </S.LogoDiv>
+        </S.Logo>
       </header>
       <section style={{ backgroundColor: "#FCFCFC" }}>
         <S.MainContent>
