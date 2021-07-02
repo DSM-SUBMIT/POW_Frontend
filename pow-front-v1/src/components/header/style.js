@@ -47,20 +47,6 @@ export const PowLogo = styled.div`
 `;
 
 export const Searching = styled.div`
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-    input {
-        width: 522px;
-        height: 35px;
-        font-size: 15px;
-        border-radius: 3em;
-        border: 0.12px solid #5345B2;
-        padding: 15px;
-    }
-`
-=======
->>>>>>> Stashed changes
   display: flex;
   input {
     width: 502px;
@@ -72,10 +58,7 @@ export const Searching = styled.div`
     padding: 15px;
   }
 `;
-<<<<<<< Updated upstream
-=======
->>>>>>> develop
->>>>>>> Stashed changes
+
 export const LoginArea = styled.div`
   button {
     width: 142px;
