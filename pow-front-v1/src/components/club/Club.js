@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./Style";
 import { useParams } from "react-router";
-import { clubPage } from "../../axios/Axios";
+import { clubPage, getToken } from "../../axios/Axios";
 import edit from "../img/edit.png";
 import picture from "../img/picture.png";
 import writing from "../img/writing.png";

@@ -173,17 +173,16 @@ export const LeftContent = styled.div`
 `;
 
 export const ClubIntroBox = styled.div`
-  width: 320px;
-  height: 140px;
+  width: 300px;
+  height: 133px;
   border: 3px solid #aeadad;
   border-radius: 27px;
-  margin-left: 50px;
+  margin-left: 60px;
   box-shadow: 1px 1px 5px #aeadad;
 
   span {
     position: relative;
-    top: -15%;
-    transform: translateY(-50%);
+    top: -23%;
     margin-left: 44px;
     font-size: 38px;
     background-color: white;
@@ -192,8 +191,8 @@ export const ClubIntroBox = styled.div`
 `;
 
 export const ClubContent = styled.div`
-  width: 300px;
-  height: 80px;
+  width: 280px;
+  height: 66px;
   border: 1px solid #aeadad;
   position: relative;
   left: 50%;
@@ -220,7 +219,7 @@ export const Upload = styled.div`
     margin-top: 50px;
     display: flex;
     align-items: center;
-    margin-right: 18px;
+    margin: 50px 10px 0px 10px;
     height: 50px;
     background-color: #f4f4f4;
     border-radius: 17px;
@@ -259,7 +258,7 @@ export const PostUpload = styled.div`
 export const Content = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 600px;
+  height: 348px;
   width: 830px;
   margin: 0;
   margin-top: 65px;
@@ -282,7 +281,7 @@ export const Content = styled.div`
 
 export const Post = styled.div`
   width: 777px;
-  height: 162px;
+  height: 150px;
   border: 3px solid #cbcbcb;
   box-shadow: 1px 1px 5px #cbcbcb;
   border-radius: 27px;
