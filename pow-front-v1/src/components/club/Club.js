@@ -23,7 +23,7 @@ import {
 const DEFAULTIMG =
   "https://pow-bucket.s3.ap-northeast-2.amazonaws.com/1624976379907__asdsad.jpg";
 
-const SECRET_KEY = process.env.REACT_APP_SECRET_KEY;
+const SECRET_KEY = 'powerof202!pow';
 
 const Club = () => {
   const [modalComponents, setModalComponents] = useState(null);
