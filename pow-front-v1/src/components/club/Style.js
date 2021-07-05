@@ -258,7 +258,7 @@ export const PostUpload = styled.div`
 export const Content = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 348px;
+  height: 449px;
   width: 830px;
   margin: 0;
   margin-top: 65px;
