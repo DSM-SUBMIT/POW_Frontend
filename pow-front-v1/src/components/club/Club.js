@@ -7,6 +7,7 @@ import picture from "../img/picture.png";
 import writing from "../img/writing.png";
 import list from "../img/list.png";
 import Header from "../header/Header";
+import jwt from "jsonwebtoken";
 import {
   BannerUpload,
   BannerDelete,
@@ -22,6 +23,8 @@ import {
 const DEFAULTIMG =
   "https://pow-bucket.s3.ap-northeast-2.amazonaws.com/1624976379907__asdsad.jpg";
 
+const SECRET_KEY = 'powerof202!pow';
+
 const Club = () => {
   const [modalComponents, setModalComponents] = useState(null);
   const [profilePath, setProfilePath] = useState(null);
@@ -31,6 +34,19 @@ const Club = () => {
   const { searchResult } = useParams();
   const { id } = useParams();
   const [clubName, setClubName] = useState();
+  const [adminState, setAdminState] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      let checkId = jwt.verify(localStorage.getItem("token"), SECRET_KEY);
+      if(checkId.sub === id) {
+        setAdminState(true);
+      }
+      else {
+        setAdminState(false);
+      }
+    }
+  }, [id]);
 
   useEffect(() => {
     clubPage(id)
@@ -53,16 +69,11 @@ const Club = () => {
   }, [searchResult]);
 
   useEffect(() => {
-    console.log(clubName);
-  }, [clubName]);
-
-  useEffect(() => {
     LoadClubInfo();
   }, []);
 
   const LoadClubInfo = async () => {
     const res = await clubPage(id);
-    // console.log(res.data);
     if (res) {
       setProfilePath(res.data.profile_path);
       setBannerPath(res.data.banner_path);
@@ -70,27 +81,6 @@ const Club = () => {
       setProjectList(res.data.introduction);
     }
   };
-  // const {id} = useParams();
-  // const [data, setData] = useState();
-
-  // useEffect(() => {
-  //   clubPage(id)
-  //     .then(async (res) => {
-  //       await setData(res.data);
-  //       setName(res.data.name);
-  //       setProfilePath(res.data.profilePath);
-  //       setBannerPath(res.data.bannerPath);
-  //       setContents(res.data.contents);
-  //       setProjectList(res.data.introduction);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [id]);
-
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [data]);
 
   const onClickPictureModal = () => {
     setModalComponents(
@@ -145,29 +135,25 @@ const Club = () => {
 
   return (
     <>
-      <Header />
       {modalComponents}
       <header>
         <S.BannerImg>
-          <div>
-            <S.WhiteBox />
-            <S.LogoDiv>
-              <div>
-                <img
-                  alt="프로필 사진"
-                  src={`${profilePath ? profilePath : DEFAULTIMG}`}
-                  onClick={onClickProfileDeleteModal}
-                />
-              </div>
-            </S.LogoDiv>
-          </div>
-
           <img
             alt="베너 사진"
             src={`${bannerPath ? bannerPath : DEFAULTIMG}`}
-            onClick={onClickBannerDeleteModal}
+            onClick={adminState ? onClickBannerDeleteModal : null}
           />
         </S.BannerImg>
+        <S.Logo>
+          <S.LogoDiv>
+            <S.WhiteBox />
+            <img
+              alt="프로필 사진"
+              src={`${profilePath ? profilePath : DEFAULTIMG}`}
+              onClick={adminState ? onClickProfileDeleteModal : null}
+            />
+          </S.LogoDiv>
+        </S.Logo>
       </header>
       <section style={{ backgroundColor: "#FCFCFC" }}>
         <S.MainContent>
@@ -178,20 +164,22 @@ const Club = () => {
             </S.ClubIntroBox>
           </S.LeftContent>
           <S.RightContent>
-            <S.Upload>
-              <S.PictureUpload onClick={onClickPictureModal}>
-                <img alt="아이콘" src={picture}></img>
-                <span>사진 업로드</span>
-              </S.PictureUpload>
-              <S.ClubFix onClick={onClickClubModifyModal}>
-                <img alt="아이콘" src={edit}></img>
-                <span>동아리 소개 수정</span>
-              </S.ClubFix>
-              <S.PostUpload onClick={onClickPostUploadModal}>
-                <img alt="아이콘" src={writing}></img>
-                <span>게시물 업로드</span>
-              </S.PostUpload>
-            </S.Upload>
+            {adminState && (
+              <S.Upload>
+                <S.PictureUpload onClick={onClickPictureModal}>
+                  <img alt="아이콘" src={picture}></img>
+                  <span>사진 업로드</span>
+                </S.PictureUpload>
+                <S.ClubFix onClick={onClickClubModifyModal}>
+                  <img alt="아이콘" src={edit}></img>
+                  <span>동아리 소개 수정</span>
+                </S.ClubFix>
+                <S.PostUpload onClick={onClickPostUploadModal}>
+                  <img alt="아이콘" src={writing}></img>
+                  <span>게시물 업로드</span>
+                </S.PostUpload>
+              </S.Upload>
+            )}
             <S.Content>
               {projectList.reverse().map((project, i) => {
                 return (

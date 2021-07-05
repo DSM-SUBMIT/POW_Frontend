@@ -58,6 +58,7 @@ export const Searching = styled.div`
     padding: 15px;
   }
 `;
+
 export const LoginArea = styled.div`
   button {
     width: 142px;

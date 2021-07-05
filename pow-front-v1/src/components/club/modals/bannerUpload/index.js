@@ -31,7 +31,7 @@ const BannerUpload = ({ closeModal, clubId }) => {
       if(e.data === "file updated"){
         closeModal(null);
         alert("배너 사진이 업로드 되었습니다.");
-        // window.location.reload();
+        window.location.reload();
       } else {
         alert(e.data.name);
         closeModal(null);
