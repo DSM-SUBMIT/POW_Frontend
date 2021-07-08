@@ -2,8 +2,8 @@ import styled from "styled-components";
 import DatePicker from "react-datepicker";
 
 export const UpContent = styled.div`
-  width: 1108px;
-  height: 750px;
+  width: 908px;
+  height: 700px;
   background: #ffffff;
   border-radius: 23px;
   border: 1px solid #707070;
@@ -17,7 +17,7 @@ export const UpContent = styled.div`
 
 export const Title = styled.div`
   border-bottom: 1px solid #707070;
-  width: 300px;
+  width: 280px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -37,7 +37,7 @@ export const UploadHeader = styled.div`
 `;
 
 export const InputText = styled.input`
-  width: 445px;
+  width: 405px;
   height: 56px;
   background-color: #f4f4f4;
   border-radius: 17px;
@@ -52,7 +52,7 @@ export const InputText = styled.input`
 `;
 
 export const DayBox = styled.div`
-  width: 445px;
+  width: 405px;
   height: 46px;
   background-color: #f4f4f4;
   border-radius: 17px;
