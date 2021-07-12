@@ -4,6 +4,7 @@ import WhiteScreen from "../common/WhiteScreen";
 import IntroduceHeader from "./IntroduceHeader";
 import { ProjectIntro } from "../../../../axios/Axios";
 import { useState, useEffect } from "react";
+import Spinner from "../common/Spinner";
 
 const ProjectlntroModal = ({ closeModal, clubId, projectId }) => {
   const [contents, setContents] = useState("");
@@ -12,6 +13,7 @@ const ProjectlntroModal = ({ closeModal, clubId, projectId }) => {
   const [title, setTitle] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [loading, setLoadging] = useState(true);
 
   useEffect(() => {
     LoadProjectIntro();
@@ -26,6 +28,7 @@ const ProjectlntroModal = ({ closeModal, clubId, projectId }) => {
       setModifyDate(res.data.updated_at);
       setStartDate(res.data.started_at);
       setEndDate(res.data.ended_at);
+      setLoadging(false);
     }
   };
 
@@ -36,16 +39,20 @@ const ProjectlntroModal = ({ closeModal, clubId, projectId }) => {
   return (
     <>
       <WhiteScreen onClick={onClickProjectIntroModal} />
-      <S.IntroContent>
-        <IntroduceHeader
-          writeDate={writeDate.substring(0, 10)}
-          modifyDate={modifyDate.substring(0, 10)}
-          title={title}
-          startDate={startDate.substring(0, 10)}
-          endDate={endDate.substring(0, 10)}
-        />
-        <S.IntroduceBox>{contents}</S.IntroduceBox>
-      </S.IntroContent>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <S.IntroContent>
+          <IntroduceHeader
+            writeDate={writeDate.substring(0, 10)}
+            modifyDate={modifyDate.substring(0, 10)}
+            title={title}
+            startDate={startDate.substring(0, 10)}
+            endDate={endDate.substring(0, 10)}
+          />
+          <S.IntroduceBox>{contents}</S.IntroduceBox>
+        </S.IntroContent>
+      )}
     </>
   );
 };
