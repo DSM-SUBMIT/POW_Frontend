@@ -12,6 +12,7 @@ const Login = ({setLoginModal, setAccountDelModal, setNewPwModal }) => {
       localStorage.setItem("token", token);
       alert("로그인 되었습니다!");
       setLoginModal(false);
+      window.location.reload();
     } catch (error) {
       if (error.response.data.code === "CLUB404-0") {
         alert("계정을 찾을 수 없습니다");

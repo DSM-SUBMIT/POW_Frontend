@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import * as s from "./Style";
 import { useParams } from "react-router";
-import { clubPage } from "../../axios/Axios";
+import { clubPage, getToken } from "../../axios/Axios";
 import edit from "../img/edit.png";
 import picture from "../img/picture.png";
 import writing from "../img/writing.png";
 import list from "../img/list.png";
 import Header from "../header/Header";
+import jwt from "jsonwebtoken";
 import {
   BannerUpload,
   BannerDelete,
@@ -19,39 +20,57 @@ import {
   ProjectIntroModal,
 } from "./modals/index";
 
+const DEFAULTIMG =
+  "https://pow-bucket.s3.ap-northeast-2.amazonaws.com/1624976379907__asdsad.jpg";
+
+const SECRET_KEY = 'powerof202!pow';
+
 const Club = () => {
   const [modalComponents, setModalComponents] = useState(null);
-  const [profilePath, setProfilePath] = useState("");
-  const [bannerPath, setBannerPath] = useState("");
+  const [profilePath, setProfilePath] = useState(null);
+  const [bannerPath, setBannerPath] = useState(null);
   const [contents, setContents] = useState("");
   const [name, setName] = useState();
   const [projectList, setProjectList] = useState([]);
+  const { searchResult } = useParams();
+  const { id } = useParams();
   const imgUrl = "https://ehddkfl.herokuapp.com/public/";
   // const profilePath = "DefaultImage.png";
   // const bannerPath = "DefaultImage.png";
-  const {searchResult} = useParams()
-  // const {id} = useParams()
   const [clubName, setClubName] = useState();
+  const [adminState, setAdminState] = useState(false);
 
   useEffect(() => {
-    clubPage(id).then((res) => {
-      setClubName(res.data.name);
-    }).catch((err) => {
-      console.log(err);
-    })
+    if (localStorage.getItem("token")) {
+      let checkId = jwt.verify(localStorage.getItem("token"), SECRET_KEY);
+      if(checkId.sub === id) {
+        setAdminState(true);
+      }
+      else {
+        setAdminState(false);
+      }
+    }
   }, [id]);
 
   useEffect(() => {
-    clubPage(searchResult).then((res) => {
-      setClubName(res.data.name);
-    }).catch((err) => {
-      console.log(err);
-    })
-  }, [searchResult]);
+    clubPage(id)
+      .then((res) => {
+        setClubName(res.data.name);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [id]);
 
   useEffect(() => {
-    console.log(clubName)
-  }, [clubName])
+    clubPage(searchResult)
+      .then((res) => {
+        setClubName(res.data.name);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [searchResult]);
 
   useEffect(() => {
     LoadClubInfo();
@@ -142,29 +161,30 @@ const Club = () => {
 
   return (
     <>
-      <Header />
       {modalComponents}
       <header>
-        <s.BannerImg>
-          <s.WhiteBox />
-          <s.LogoDiv>
-            <img
-              alt="프로필 사진"
-              src={`${data ? data.profile_path : null}`}
-              onClick={onClickProfileDeleteModal}
-            />
-          </s.LogoDiv>
+        <S.BannerImg>
           <img
             alt="베너 사진"
-            src={`${data ? data.banner_path : null}`}
-            onClick={onClickBannerDeleteModal}
+            src={`${bannerPath ? bannerPath : DEFAULTIMG}`}
+            onClick={adminState ? onClickBannerDeleteModal : null}
           />
-        </s.BannerImg>
+        </S.BannerImg>
+        <S.Logo>
+          <S.LogoDiv>
+            <S.WhiteBox />
+            <img
+              alt="프로필 사진"
+              src={`${profilePath ? profilePath : DEFAULTIMG}`}
+              onClick={adminState ? onClickProfileDeleteModal : null}
+            />
+          </S.LogoDiv>
+        </S.Logo>
       </header>
       <section style={{ backgroundColor: "#FCFCFC" }}>
-        <s.MainContent>
-          <s.LeftContent>
-            <s.ClubIntroBox>
+        <S.MainContent>
+          <S.LeftContent>
+            <S.ClubIntroBox>
               <span>{clubName}</span>
               <s.ClubContent>{contents}</s.ClubContent>
             </s.ClubIntroBox>
@@ -205,9 +225,9 @@ const Club = () => {
                   </s.Post>
                 );
               })}
-            </s.Content>
-          </s.RightContent>
-        </s.MainContent>
+            </S.Content>
+          </S.RightContent>
+        </S.MainContent>
       </section>
     </>
   );

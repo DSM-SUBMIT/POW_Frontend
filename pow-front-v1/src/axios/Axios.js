@@ -8,9 +8,9 @@ export const search = async (name) => {
   return axios.get(`${ACCOUNT_BASEURL}/club/search`, {
     params: {
       name,
-    }
-  })
-}
+    },
+  });
+};
 
 export const clubPage = async (id) => {
   return axios.get(`${ACCOUNT_BASEURL}/clubpage/${id}`);
@@ -24,8 +24,8 @@ export const login = (code, password) => {
 };
 
 export const getAccount = async () => {
-    return axios.get(`${ACCOUNT_BASEURL}/club`);
-}
+  return axios.get(`${ACCOUNT_BASEURL}/club`);
+};
 
 export const deleteAccount = () => {
   return axios.delete(`${ACCOUNT_BASEURL}/account`, {
@@ -149,7 +149,7 @@ export const PostUpload = (
       window.location.reload();
     })
     .catch(function (error) {
-      alert("오류났음요");
+      alert("문제가 발생했습니다.");
       console.log(error);
     });
 };
@@ -162,11 +162,11 @@ export const DeletePost = (token, clubId, projectId) => {
       },
     })
     .then(function () {
-      alert("됨 ㅅㄱ");
+      alert("삭제가 되었습니다.");
       window.location.reload();
     })
     .catch(function (error) {
-      alert("ㄴㄴㄴ");
+      alert("문제가 발생했습니다.");
       console.log(error);
     });
 };
