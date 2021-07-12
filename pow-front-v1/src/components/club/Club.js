@@ -8,6 +8,7 @@ import writing from "../img/writing.png";
 import list from "../img/list.png";
 import Header from "../header/Header";
 import jwt from "jsonwebtoken";
+import Spinner from "../club/modals/common/Spinner";
 import {
   BannerUpload,
   BannerDelete,
@@ -23,7 +24,7 @@ import {
 const DEFAULTIMG =
   "https://pow-bucket.s3.ap-northeast-2.amazonaws.com/1624976379907__asdsad.jpg";
 
-const SECRET_KEY = 'powerof202!pow';
+const SECRET_KEY = "powerof202!pow";
 
 const Club = () => {
   const [modalComponents, setModalComponents] = useState(null);
@@ -35,14 +36,14 @@ const Club = () => {
   const { id } = useParams();
   const [clubName, setClubName] = useState();
   const [adminState, setAdminState] = useState(false);
+  const [loading, setLoadging] = useState(true);
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
       let checkId = jwt.verify(localStorage.getItem("token"), SECRET_KEY);
-      if(checkId.sub === id) {
+      if (checkId.sub === id) {
         setAdminState(true);
-      }
-      else {
+      } else {
         setAdminState(false);
       }
     }
@@ -79,6 +80,7 @@ const Club = () => {
       setBannerPath(res.data.banner_path);
       setContents(res.data.contents);
       setProjectList(res.data.introduction);
+      setLoadging(false);
     }
   };
 
@@ -156,54 +158,62 @@ const Club = () => {
         </S.Logo>
       </header>
       <section style={{ backgroundColor: "#FCFCFC" }}>
-        <S.MainContent>
-          <S.LeftContent>
-            <S.ClubIntroBox>
-              <span>{clubName}</span>
-              <S.ClubContent>{contents}</S.ClubContent>
-            </S.ClubIntroBox>
-          </S.LeftContent>
-          <S.RightContent>
-            {adminState && (
-              <S.Upload>
-                <S.PictureUpload onClick={onClickPictureModal}>
-                  <img alt="아이콘" src={picture}></img>
-                  <span>사진 업로드</span>
-                </S.PictureUpload>
-                <S.ClubFix onClick={onClickClubModifyModal}>
-                  <img alt="아이콘" src={edit}></img>
-                  <span>동아리 소개 수정</span>
-                </S.ClubFix>
-                <S.PostUpload onClick={onClickPostUploadModal}>
-                  <img alt="아이콘" src={writing}></img>
-                  <span>게시물 업로드</span>
-                </S.PostUpload>
-              </S.Upload>
-            )}
-            <S.Content>
-              {projectList.reverse().map((project, i) => {
-                return (
-                  <S.Post
-                    key={i}
-                    onClick={() => onClickProjectIntro(project.id)}
-                  >
-                    <img
-                      alt="더보기"
-                      src={list}
-                      onClick={(e) =>
-                        onClickPostModifyRemoveModal(e, project.id)
-                      }
-                    ></img>
-                    <S.PostDiv>
-                      <p>작성일 : {project.created_at.substring(0, 10)}</p>
-                    </S.PostDiv>
-                    <S.Title>{project.title}</S.Title>
-                  </S.Post>
-                );
-              })}
-            </S.Content>
-          </S.RightContent>
-        </S.MainContent>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <S.MainContent>
+            <S.LeftContent>
+              <S.ClubIntroBox>
+                <span>{clubName}</span>
+                <S.ClubContent>{contents}</S.ClubContent>
+              </S.ClubIntroBox>
+            </S.LeftContent>
+            <S.RightContent>
+              {adminState && (
+                <S.Upload>
+                  <S.PictureUpload onClick={onClickPictureModal}>
+                    <img alt="아이콘" src={picture}></img>
+                    <span>사진 업로드</span>
+                  </S.PictureUpload>
+                  <S.ClubFix onClick={onClickClubModifyModal}>
+                    <img alt="아이콘" src={edit}></img>
+                    <span>동아리 소개 수정</span>
+                  </S.ClubFix>
+                  <S.PostUpload onClick={onClickPostUploadModal}>
+                    <img alt="아이콘" src={writing}></img>
+                    <span>게시물 업로드</span>
+                  </S.PostUpload>
+                </S.Upload>
+              )}
+              <S.Content>
+                {projectList.reverse().map((project, i) => {
+                  return (
+                    <S.Post
+                      key={i}
+                      onClick={() => onClickProjectIntro(project.id)}
+                    >
+                      <img
+                        alt="더보기"
+                        src={list}
+                        onClick={(e) => {
+                          if (adminState === false) {
+                            onClickPostModifyRemoveModal(null);
+                          } else {
+                            onClickPostModifyRemoveModal(e, project.id);
+                          }
+                        }}
+                      />
+                      <S.PostDiv>
+                        <p>작성일 : {project.created_at.substring(0, 10)}</p>
+                      </S.PostDiv>
+                      <S.Title>{project.title}</S.Title>
+                    </S.Post>
+                  );
+                })}
+              </S.Content>
+            </S.RightContent>
+          </S.MainContent>
+        )}
       </section>
     </>
   );
