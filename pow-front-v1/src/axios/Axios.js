@@ -36,19 +36,14 @@ export const deleteAccount = () => {
 };
 
 export const changePw = (existing_password, new_password) => {
-  return axios.put(
-    `${ACCOUNT_BASEURL}/account`,
-    {
-      existing_password,
-      new_password,
-    },
-    {
-      headers: {
-        Authorization: getToken(),
-      },
+  return axios.patch(`${ACCOUNT_BASEURL}/accout`, {
+    existing_password, new_password
+  }, {
+    headers: {
+      Authorization: getToken()
     }
-  );
-};
+  })
+}
 
 export const getToken = () => {
   const token = localStorage.getItem("token") || "guest";
