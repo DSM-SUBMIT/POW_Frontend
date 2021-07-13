@@ -28,17 +28,13 @@ const ClubModifyModal = ({ closeModal, clubId }) => {
             }}
           />
         </S.WriteBox>
-        {loading ? (
-          <Spinner />
-        ) : (
-          <S.UploadButton
-            onClick={(e) => {
-              ClubModify(content, clubId, token);
-            }}
-          >
-            업로드 하기
-          </S.UploadButton>
-        )}
+        <S.UploadButton
+          onClick={(e) => {
+            ClubModify(content, clubId, token);
+          }}
+        >
+          업로드 하기
+        </S.UploadButton>
       </S.CmContent>
     </>
   );
