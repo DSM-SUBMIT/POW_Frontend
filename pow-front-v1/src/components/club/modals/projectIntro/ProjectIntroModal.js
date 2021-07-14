@@ -13,7 +13,7 @@ const ProjectlntroModal = ({ closeModal, clubId, projectId }) => {
   const [title, setTitle] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [loading, setLoadging] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     LoadProjectIntro();
@@ -28,7 +28,7 @@ const ProjectlntroModal = ({ closeModal, clubId, projectId }) => {
       setModifyDate(res.data.updated_at);
       setStartDate(res.data.started_at);
       setEndDate(res.data.ended_at);
-      setLoadging(false);
+      setLoading(false);
     }
   };
 
