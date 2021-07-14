@@ -36,14 +36,19 @@ export const deleteAccount = () => {
 };
 
 export const changePw = (existing_password, new_password) => {
-  return axios.patch(`${ACCOUNT_BASEURL}/accout`, {
-    existing_password, new_password
-  }, {
-    headers: {
-      Authorization: getToken()
+  return axios.patch(
+    `${ACCOUNT_BASEURL}/accout`,
+    {
+      existing_password,
+      new_password,
+    },
+    {
+      headers: {
+        Authorization: getToken(),
+      },
     }
-  })
-}
+  );
+};
 
 export const getToken = () => {
   const token = localStorage.getItem("token") || "guest";
@@ -62,12 +67,12 @@ export const FileRequest = async (method, url, head, file) => {
   });
 };
 
-export const PostCRUD = async (method, url, head, data) => {
+export const PostCRUD = async (method, url, data, header) => {
   return await axios({
     method: method,
     url: crudURL + url,
-    headers: head,
     data: data,
+    headers: header,
   }).then((e) => {
     console.log(e);
     return e;

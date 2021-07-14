@@ -19,7 +19,7 @@ const PostUploadModal = ({ closeModal, clubId }) => {
   const onClickPostUpload = () => {
     setLoading(true);
     PostCRUD(
-      "PUT",
+      "POST",
       `club/${clubId}/project`,
       {
         title: title,
@@ -28,19 +28,15 @@ const PostUploadModal = ({ closeModal, clubId }) => {
         ended_at: endDate,
         club_id: clubId,
       },
-      {
-        Headers: {
-          Authorizatoin: `Bearer ${token}`,
-        },
-      }
+      { Authorizatoin: `Bearer ${token}` }
     )
-      .then(function (response) {
+      .then((response) => {
         setLoading(false);
         alert("게시글이 업로드 되었습니다.");
         console.log(response);
         window.location.reload();
       })
-      .catch(function (error) {
+      .catch((error) => {
         alert("문제가 발생했습니다.");
         console.log(error);
       });
