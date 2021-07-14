@@ -163,7 +163,7 @@ const Club = () => {
         {loading ? (
           <Spinner />
         ) : (
-          <S.MainContent>
+          <S.MainContent style={!adminState ? {paddingTop: "65px"}: null}>
             <S.LeftContent>
               <S.ClubIntroBox>
                 <span>{clubName}</span>
