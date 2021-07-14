@@ -1,15 +1,16 @@
 import React from "react";
+import Loader from "react-loader-spinner";
 
 const Spinner = () => {
   return (
-    <div class="d-flex justify-content-center">
-      <div
-        class="spinner-border"
-        style={{ width: "3rem", height: "3rem" }}
-        role="status"
-      >
-        <span class="sr-only">Loading...</span>
-      </div>
+    <div>
+      <Loader
+        type="0val"
+        color="#3d66ba"
+        height={30}
+        width={30}
+        timeout={3000}
+      ></Loader>
     </div>
   );
 };
