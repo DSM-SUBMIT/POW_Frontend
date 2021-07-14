@@ -37,7 +37,7 @@ export const UploadHeader = styled.div`
 `;
 
 export const InputText = styled.input`
-  width: 405px;
+  width: 393px;
   height: 56px;
   background-color: #f4f4f4;
   border-radius: 17px;
@@ -52,7 +52,7 @@ export const InputText = styled.input`
 `;
 
 export const DayBox = styled.div`
-  width: 405px;
+  width: 393px;
   height: 46px;
   background-color: #f4f4f4;
   border-radius: 17px;
@@ -61,7 +61,7 @@ export const DayBox = styled.div`
 `;
 
 export const DayLable = styled.label`
-  margin-left: 9px;
+  margin-left: 4px;
 `;
 
 export const SelectDate = styled(DatePicker)`
@@ -76,8 +76,8 @@ export const SelectDate = styled(DatePicker)`
 `;
 
 export const WriteBox = styled.div`
-  width: 944px;
-  height: 440px;
+  width: 804px;
+  height: 404px;
   border: 1px solid #707070;
   border-radius: 23px;
   color: #8d8d8d;
@@ -89,8 +89,8 @@ export const WriteBox = styled.div`
 `;
 
 export const InputContent = styled.textarea`
-  width: 924px;
-  height: 420px;
+  width: 780px;
+  height: 390px;
   border-radius: 23px;
   border: none;
   padding: 10px;
