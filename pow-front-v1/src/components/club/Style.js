@@ -96,7 +96,6 @@ export const WhiteBox = styled.div`
 export const MainContent = styled.div`
   width: 1280px;
   background-color: white;
-  margin-top: 50px;
   margin: auto;
 `;
 
@@ -147,12 +146,14 @@ export const RightContent = styled.div`
 export const Upload = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 65px;
+  padding-top: 50px;
 
   div {
-    margin-top: 50px;
+    
     display: flex;
     align-items: center;
-    margin: 50px 10px 0px 10px;
+    margin: 0px 10px 0px 10px;
     height: 50px;
     background-color: #f4f4f4;
     border-radius: 17px;
@@ -195,7 +196,6 @@ export const Content = styled.div`
   width: 830px;
   margin: 0;
   margin-left: 436px;
-  padding-top: 65px;
 
   ::-webkit-scrollbar {
     width: 15px;
