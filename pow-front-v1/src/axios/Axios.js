@@ -62,6 +62,18 @@ export const FileRequest = async (method, url, head, file) => {
   });
 };
 
+export const PostCRUD = async (method, url, head, data) => {
+  return await axios({
+    method: method,
+    url: crudURL + url,
+    headers: head,
+    data: data,
+  }).then((e) => {
+    console.log(e);
+    return e;
+  });
+};
+
 export const ClubModify = (content, clubId, token) => {
   return axios
     .put(
@@ -119,56 +131,12 @@ export const PostModify = (
     });
 };
 
-export const PostUpload = (
-  title,
-  content,
-  startedAt,
-  endedAt,
-  clubId,
-  token
-) => {
-  return axios
-    .post(
-      `${crudURL}club/${clubId}/project`,
-      {
-        title: title,
-        contents: content,
-        started_at: startedAt,
-        ended_at: endedAt,
-        club_id: clubId,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
-    .then(function (response) {
-      alert("게시글이 업로드 되었습니다.");
-      console.log(response);
-      window.location.reload();
-    })
-    .catch(function (error) {
-      alert("문제가 발생했습니다.");
-      console.log(error);
-    });
-};
-
 export const DeletePost = (token, clubId, projectId) => {
-  return axios
-    .delete(`${crudURL}club/${clubId}/project/${projectId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then(function () {
-      alert("삭제가 되었습니다.");
-      window.location.reload();
-    })
-    .catch(function (error) {
-      alert("문제가 발생했습니다.");
-      console.log(error);
-    });
+  return axios.delete(`${crudURL}club/${clubId}/project/${projectId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 };
 
 export const ProjectIntro = (clubId, projectId) => {

@@ -27,8 +27,8 @@ const BannerUpload = ({ closeModal, clubId }) => {
         authorization: `Bearer ${token}`,
       },
       fd
-    ).then((e)=> {
-      if(e.data === "file updated"){
+    ).then((e) => {
+      if (e.data === "file updated") {
         closeModal(null);
         alert("배너 사진이 업로드 되었습니다.");
         window.location.reload();
