@@ -140,84 +140,86 @@ const Club = () => {
   return (
     <>
       {modalComponents}
-      <header>
-        <S.BannerImg>
-          <img
-            alt="베너 사진"
-            src={`${bannerPath ? bannerPath : DEFAULTIMG}`}
-            onClick={adminState ? onClickBannerDeleteModal : null}
-          />
-        </S.BannerImg>
-        <S.Logo>
-          <S.LogoDiv>
-            <S.WhiteBox />
-            <img
-              alt="프로필 사진"
-              src={`${profilePath ? profilePath : DEFAULTIMG}`}
-              onClick={adminState ? onClickProfileDeleteModal : null}
-            />
-          </S.LogoDiv>
-        </S.Logo>
-      </header>
-      <section style={{ backgroundColor: "#FCFCFC" }}>
-        {loading ? (
-          <Spinner />
-        ) : (
-          <S.MainContent>
-            <S.LeftContent>
-              <S.ClubIntroBox>
-                <span>{clubName}</span>
-                <S.ClubContent>{contents}</S.ClubContent>
-              </S.ClubIntroBox>
-            </S.LeftContent>
-            <S.RightContent>
-              {adminState && (
-                <S.Upload>
-                  <S.PictureUpload onClick={onClickPictureModal}>
-                    <img alt="아이콘" src={picture}></img>
-                    <span>사진 업로드</span>
-                  </S.PictureUpload>
-                  <S.ClubFix onClick={onClickClubModifyModal}>
-                    <img alt="아이콘" src={edit}></img>
-                    <span>동아리 소개 수정</span>
-                  </S.ClubFix>
-                  <S.PostUpload onClick={onClickPostUploadModal}>
-                    <img alt="아이콘" src={writing}></img>
-                    <span>게시물 업로드</span>
-                  </S.PostUpload>
-                </S.Upload>
-              )}
-              <S.Content>
-                {projectList.reverse().map((project, i) => {
-                  return (
-                    <S.Post
-                      key={i}
-                      onClick={() => onClickProjectIntro(project.id)}
-                    >
-                      <img
-                        alt="더보기"
-                        src={list}
-                        onClick={(e) => {
-                          if (adminState === false) {
-                            onClickPostModifyRemoveModal(null);
-                          } else {
-                            onClickPostModifyRemoveModal(e, project.id);
-                          }
-                        }}
-                      />
-                      <S.PostDiv>
-                        <p>작성일 : {project.created_at.substring(0, 10)}</p>
-                      </S.PostDiv>
-                      <S.Title>{project.title}</S.Title>
-                    </S.Post>
-                  );
-                })}
-              </S.Content>
-            </S.RightContent>
-          </S.MainContent>
-        )}
-
-      </section>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          <header>
+            <S.BannerImg>
+              <img
+                alt="베너 사진"
+                src={`${bannerPath ? bannerPath : DEFAULTIMG}`}
+                onClick={adminState ? onClickBannerDeleteModal : null}
+              />
+            </S.BannerImg>
+            <S.Logo>
+              <S.LogoDiv>
+                <S.WhiteBox />
+                <img
+                  alt="프로필 사진"
+                  src={`${profilePath ? profilePath : DEFAULTIMG}`}
+                  onClick={adminState ? onClickProfileDeleteModal : null}
+                />
+              </S.LogoDiv>
+            </S.Logo>
+          </header>
+          <section style={{ backgroundColor: "#FCFCFC" }}>
+            <S.MainContent>
+              <S.LeftContent>
+                <S.ClubIntroBox>
+                  <span>{clubName}</span>
+                  <S.ClubContent>{contents}</S.ClubContent>
+                </S.ClubIntroBox>
+              </S.LeftContent>
+              <S.RightContent>
+                {adminState && (
+                  <S.Upload>
+                    <S.PictureUpload onClick={onClickPictureModal}>
+                      <img alt="아이콘" src={picture}></img>
+                      <span>사진 업로드</span>
+                    </S.PictureUpload>
+                    <S.ClubFix onClick={onClickClubModifyModal}>
+                      <img alt="아이콘" src={edit}></img>
+                      <span>동아리 소개 수정</span>
+                    </S.ClubFix>
+                    <S.PostUpload onClick={onClickPostUploadModal}>
+                      <img alt="아이콘" src={writing}></img>
+                      <span>게시물 업로드</span>
+                    </S.PostUpload>
+                  </S.Upload>
+                )}
+                <S.Content>
+                  {projectList.reverse().map((project, i) => {
+                    return (
+                      <S.Post
+                        key={i}
+                        onClick={() => onClickProjectIntro(project.id)}
+                      >
+                        <img
+                          alt="더보기"
+                          src={list}
+                          onClick={(e) => {
+                            if (adminState === false) {
+                              onClickPostModifyRemoveModal(null);
+                            } else {
+                              onClickPostModifyRemoveModal(e, project.id);
+                            }
+                          }}
+                        />
+                        <S.PostDiv>
+                          <p>작성일 : {project.created_at.substring(0, 10)}</p>
+                        </S.PostDiv>
+                        <S.Title>{project.title}</S.Title>
+                      </S.Post>
+                    );
+                  })}
+                </S.Content>
+              </S.RightContent>
+            </S.MainContent>
+          </section>
+        </>
+      )}
+      ;
     </>
   );
 };
