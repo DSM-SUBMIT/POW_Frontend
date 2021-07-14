@@ -34,7 +34,7 @@ export const LogoDiv = styled.div`
   height: 240px;
   border-radius: 50%;
   position: absolute;
-  --b: 20px;
+  --b: 15px;
   display: inline-block;
   bottom: -120px;
   margin-left: 400px;
@@ -44,8 +44,8 @@ export const LogoDiv = styled.div`
     height: 200px;
     border-radius: 50%;
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 48%;
+    top: 48%;
     transform: translate(-50%, -50%);
   }
 
@@ -88,77 +88,10 @@ export const WhiteBox = styled.div`
   z-index: -1;
   border-radius: 50%;
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 48%;
+  top: 48%;
   transform: translate(-50%, -50%);
 `;
-// export const LogoDiv = styled.div`
-//   position: absolute;
-//   bottom: -49%;
-//   margin-left: 365px;
-//   z-index: 2;
-//   --b: 20px;
-//   display: inline-block;
-//   width: 280px;
-
-//   img {
-//     position: absolute;
-//     border-radius: 50%;
-//     width: 280px;
-//     height: 280px;
-//     left: 50%;
-//     top: 50%;
-//     transform: translate(-50%, -50%);
-//   }
-
-//   ::after {
-//     content: "";
-//     display: inline-block;
-//     padding-top: 100%;
-//   }
-
-// ::before {
-//   content: "";
-//   position: absolute;
-//   z-index: -1;
-//   width: 280px;
-//   height: 280px;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   background: var(
-//     --c,
-//     linear-gradient(
-//       to bottom,
-//       #c2a8d1,
-//       #9378c6,
-//       #6a5fcf,
-//       #5353dc,
-//       #c89299,
-//       #f1a882
-//     )
-//   );
-//   padding: var(--b);
-//   border-radius: 50%;
-//   background-color: white;
-//   -webkit-mask: linear-gradient(#fff 0 0) content-box,
-//     linear-gradient(#fff 0 0);
-//   -webkit-mask-composite: destination-out;
-//   mask-composite: exclude;
-// }
-// `;
-
-// export const WhiteBox = styled.div`
-//   width: 280px;
-//   height: 280px;
-//   background-color: white;
-//   position: absolute;
-//   bottom: -43%;
-//   margin-left: 365px;
-//   z-index: 2;
-//   border-radius: 50%;
-// `;
 
 export const MainContent = styled.div`
   width: 1280px;
@@ -261,8 +194,8 @@ export const Content = styled.div`
   height: 449px;
   width: 830px;
   margin: 0;
-  margin-top: 65px;
   margin-left: 436px;
+  padding-top: 65px;
 
   ::-webkit-scrollbar {
     width: 15px;
