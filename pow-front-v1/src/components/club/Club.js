@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import * as S from "./Style";
+import * as s from "./Style";
 import { useParams } from "react-router";
-import { clubPage } from "../../axios/Axios";
+import { clubPage, getToken } from "../../axios/Axios";
 import edit from "../img/edit.png";
 import picture from "../img/picture.png";
 import writing from "../img/writing.png";
@@ -30,9 +30,13 @@ const Club = () => {
   const [profilePath, setProfilePath] = useState(null);
   const [bannerPath, setBannerPath] = useState(null);
   const [contents, setContents] = useState("");
+  const [name, setName] = useState();
   const [projectList, setProjectList] = useState([]);
   const { searchResult } = useParams();
   const { id } = useParams();
+  const imgUrl = "https://ehddkfl.herokuapp.com/public/";
+  // const profilePath = "DefaultImage.png";
+  // const bannerPath = "DefaultImage.png";
   const [clubName, setClubName] = useState();
   const [adminState, setAdminState] = useState(false);
 
@@ -74,6 +78,7 @@ const Club = () => {
 
   const LoadClubInfo = async () => {
     const res = await clubPage(id);
+    // console.log(res.data);
     if (res) {
       setProfilePath(res.data.profile_path);
       setBannerPath(res.data.banner_path);
@@ -81,6 +86,27 @@ const Club = () => {
       setProjectList(res.data.introduction);
     }
   };
+    const {id} = useParams();
+    const [data, setData] = useState();
+  
+    useEffect(() => {
+      clubPage(id)
+        .then(async (res) => {
+          await setData(res.data);
+          setName(res.data.name);
+          setProfilePath(res.data.profilePath);
+          setBannerPath(res.data.bannerPath);
+          setContents(res.data.contents);
+          setProjectList(res.data.introduction);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, [id]);
+  
+    useEffect(() => {
+      console.log(data);
+    }, [data]);
 
   const onClickPictureModal = () => {
     setModalComponents(
@@ -160,30 +186,28 @@ const Club = () => {
           <S.LeftContent>
             <S.ClubIntroBox>
               <span>{clubName}</span>
-              <S.ClubContent>{contents}</S.ClubContent>
-            </S.ClubIntroBox>
-          </S.LeftContent>
-          <S.RightContent>
-            {adminState && (
-              <S.Upload>
-                <S.PictureUpload onClick={onClickPictureModal}>
-                  <img alt="아이콘" src={picture}></img>
-                  <span>사진 업로드</span>
-                </S.PictureUpload>
-                <S.ClubFix onClick={onClickClubModifyModal}>
-                  <img alt="아이콘" src={edit}></img>
-                  <span>동아리 소개 수정</span>
-                </S.ClubFix>
-                <S.PostUpload onClick={onClickPostUploadModal}>
-                  <img alt="아이콘" src={writing}></img>
-                  <span>게시물 업로드</span>
-                </S.PostUpload>
-              </S.Upload>
-            )}
-            <S.Content>
+              <s.ClubContent>{contents}</s.ClubContent>
+            </s.ClubIntroBox>
+          </s.LeftContent>
+          <s.RightContent>
+            <s.Upload>
+              <s.PictureUpload onClick={onClickPictureModal}>
+                <img alt="아이콘" src={picture}></img>
+                <span>사진 업로드</span>
+              </s.PictureUpload>
+              <s.ClubFix onClick={onClickClubModifyModal}>
+                <img alt="아이콘" src={edit}></img>
+                <span>동아리 소개 수정</span>
+              </s.ClubFix>
+              <s.PostUpload onClick={onClickPostUploadModal}>
+                <img alt="아이콘" src={writing}></img>
+                <span>게시물 업로드</span>
+              </s.PostUpload>
+            </s.Upload>
+            <s.Content>
               {projectList.reverse().map((project, i) => {
                 return (
-                  <S.Post
+                  <s.Post
                     key={i}
                     onClick={() => onClickProjectIntro(project.id)}
                   >
@@ -194,11 +218,11 @@ const Club = () => {
                         onClickPostModifyRemoveModal(e, project.id)
                       }
                     ></img>
-                    <S.PostDiv>
+                    <s.PostDiv>
                       <p>작성일 : {project.created_at.substring(0, 10)}</p>
-                    </S.PostDiv>
-                    <S.Title>{project.title}</S.Title>
-                  </S.Post>
+                    </s.PostDiv>
+                    <s.Title>{project.title}</s.Title>
+                  </s.Post>
                 );
               })}
             </S.Content>
