@@ -11,7 +11,6 @@ const PostUploadModal = ({ closeModal, clubId }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const token = localStorage.getItem("token");
-  const [loading, setLoading] = useState(true);
   const onClickPostUploadModal = () => {
     closeModal(null);
   };
@@ -33,7 +32,6 @@ const PostUploadModal = ({ closeModal, clubId }) => {
         },
       }
         .then(function (response) {
-          setLoading(false);
           alert("게시글이 업로드 되었습니다.");
           console.log(response);
           window.location.reload();
@@ -87,24 +85,21 @@ const PostUploadModal = ({ closeModal, clubId }) => {
             }}
           />
         </S.WriteBox>
-        {loading ? (
-          <Spinner />
-        ) : (
-          <S.UploadButton
-            onClick={(e) => {
-              onClickPostUpload(
-                title,
-                content,
-                startDate,
-                endDate,
-                parseInt(clubId, 10),
-                token
-              );
-            }}
-          >
-            업로드 하기
-          </S.UploadButton>
-        )}
+        <S.UploadButton
+          onClick={(e) => {
+            onClickPostUpload(
+              title,
+              content,
+              startDate,
+              endDate,
+              parseInt(clubId, 10),
+              token
+            );
+          }}
+        >
+          업로드 하기
+        </S.UploadButton>
+        }
       </S.UpContent>
     </>
   );
