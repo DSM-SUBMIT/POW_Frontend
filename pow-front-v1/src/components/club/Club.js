@@ -31,6 +31,7 @@ const Club = () => {
   const [profilePath, setProfilePath] = useState(null);
   const [bannerPath, setBannerPath] = useState(null);
   const [contents, setContents] = useState("");
+  const [name, setName] = useState();
   const [projectList, setProjectList] = useState([]);
   const { searchResult } = useParams();
   const { id } = useParams();
@@ -39,6 +40,7 @@ const Club = () => {
   const [loading, setLoadging] = useState(true);
 
   useEffect(() => {
+    console.log(localStorage.getItem("token"));
     if (localStorage.getItem("token")) {
       let checkId = jwt.verify(localStorage.getItem("token"), SECRET_KEY);
       if (checkId.sub === id) {
@@ -214,6 +216,7 @@ const Club = () => {
             </S.RightContent>
           </S.MainContent>
         )}
+
       </section>
     </>
   );

@@ -19,7 +19,7 @@ const Header = () => {
   const getToken = localStorage.getItem("token");  
   const onClickLogin = () => {
     setLoginModal(true);
-  };
+    };
 
   const history = useHistory();
 
