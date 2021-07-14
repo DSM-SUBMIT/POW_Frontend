@@ -39,20 +39,22 @@ const ProjectlntroModal = ({ closeModal, clubId, projectId }) => {
   return (
     <>
       <WhiteScreen onClick={onClickProjectIntroModal} />
-      {loading ? (
-        <Spinner />
-      ) : (
-        <S.IntroContent>
-          <IntroduceHeader
-            writeDate={writeDate.substring(0, 10)}
-            modifyDate={modifyDate.substring(0, 10)}
-            title={title}
-            startDate={startDate.substring(0, 10)}
-            endDate={endDate.substring(0, 10)}
-          />
-          <S.IntroduceBox>{contents}</S.IntroduceBox>
-        </S.IntroContent>
-      )}
+      <S.IntroContent>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <>
+            <IntroduceHeader
+              writeDate={writeDate.substring(0, 10)}
+              modifyDate={modifyDate.substring(0, 10)}
+              title={title}
+              startDate={startDate.substring(0, 10)}
+              endDate={endDate.substring(0, 10)}
+            />
+            <S.IntroduceBox>{contents}</S.IntroduceBox>
+          </>
+        )}
+      </S.IntroContent>
     </>
   );
 };
