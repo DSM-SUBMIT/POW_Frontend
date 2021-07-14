@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import * as S from "./Style";
 import WhiteScreen from "../common/WhiteScreen";
 import { ClubModify } from "../../../../axios/Axios";
+import Spinner from "../common/Spinner";
 
 const ClubModifyModal = ({ closeModal, clubId }) => {
   const [content, setContent] = useState("");
+  const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("token");
   const onClickGreyBox = () => {
     closeModal(null);

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import * as S from "./Style";
 import WhiteScreen from "../common/WhiteScreen";
 import "react-datepicker/dist/react-datepicker.css";
-import { PostUpload } from "../../../../axios/Axios";
+import { PostCRUD } from "../../../../axios/Axios";
+import Spinner from "../common/Spinner";
 
 const PostUploadModal = ({ closeModal, clubId }) => {
   const [title, setTitle] = useState("");
@@ -12,6 +13,34 @@ const PostUploadModal = ({ closeModal, clubId }) => {
   const token = localStorage.getItem("token");
   const onClickPostUploadModal = () => {
     closeModal(null);
+  };
+
+  const onClickPostUpload = () => {
+    PostCRUD(
+      "PUT",
+      `club/${clubId}/project`,
+      {
+        title: title,
+        contents: content,
+        started_at: startDate,
+        ended_at: endDate,
+        club_id: clubId,
+      },
+      {
+        Headers: {
+          Authorizatoin: `Bearer ${token}`,
+        },
+      }
+        .then(function (response) {
+          alert("게시글이 업로드 되었습니다.");
+          console.log(response);
+          window.location.reload();
+        })
+        .catch(function (error) {
+          alert("문제가 발생했습니다.");
+          console.log(error);
+        })
+    );
   };
 
   return (
@@ -58,7 +87,7 @@ const PostUploadModal = ({ closeModal, clubId }) => {
         </S.WriteBox>
         <S.UploadButton
           onClick={(e) => {
-            PostUpload(
+            onClickPostUpload(
               title,
               content,
               startDate,
@@ -70,6 +99,7 @@ const PostUploadModal = ({ closeModal, clubId }) => {
         >
           업로드 하기
         </S.UploadButton>
+        }
       </S.UpContent>
     </>
   );
