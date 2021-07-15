@@ -2,8 +2,8 @@ import styled from "styled-components";
 import DatePicker from "react-datepicker";
 
 export const ModifyContent = styled.div`
-  width: 1108px;
-  height: 750px;
+  width: 908px;
+  height: 700px;
   background: #ffffff;
   border-radius: 23px;
   border: 1px solid #707070;
@@ -17,7 +17,7 @@ export const ModifyContent = styled.div`
 
 export const Title = styled.div`
   border-bottom: 1px solid #707070;
-  width: 300px;
+  width: 280px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -36,7 +36,7 @@ export const ModifyHeader = styled.div`
 `;
 
 export const InputText = styled.input`
-  width: 455px;
+  width: 393px;
   height: 56px;
   background-color: #f4f4f4;
   border-radius: 17px;
@@ -52,7 +52,7 @@ export const InputText = styled.input`
 `;
 
 export const DayBox = styled.div`
-  width: 455px;
+  width: 393px;
   height: 46px;
   background-color: #f4f4f4;
   border-radius: 17px;
@@ -76,7 +76,7 @@ export const SelectDate = styled(DatePicker)`
 `;
 
 export const WriteBox = styled.div`
-  width: 944px;
+  width: 804px;
   height: 440px;
   border: 1px solid #707070;
   border-radius: 23px;
@@ -89,8 +89,8 @@ export const WriteBox = styled.div`
 `;
 
 export const InputContent = styled.textarea`
-  width: 924px;
-  height: 420px;
+  width: 780px;
+  height: 390px;
   border-radius: 23px;
   border: none;
   padding: 10px;
