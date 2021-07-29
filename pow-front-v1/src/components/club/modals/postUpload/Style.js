@@ -2,7 +2,7 @@ import styled from "styled-components";
 import DatePicker from "react-datepicker";
 
 export const UpContent = styled.div`
-  width: 908px;
+  width: 808px;
   height: 700px;
   background: #ffffff;
   border-radius: 23px;
@@ -76,7 +76,7 @@ export const SelectDate = styled(DatePicker)`
 `;
 
 export const WriteBox = styled.div`
-  width: 804px;
+  width: 704px;
   height: 404px;
   border: 1px solid #707070;
   border-radius: 23px;
