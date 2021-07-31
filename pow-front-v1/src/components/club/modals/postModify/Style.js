@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 
 export const ModifyContent = styled.div`
   width: 808px;
-  height: 700px;
+  height: 660px;
   background: #ffffff;
   border-radius: 23px;
   border: 1px solid #707070;
