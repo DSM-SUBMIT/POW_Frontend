@@ -1,10 +1,5 @@
 import axios from "axios";
 
-<<<<<<< HEAD
-const fileURL = "https://ehddkfl.herokuapp.com/";
-const crudURL = "https://powerofpow.herokuapp.com/";
-
-=======
 const ACCOUNT_BASEURL = "https://submit-pow.herokuapp.com";
 const fileURL = "https://ehddkfl.herokuapp.com/";
 const crudURL = "https://powerofpow.herokuapp.com/";
@@ -60,7 +55,6 @@ export const getToken = () => {
   return `Bearer ${token}`;
 };
 
->>>>>>> master
 export const FileRequest = async (method, url, head, file) => {
   return await axios({
     method: method,
@@ -73,8 +67,6 @@ export const FileRequest = async (method, url, head, file) => {
   });
 };
 
-<<<<<<< HEAD
-=======
 export const PostCRUD = async (method, url, data, header) => {
   return await axios({
     method: method,
@@ -87,7 +79,6 @@ export const PostCRUD = async (method, url, data, header) => {
   });
 };
 
->>>>>>> master
 export const ClubModify = (content, clubId, token) => {
   return axios
     .put(
@@ -102,11 +93,8 @@ export const ClubModify = (content, clubId, token) => {
       }
     )
     .then(function (response) {
-<<<<<<< HEAD
-=======
       alert("소개글이 수정되었습니다.");
       window.location.reload();
->>>>>>> master
       console.log(response);
     })
     .catch(function (error) {
@@ -135,14 +123,6 @@ export const PostModify = (
       },
       {
         headers: {
-<<<<<<< HEAD
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
-    .then(function (response) {
-      console.log(response);
-=======
           Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjM4MzE3NzgsInN1YiI6IjEiLCJleHAiOjE2MjQwNDIzODIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.KOc1sbOUuPGpfp5Y-3azFMXSeCwGm2rouRYnXLDj78Q`,
         },
       }
@@ -150,54 +130,12 @@ export const PostModify = (
     .then(function () {
       alert("게시글이 수정되었습니다.");
       window.location.reload();
->>>>>>> master
     })
     .catch(function (error) {
       console.log(error);
     });
 };
 
-<<<<<<< HEAD
-export const PostUpload = (
-  title,
-  content,
-  startedAt,
-  endedAt,
-  clubId,
-  token
-) => {
-  return axios
-    .post(
-      `${crudURL}club/${clubId}/project`,
-      {
-        title: title,
-        contents: content,
-        started_at: startedAt,
-        ended_at: endedAt,
-        club_id: clubId,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-};
-
-/*
-export const ProjectIntro = () => {
-  return axios
-    .get(`${crudURL}club/${club_id}/project/${project_id}`, {})
-    .then(function (response) {
-      console.log(response);
-    })
-=======
 export const DeletePost = (token, clubId, projectId) => {
   return axios.delete(`${crudURL}club/${clubId}/project/${projectId}`, {
     headers: {
@@ -209,12 +147,8 @@ export const DeletePost = (token, clubId, projectId) => {
 export const ProjectIntro = (clubId, projectId) => {
   return axios
     .get(`${crudURL}club/${clubId}/project/${projectId}`)
->>>>>>> master
     .catch(function (error) {
       console.log(error);
     });
 };
-<<<<<<< HEAD
-*/
-=======
->>>>>>> master
+
