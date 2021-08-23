@@ -2,8 +2,8 @@ import styled from "styled-components";
 import DatePicker from "react-datepicker";
 
 export const ModifyContent = styled.div`
-  width: 1148px;
-  height: 810px;
+  width: 1108px;
+  height: 750px;
   background: #ffffff;
   border-radius: 23px;
   border: 1px solid #707070;
@@ -23,7 +23,7 @@ export const Title = styled.div`
   transform: translateX(-50%);
   p {
     font-family: NanumSquare_ac;
-    font-seize: 20px;
+    font-size: 20px;
     margin-top: 27px;
   }
 `;
@@ -41,9 +41,11 @@ export const InputText = styled.input`
   background-color: #f4f4f4;
   border-radius: 17px;
   border: none;
+  outline: none;
   margin-right: 49px;
+  text-align: center;
+  font-size: 18px;
   ::placeholder {
-    text-align: center;
     font-size: 18px;
     color: #8d8d8d;
   }
@@ -74,8 +76,8 @@ export const SelectDate = styled(DatePicker)`
 `;
 
 export const WriteBox = styled.div`
-  width: 974px;
-  height: 500px;
+  width: 944px;
+  height: 440px;
   border: 1px solid #707070;
   border-radius: 23px;
   color: #8d8d8d;
@@ -87,11 +89,12 @@ export const WriteBox = styled.div`
 `;
 
 export const InputContent = styled.textarea`
-  width: 957px;
-  height: 480px;
+  width: 924px;
+  height: 420px;
   border-radius: 23px;
   border: none;
   padding: 10px;
+  text-align: center;
   ::placeholder {
     text-align: center;
   }
@@ -104,7 +107,7 @@ export const InputContent = styled.textarea`
     width: 10px;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: #red;
+    background-color: red;
   }
   ::-webkit-scrollbar-track {
     background-color: #7662c6;
@@ -131,4 +134,8 @@ export const UploadButton = styled.button`
   color: #ffffff;
   margin-top: 30px;
   font-size: 17px;
+  cursor: pointer;
+  :hover {
+    background-color: #f29969;
+  }
 `;

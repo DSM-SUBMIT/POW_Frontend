@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BannerImg = styled.div`
   position: relative;
   width: 100%;
-  height: 375px;
+  height: 245px;
   border-bottom: 10px solid;
   border-image: linear-gradient(
     to right,
@@ -16,7 +16,7 @@ export const BannerImg = styled.div`
   border-image-slice: 1;
   img {
     width: 1375px;
-    height: 330px;
+    height: 100%;
     position: relative;
     left: 50%;
     top: 50%;
@@ -24,37 +24,37 @@ export const BannerImg = styled.div`
   }
 `;
 
+export const Logo = styled.div`
+  position: relative;
+`;
+
 export const LogoDiv = styled.div`
-  position: absolute;
-  bottom: -43%;
-  margin-left: 365px;
   z-index: 2;
-  --b: 20px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  position: absolute;
+  --b: 15px;
   display: inline-block;
-  width: 320px;
+  bottom: -120px;
+  margin-left: 400px;
 
   img {
-    position: absolute;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    width: 285px;
-    height: 285px;
-    left: 50%;
-    top: 50%;
+    position: absolute;
+    left: 48%;
+    top: 48%;
     transform: translate(-50%, -50%);
-  }
-
-  ::after {
-    content: "";
-    display: inline-block;
-    padding-top: 100%;
   }
 
   ::before {
     content: "";
     position: absolute;
     z-index: -1;
-    width: 280px;
-    height: 280px;
+    width: 200px;
+    height: 200px;
     top: 0;
     left: 0;
     right: 0;
@@ -82,45 +82,53 @@ export const LogoDiv = styled.div`
 `;
 
 export const WhiteBox = styled.div`
-  width: 320px;
-  height: 320px;
   background-color: white;
-  position: absolute;
-  bottom: -43%;
-  margin-left: 365px;
-  z-index: 2;
+  width: 200px;
+  height: 200px;
+  z-index: -1;
   border-radius: 50%;
+  position: absolute;
+  left: 48%;
+  top: 48%;
+  transform: translate(-50%, -50%);
 `;
 
 export const MainContent = styled.div`
   width: 1280px;
   background-color: white;
-  margin-top: 50px;
   margin: auto;
 `;
 
 export const LeftContent = styled.div`
-  margin-top: 220px;
+  margin-top: 188px;
   float: left;
 `;
 
 export const ClubIntroBox = styled.div`
-  width: 340px;
-  height: 330px;
+  width: 300px;
+  height: 133px;
   border: 3px solid #aeadad;
   border-radius: 27px;
-  margin-left: 50px;
+  margin-left: 60px;
   box-shadow: 1px 1px 5px #aeadad;
 
   span {
     position: relative;
-    top: -9%;
-    transform: translateY(-50%);
+    top: -23%;
     margin-left: 44px;
-    font-size: 40px;
+    font-size: 38px;
     background-color: white;
     color: #707070;
   }
+`;
+
+export const ClubContent = styled.div`
+  width: 280px;
+  height: 66px;
+  border: 1px solid #aeadad;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 export const Writer = styled.div`
@@ -131,14 +139,6 @@ export const Writer = styled.div`
   margin-right: 17px;
 `;
 
-export const FixDate = styled.p`
-  font-size: 20px;
-  color: #8d8d8d;
-  position: relative;
-  top: 65%;
-  left: 7%;
-`;
-
 export const RightContent = styled.div`
   position: relative;
 `;
@@ -146,12 +146,14 @@ export const RightContent = styled.div`
 export const Upload = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 65px;
+  padding-top: 50px;
 
   div {
-    margin-top: 80px;
+    
     display: flex;
     align-items: center;
-    margin-right: 25px;
+    margin: 0px 10px 0px 10px;
     height: 50px;
     background-color: #f4f4f4;
     border-radius: 17px;
@@ -180,20 +182,19 @@ export const PictureUpload = styled.div`
 `;
 
 export const ClubFix = styled.div`
-  width: 275px;
+  width: 258px;
 `;
 
 export const PostUpload = styled.div`
-  width: 250px;
+  width: 238px;
 `;
 
 export const Content = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 600px;
+  height: 449px;
   width: 830px;
   margin: 0;
-  margin-top: 65px;
   margin-left: 436px;
 
   ::-webkit-scrollbar {
@@ -212,8 +213,8 @@ export const Content = styled.div`
 `;
 
 export const Post = styled.div`
-  width: 785px;
-  height: 200px;
+  width: 777px;
+  height: 150px;
   border: 3px solid #cbcbcb;
   box-shadow: 1px 1px 5px #cbcbcb;
   border-radius: 27px;
@@ -247,12 +248,4 @@ export const Title = styled.div`
   margin-top: 45px;
   margin-left: 50px;
   font-size: 40px;
-`;
-
-export const StartDate = styled.div`
-  margin-top: 25px;
-  position: relative;
-  left: 50%;
-  font-size: 20px;
-  color: #8d8d8d;
 `;

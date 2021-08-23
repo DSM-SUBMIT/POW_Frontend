@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const CmContent = styled.div`
-  width: 644px;
-  height: 608px;
+  width: 500px;
+  height: 300px;
   background: #ffffff;
   border-radius: 23px;
   border: 1px solid #707070;
@@ -16,70 +16,56 @@ export const CmContent = styled.div`
 
 export const Title = styled.div`
   border-bottom: 1px solid #707070;
-  width: 300px;
+  width: 250px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
   p {
+    margin-top: 20px;
     font-family: NanumSquare_ac;
     font-size: 20px;
   }
 `;
 
 export const WriteBox = styled.div`
-  width: 488px;
-  height: 394px;
+  width: 400px;
+  height: 104px;
   border: 1px solid #707070;
   border-radius: 23px;
-  margin-top: 30px;
+  margin-top: 20px;
   color: #ffffff;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  padding: 8px;
 `;
 
 export const InputContent = styled.textarea`
-  width: 474px;
-  height: 380px;
+  width: 383px;
+  height: 100px;
   border: none;
   border-radius: 23px;
-  padding: 7px;
+  padding-top: 10px;
+  text-align: center;
+  font-size: 18px;
   ::placeholder {
     text-align: center;
   }
   :focus {
     outline: none;
   }
-  overflow-y: scroll;
-  overflow-x: hidden;
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: red;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: #7662c6;
-    border-radius: 10px;
-  }
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: #f9f9f9;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #7662c6;
-    border-radius: 30px;
-  }
 `;
 
 export const UploadButton = styled.button`
   width: 130px;
-  height: 52px;
+  height: 48px;
   background: #f4bea1;
   border-radius: 30px;
   border: none;
   color: #ffffff;
-  margin-top: 30px;
+  margin-top: 20px;
+  cursor: pointer;
+  :hover {
+    background-color: #f29969;
+  }
 `;

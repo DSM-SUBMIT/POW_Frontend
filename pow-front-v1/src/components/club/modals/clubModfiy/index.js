@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import * as S from "./Style";
 import WhiteScreen from "../common/WhiteScreen";
 import { ClubModify } from "../../../../axios/Axios";
+import Spinner from "../common/Spinner";
 
-const ClubModifyModal = ({ selectModal }) => {
+const ClubModifyModal = ({ closeModal, clubId }) => {
   const [content, setContent] = useState("");
-  const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxfQ.HFXowaGXnoryNVa_SbW2TtkF8KzA9ZJDfX6OnXpR9_o`;
+  const [loading, setLoading] = useState(true);
+  const token = localStorage.getItem("token");
   const onClickGreyBox = () => {
-    selectModal(null);
+    closeModal(null);
   };
 
   return (
@@ -28,7 +30,7 @@ const ClubModifyModal = ({ selectModal }) => {
         </S.WriteBox>
         <S.UploadButton
           onClick={(e) => {
-            ClubModify(content, 1, token);
+            ClubModify(content, clubId, token);
           }}
         >
           업로드 하기

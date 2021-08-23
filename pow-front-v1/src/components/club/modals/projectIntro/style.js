@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const IntroContent = styled.div`
-  width: 1188px;
-  height: 708px;
+  width: 1010px;
+  height: 748px;
   background: #ffffff;
   border-radius: 27px;
   border: 1px solid #707070;
@@ -15,8 +15,8 @@ export const IntroContent = styled.div`
 `;
 
 export const HeaderContent = styled.div`
-  width: 1054px;
-  height: 116px;
+  width: 1010px;
+  height: 136px;
   padding-top: 18px;
   position: relative;
   left: 50%;
@@ -24,20 +24,25 @@ export const HeaderContent = styled.div`
 `;
 
 export const WriteBar = styled.div`
-  width: 1054px;
-  height: 61px;
+  width: 1010px;
+  height: 41px;
 `;
 
 export const CreatedDate = styled.p`
   width: 200px;
   float: left;
   font-size: 20px;
+  margin-bottom: 0;
+  margin-left: 55px;
+  text-align: left;
 `;
 
 export const ModifiedDate = styled.p`
   width: 200px;
   float: left;
   font-size: 20px;
+  margin-bottom: 0;
+  text-align: left;
 `;
 
 export const Writer = styled.p`
@@ -47,30 +52,37 @@ export const Writer = styled.p`
 `;
 
 export const TitleBar = styled.div`
-  width: 1054px;
-  height: 61px;
+  width: 1010px;
+  height: 41px;
   margin-bottom: 27px;
   display: inline;
 `;
 
 export const IntroduceTitle = styled.h3`
-  width: 656px;
-  float: left;
+  width: 606px;
   text-align: left;
+  margin-top: 28px;
+  margin-bottom: 0px;
+  margin-left: 55px;
 `;
 
 export const StartDate = styled.p`
-  width: 378px;
+  width: 409px;
   float: right;
   font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 55px;
 `;
 
 export const IntroduceBox = styled.div`
-  width: 1054px;
-  height: 490px;
+  width: 858px;
+  height: 464px;
   background: #f3f3f3;
-  margin-top: 18px;
+  margin-top: 28px;
+  padding: 18px;
   position: relative;
+  font-size: 18px;
   left: 50%;
   transform: translateX(-50%);
   overflow-y: scroll;
@@ -79,7 +91,7 @@ export const IntroduceBox = styled.div`
     width: 15px;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: #red;
+    background-color: red;
   }
   ::-webkit-scrollbar-track {
     background-color: #7662c6;

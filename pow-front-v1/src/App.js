@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from "react";
 import Header from "./components/header/Header";
 import Main from "./components/main/Main";
@@ -10,11 +9,11 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
+        <Header />
         <Route path="/" exact>
-          <Header />
           <Main />
         </Route>
-        <Route exact path="/club">
+        <Route exact path="/club/:id">
           <Club />
         </Route>
       </BrowserRouter>

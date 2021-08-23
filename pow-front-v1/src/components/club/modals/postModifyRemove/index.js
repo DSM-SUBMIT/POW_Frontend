@@ -4,17 +4,29 @@ import WhiteScreen from "../common/WhiteScreen";
 import * as SVG from "../common/SvgCollection";
 import { PostModifyModal, PostDelete } from "../index";
 
-const PostModifyRemoveModal = ({ selectModal }) => {
+const PostModifyRemoveModal = ({ selectModal, clubId, projectId }) => {
   const onClickGreyBox = () => {
     selectModal(null);
   };
 
   const onClickPostModify = () => {
-    selectModal(<PostModifyModal closeModal={selectModal} />);
+    selectModal(
+      <PostModifyModal
+        clubId={clubId}
+        projectId={projectId}
+        closeModal={selectModal}
+      />
+    );
   };
 
   const onClickPostDelete = () => {
-    selectModal(<PostDelete closeModal={selectModal} />);
+    selectModal(
+      <PostDelete
+        clubId={clubId}
+        projectId={projectId}
+        closeModal={selectModal}
+      />
+    );
   };
 
   return (

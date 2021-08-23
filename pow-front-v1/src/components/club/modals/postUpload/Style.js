@@ -2,8 +2,8 @@ import styled from "styled-components";
 import DatePicker from "react-datepicker";
 
 export const UpContent = styled.div`
-  width: 1148px;
-  height: 800px;
+  width: 908px;
+  height: 700px;
   background: #ffffff;
   border-radius: 23px;
   border: 1px solid #707070;
@@ -17,7 +17,7 @@ export const UpContent = styled.div`
 
 export const Title = styled.div`
   border-bottom: 1px solid #707070;
-  width: 300px;
+  width: 280px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -37,21 +37,22 @@ export const UploadHeader = styled.div`
 `;
 
 export const InputText = styled.input`
-  width: 455px;
+  width: 393px;
   height: 56px;
   background-color: #f4f4f4;
   border-radius: 17px;
   border: none;
   margin-right: 49px;
+  outline: none;
+  text-align: center;
   ::placeholder {
-    text-align: center;
     font-size: 18px;
     color: #8d8d8d;
   }
 `;
 
 export const DayBox = styled.div`
-  width: 455px;
+  width: 393px;
   height: 46px;
   background-color: #f4f4f4;
   border-radius: 17px;
@@ -60,7 +61,7 @@ export const DayBox = styled.div`
 `;
 
 export const DayLable = styled.label`
-  margin-left: 9px;
+  margin-left: 4px;
 `;
 
 export const SelectDate = styled(DatePicker)`
@@ -75,8 +76,8 @@ export const SelectDate = styled(DatePicker)`
 `;
 
 export const WriteBox = styled.div`
-  width: 974px;
-  height: 500px;
+  width: 804px;
+  height: 404px;
   border: 1px solid #707070;
   border-radius: 23px;
   color: #8d8d8d;
@@ -88,11 +89,14 @@ export const WriteBox = styled.div`
 `;
 
 export const InputContent = styled.textarea`
-  width: 957px;
-  height: 480px;
+  width: 780px;
+  height: 390px;
   border-radius: 23px;
   border: none;
   padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-family: NanumSquare_ac;
   ::placeholder {
     text-align: center;
   }
@@ -105,7 +109,7 @@ export const InputContent = styled.textarea`
     width: 10px;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: #red;
+    background-color: red;
   }
   ::-webkit-scrollbar-track {
     background-color: #7662c6;
@@ -132,4 +136,8 @@ export const UploadButton = styled.button`
   color: #ffffff;
   margin-top: 30px;
   font-size: 17px;
+  cursor: pointer;
+  :hover {
+    background-color: #f29969;
+  }
 `;

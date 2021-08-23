@@ -22,9 +22,8 @@ export const ModalCenter = styled.div`
     .ModalInput {
         box-sizing: border-box;
         padding: 5px 15px 5px 20px;
-        width: 354px;
+        width: 300px;
         height: 59px;
-        border-radius: 30em;
         background-color: #F4F4F4;
         color: black;
         border: none;
@@ -33,16 +32,16 @@ export const ModalCenter = styled.div`
     .LoginBtn {
         background-color: white;
         color: #51ADCF;
-        width: 172px;
-        height: 65px;
+        width: 120px;
+        height: 50px;
         border-radius: 30em;
         border: 1px solid #707070;
-        font-size: 20px;
+        font-size: 15px;
     }
 `
 
 export const Logo = styled.div`
-    height: 120px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,11 +79,11 @@ export const PwSpan = styled.span`
 `
 
 export const PwInput = styled.div`
-    height: 102px;
     width: 452px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
 `
 
 export const NewPwInput = styled.div`
@@ -97,7 +96,6 @@ export const NewPwInput = styled.div`
 `
 
 export const EnterBtn = styled.div`
-    height: 120px;
     display: flex;
     align-items: center;
 `

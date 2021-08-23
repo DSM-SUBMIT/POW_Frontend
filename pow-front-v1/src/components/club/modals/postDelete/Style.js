@@ -37,6 +37,9 @@ export const CheckButton = styled.button`
   margin: 20px;
   margin-top: 33px;
   cursor: pointer;
+  :hover {
+    background-color: #f29969;
+  }
 `;
 
 export const NoButton = styled.button`
@@ -50,4 +53,7 @@ export const NoButton = styled.button`
   margin: 20px;
   margin-top: 33px;
   cursor: pointer;
+  :hover {
+    background-color: #77a1eb;
+  }
 `;

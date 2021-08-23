@@ -3,8 +3,7 @@ import * as S from "./Style";
 import WhiteScreen from "../common/WhiteScreen";
 import { FileRequest } from "../../../../axios/Axios";
 
-const BannerDelete = ({ closeModal }) => {
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHViX2lkIjoxLCJpYXQiOjE2MjIwMjU3ODV9.HtxbzxBBbA3-80WE1gP8sefqRoLC2DlBaAlyAX4xdzQ";
+const BannerDelete = ({ closeModal, clubId }) => {
 
   const onClickWhiteScreen = () => {
     closeModal(null);
@@ -18,13 +17,18 @@ const BannerDelete = ({ closeModal }) => {
     try {
       FileRequest(
         "PATCH",
-        "profile/1",
+        `banner/${clubId}`,
         {
-          authorization: `Bearer ${token}`,
+          authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         {}
-      );
+      ).then((e)=>{
+        alert("베너사진이 초기화되었습니다.");
+        closeModal(null);
+        window.location.reload();
+      });
     } catch (e) {
+      alert("잠시 후 다시 시도해주세요.")
       console.log(e);
     }
   };

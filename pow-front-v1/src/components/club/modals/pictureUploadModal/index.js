@@ -3,17 +3,17 @@ import * as s from "./Style";
 import { ProfileUpload, BannerUpload } from "../index";
 import picturesmall from "../../../img/picturesmall.png";
 
-const PictureUploadModal = ({ selectModal }) => {
+const PictureUploadModal = ({ selectModal, clubId }) => {
   const onClickWhiteScreen = () => {
     selectModal(null);
   };
 
   const onClickProfileUpload = () => {
-    selectModal(<ProfileUpload closeModal={selectModal} />);
+    selectModal(<ProfileUpload closeModal={selectModal} clubId={clubId}/>);
   };
 
   const onClickBannerUpload = () => {
-    selectModal(<BannerUpload closeModal={selectModal} />);
+    selectModal(<BannerUpload closeModal={selectModal} clubId={clubId}/>);
   };
 
   return (
